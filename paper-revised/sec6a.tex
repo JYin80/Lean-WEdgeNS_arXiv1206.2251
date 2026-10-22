@@ -1,0 +1,388 @@
+\section{Proof of Lemma \ref{lem:p moment}, Lemma \ref{lem:green}, and Lemma \ref{lem: WBGij}} \label{sec7}
+ 
+To prove Lemmas \ref{lem:p moment} and \ref{lem:green}, we will again use Green function comparison method. Recall the notations in \eqref{eq:ordering}-\eqref{eq:green_fns} with $\wt H=H_0 = H^{\w}$ and $H=H_{\gamma_{\max}} = H^{\V}$. We let $S=G^\gamma=(H_\gamma-z)^{-1}$, $R=(Q-z)^{-1}$, and $T=G^{\gamma-1}=(H_{\gamma-1}-z)^{-1}$, where $Q$ depends on $\gamma = \Phi(a,b)$. All $H_\gamma$ are realized on one probability space, on which the families $(h^{\V}_{ij})_{i\le j}$ and $(h^{\w}_{ij})_{i\le j}$ are independent.
+
+Throughout this section the pair $(H^{\V},H^{\w})$ has the following properties, for constants $C_1>0$ and $\phi>0$ and some $q\ge N^{\phi}$. The entries $h_{ij}=h^{\V}_{ij}$, $i\le j$, are independent, and so are the entries $h^{\w}_{ij}$; $\E h_{ij}=0$, $\E h_{ij}^2=N^{-1}$ and $\E h_{ij}^4\le C_1(\log N)N^{-2}$ for $i\ne j$, and $\E h_{ii}^2\le C_1N^{-1}$; the first four moments of the off-diagonal entries and the first two moments of the diagonal entries of $H^{\V}$ and $H^{\w}$ coincide; and $|h^{\V}_{ij}|\le q^{-1}$ and $|h^{\w}_{ij}|\le q^{-1}$ almost surely. Hence $|h_{ij}|\le q^{-1}\le N^{-\phi}$ almost surely for all entries of every $H_\gamma$, $0\le\gamma\le\gamma_{\max}$, and every $H_\gamma$ is a generalized Wigner matrix satisfying \eqref{eq:diag} with $\max(C_1,1)$. For $H$ as in Theorem \ref{thm: new rigidity} and $\wt H$ as in Lemma \ref{lem: match}, these properties hold with $q=\min(N^{\phi},\wt q)$, where $\wt q\sim N^{1/2}/\log N$ is the support parameter of $\wt H$; since $\wt q\ge N^{1/4}$ for $N\ge N_0(C_1)$, they hold with $\phi$ replaced by $\min(\phi,1/4)$. All constants below depend only on $C_1$, $\phi$ and the parameters fixed in the statements, and not on the pair or on $\gamma$.
+
+There is a constant $C_0>0$ such that for every $1\le\gamma\le\gamma_{\max}$, with $3$-high probability,
+\be\label{813}
+\max_{z\in S(C_0)}\max_{i,j}\max\{|S_{ij}(z)|, |R_{ij}(z)|, |T_{ij}(z)|\}\leq 2,
+\ee
+where the constants of Definition \ref{def: hprob} do not depend on $\gamma$ or on the pair. Indeed, every $H_\gamma$ satisfies the assumptions of Lemma \ref{lem: old} with the same constants (with $\max(C_1,1)$ in \eqref{eq:diag}, and with $q\ge N^{\phi}\ge\varphi^{C}$ for $N\ge N_0$). Let $C$ be the constant of Lemma \ref{lem: old} for $\zeta=3$, and let $C_0:=2C+2$; any larger $C_0$ works as well, since ${\bf S}(C_0)$ shrinks as $C_0$ grows. For $z\in{\bf S}(C_0)$ we have $N\eta\ge\varphi^{2C+2}$, so the right side of \eqref{Gij estimate} is at most $\varphi^{C}q^{-1}+\varphi^{-1}+\varphi^{-C-2}\le1/4$ for $N\ge N_0$. With $|m_{sc}|\le1$, on the event of \eqref{Gij estimate} we obtain $|S_{ij}(z)|\le5/4$ for all $i,j$ and all $z\in{\bf S}(C_0)$. The bound for $R$ then holds deterministically. Since $H_\gamma=Q+V$, where $V$ has at most two nonzero entries, each of modulus at most $q^{-1}\le1/10$, the resolvent identity $R=S+SVR$ gives $\max_{k,l}|R_{kl}|\le\frac54+2\cdot\frac54\cdot\frac1{10}\max_{k,l}|R_{kl}|$, that is, $\max_{k,l}|R_{kl}|\le5/3$. The same argument bounds the resolvent of $H_\gamma$ with any other entry (and its transpose) replaced by $0$. Finally, $T$ is the matrix $S$ of $H_{\gamma-1}$, so the bound for $T$ is the same statement for $\gamma-1$. No union bound over $\gamma$ is used. On the other hand, $S$, $R$, and $T$ satisfy the following trivial bound that always holds:
+\be\label{813tr}
+\max_{z\in S(C_0)}\max_\gamma \max_{i,j}\max\{|S_{ij}(z)|, |R_{ij}(z)|, |T_{ij}(z)|\}\leq \eta^{ -1} \leq N  .
+\ee
+In this section, for simplicity, we use the notation $|{\bf k}|=\|{\bf k}\|_1$ for any vector ${\bf k}\in\mathbb N^n$, $n\in \mathbb N$.
+
+To illustrate the idea of Green function comparison method, we first consider the following simple example of finding a bound on $\E G_{ij}$ from an a priori bound on $\wt G_{ij}$:
+
+\begin{ex}
+Suppose that the bound
+\be \label{eq:apriori}
+\max_{i \neq j} |\wt G_{ij}| \leq N^{-1/3}
+\ee
+holds. Then, we have that $|\E G_{ij}| \leq C N^{-1/3}$.
+\end{ex}
+
+Applying the replacement strategy, we obtain
+\be\label{gzb}
+\E G_{ij} = \E \wt G_{ij} + \sum_{\gamma = 1}^{\gamma_{\max}} \left( \E G^{\gamma}_{ij} - \E G^{\gamma -1}_{ij} \right).
+\ee
+Note that the bound \eqref{eq:apriori} implies that $|\E \wt G_{ij}| \leq N^{-1/3}$. Thus, if we can prove that for $1\leq \gamma\leq \gamma_{\max}$
+\be
+\left| \E S_{ij} - \E T_{ij} \right| \leq C N^{-7/3},
+\ee
+then this will show the desired estimate on $|\E G_{ij}|$.
+
+We now expand $S_{ij}$ in terms of $R$ and $V$, as in \eqref{8800},  using the resolvent expansion
+$$
+S = R - RVR + (RV)^2 R - (RV)^3 R + (RV)^4 R + \cdots + (-1)^m (RV)^m R + (-1)^{m+1} (RV)^{m+1} S,
+$$
+with $m := \lceil 1 / \phi \rceil$. Since each element of $V$ is bounded by $N^{-\phi}$ almost surely, from \eqref{813}, we find that the last term in the expansion is $O(N^{-1})$. Taking expectation, we find that
+\be
+\E S_{ij} = \E \sum_{k=0}^m [(RV)^k R]_{ij} + O(N^{-1}).
+\ee
+Note that $R$ is independent of $V$. We can decouple $R$ and $V$ by taking partial expectation $\E_{ab}$ with respect to $V_{ab}$, which gives
+\be
+\E S_{ij} = \E \sum_{k=0}^m A_k \E_{ab} (V_{ab}^k) + O(N^{-1}),
+\ee
+where $A_k$ depends only on $R$. For example, $A_5$ contains a term such as $R_{ia} R_{bb} R_{aa} R_{bb} R_{aa} R_{bj}$. 
+
+From the moment matching condition, we know that the first four moments of the off-diagonal entries of $H$ and $\wt H$ coincide (in this example $(a,b)$ is off-diagonal), thus the terms with $k=0, 1, \cdots, 4$ will vanish when we estimate $\E S_{ij} - \E T_{ij}$. Moreover, since we know that $|\E (V_{ab}^k)| = O(N^{-2 - \phi/2})$, it suffices to prove the bound $|\E A_k| \leq C N^{-1/3 + \phi /2}$ for $5 \leq k \leq m$. %We thus expand $\E A_k$ in terms of $S$, 
+Now using an expansion such as (see \eqref{eq:S_exp4})
+$$
+\E \prod_{t=1}^s R_{i_t j_t} = \E \prod_{t=1}^s S_{i_t j_t} - \E \sum_{l=1}^m \wt A_l \E_{ab} (V_{ab}^l) + O(N^{-1}),
+$$
+where $\wt A_l$ are products of $S$,  we write the expectation of the product of the elements of $R$'s (like $A_k$)  as the sum of the expectation of the product of the elements of $S$'s. Hence, we can convert the problem into showing
+\be
+|\E B_k| \leq C N^{-1/3 + \phi /2}, \quad k \geq 5,
+\ee
+where $B_k$ is a sum of the product of the elements of $S$. For example, $B_5$ contains a term such as $S_{ia} S_{bb} S_{aa} S_{bb} S_{aa} S_{bj}$. Note here we effectively gain a factor of $N^{-\phi/2}$ in the required bound.
+
+We now repeat the replacement argument with the terms in $B_k$, since the matrix $H_{\gamma}$ also satisfies the same bounded support condition as $H$. We consider a telescopic series, as in \eqref{gzb},
+\be\label{gzb2}
+\E B_k = \E B_k (S \to \wt G) + \sum_{\gamma' = 1}^{\gamma} \left( \E B_k (S \to G^{\gamma'}) - \E B_k (S \to G^{\gamma '-1}) \right),
+\ee
+where the notation $B_k (S \to G^{\gamma'})$ means that we consider the product of $G^{\gamma'}=(H_{\gamma'}-z)^{-1}$ instead of $S$ while keeping the indices the same. The first term in the r.h.s. of \eqref{gzb2} will be the sum of the products such as $\E\wt G_{ia} \wt G_{bb} \wt G_{aa} \wt G_{bb} \wt G_{aa} \wt G_{bj}$, and in a generic case, it contains at least one off-diagonal term of $\wt G$. In particular, we have $|\E B_k (S \to \wt G)| \leq C N^{-1/3}$. Hence, we are left to estimate the telescopic sum, where we use the argument above, which involves the resolvent expansion and partial expectation, again. Note that, each time we repeat the procedure, we effectively gain a factor of $N^{-\phi/2}$ in the required bound. Therefore, after repeating the procedure sufficiently many times (i.e., $O(1/\phi)$-times), we find that it suffices to prove that $|\E \wt B| \leq C$, where $\wt B$ is a sum of the products of the elements of $G^{\gamma}$, $1\leq \gamma\le \gamma_{\max}$. Since this is trivial from the bound \eqref{813}, we find that the bound $|\E G_{ij}| \leq C N^{-1/3}$ holds.
+
+We now prove the lemmas using the ideas explained above. We first introduce some notations for simplifying the expressions, which will helps us study the expectation of the product of $S_{ij}$'s. 
+
+\begin{defn}[Matrix operators $*_\gamma$ and $*$] \label{def*} 
+For a $\gamma$ with $\Phi(a,b)=\gamma$, we define $A*_\gamma B$ as
+\be
+(A*_\gamma B)_{ij} =(A{\mathcal I_\gamma} B)_{ij}, \quad\quad  ({\mathcal I_\gamma})_{ij}={\bf 1}_{\{i,j\}=\{a,b\}}
+\ee
+When $a \neq b$, it satisfies
+\be
+(A*_\gamma B)_{ij} = A_{ia}B_{bj}+A_{ib}B_{aj}.
+\ee
+We will often drop the subscript $\gamma$ for convenience as $A*  B$. For simplicity, we denote the $k$-th power of $A$ under $*-$ product by $A^{*k}$, i.e., 
+\be
+A*A*A*A\cdots* A=A^{*k}
+\ee
+\end{defn}
+
+
+\begin{defn}[$\mathcal P_{\gamma, {\bf k}}$ and $\mathcal P_{\gamma, k}$] \label{taz}
+For $k \in \mathbb N$ and ${\bf k}=(k_1, k_2, \cdots, k_s)\in \mathbb N^s$ , $\gamma=\Phi(a, b)$, we define
+\be\label{taz1}
+\mathcal P_{\gamma, k}G_{ij}:=G^{*_\gamma (k+1)}_{ij}
+\ee
+and
+\be \label{taz2}
+\mathcal P_{\gamma, {\bf k}} \left( \prod_{t=1}^s G_{i_t j_t}\right) := \prod_t \left(\mathcal P_{\gamma, k_t} G_{i_t j_t}\right) = \prod_{t=1}^s G^{*_\gamma(k_t+1)}_{i_t j_t} .
+\ee
+If $\mathcal G_1$ and $\mathcal G_2$ are products of matrix entries of $G$'s as above, then { we define}
+\be
+\mathcal P_{\gamma, {\bf k}}(\mathcal G_1+\mathcal G_2) { :=} \mathcal P_{\gamma, {\bf k}} \,\mathcal G_1+\mathcal P_{\gamma, {\bf k}}\, \mathcal G_2
+\ee
+Note that $\mathcal P_{\gamma, {\bf k}}$ and $\mathcal P_{\gamma, { k}}$ are not linear operators but just notations we use for simplification. Similarly, for the product of the entries of the matrix $G-m_{sc} = G-m_{sc}I$, we define
+\be \label{taz2wt}
+\wt {\mathcal P}_{\gamma, {\bf k}} \left( \prod_{t=1}^s \left[G  -m_{sc}  \right]_{i_t j_t} \right) := \prod_t \left(\wt {\mathcal P}_{\gamma, k_t} \left[G -m_{sc}  \right]_{i_t j_t} \right),
+\ee
+where
+\be
+\wt {\mathcal P}_{\gamma, k} (G_{ij}-m_{sc})_{ij} = 
+	\begin{cases}
+	(G_{ij}-m_{sc})_{ij} & {\rm if} \quad i =j \quad {\rm  and} \quad k=0, \\
+	\mathcal P _{\gamma, k} G_{ij} =G^{*_\gamma(k+1)}_{ij} & {\rm otherwise}.
+	\end{cases}
+\ee
+\end{defn}
+
+Using Definition \ref{taz}, we may write, for example,
+\be
+\mathcal P_{\gamma, {\bf k}} \left( \prod_{t=1}^s G^{\gamma } _{i_t j_t}\right) = \prod_{t=1}^s  S^{*_{\gamma}(k_t+1)}_{i_t j_t}
+,\quad\mathcal P_{\gamma, {\bf k}} \left( \prod_{t=1}^s G^{\gamma-1} _{i_t j_t}\right) = \prod_{t=1}^s  T^{*_{\gamma}(k_t+1)}_{i_t j_t}.
+\ee
+With the fact that $G^{*s} \mathcal I_\gamma G^{*t}= G^{*(s+t)}$, one can easily see that for $k\in \mathbb N$ and ${\bf k}\in \mathbb N^{k+1}$,
+\be\label{PPP}
+\mathcal P_{\gamma, {\bf k}}(\mathcal P_{\gamma,k } G_{ij})=\mathcal P_{\gamma,k+|{\bf k}| } G_{ij}
+\ee
+Here, note that $(\mathcal P_{\gamma,k } G_{ij})$ is the sum of the products of the matrix entries of $G$, where each product contains $k+1$ matrix entries of $G$. 
+
+Using the definitions above, we have the following lemma from the bound \eqref{813}. Recall that $R$, $S$, and $T$ depend on $\gamma$.
+\begin{lem} 
+For any ${\bf k\in \mathbb N^s}$, $\gamma$, $\gamma'$ and $i_1,j_1, \cdots, i_s,j_s$, we have with $3$-high probability that
+\be\label{bG4}
+\left|\mathcal P_{\gamma', {\bf k}} \left( \prod_{t=1}^s A_{i_t j_t}\right) \right|,\; \;
+\left|\wt {\mathcal P}_{\gamma', {\bf k}} \left( \prod_{t=1}^s (A-m_{sc}) _{i_t j_t}\right) \right|\leq 4^{s+|{\bf k}|+1},
+\ee
+where $A$ can be $R$, $S$, or $T$.
+\end{lem}
+
+The following lemma shows how we expand the expectation of the term $S_{i_1 j_1} S_{i_2 j_2} \cdots S_{i_s j_s}$. In it, $H_{\gamma'}$ is any of the matrices $H_0,\dots,H_{\gamma_{\max}}$, and the entry $(a,b)$ is arbitrary; in the applications, $\gamma'\in\{\gamma,\gamma-1\}$ with $\gamma=\Phi(a,b)$.
+
+\begin{lem} \label{lem:S_expansion} Fix $C_1$, $\phi>0$ and $K_s>0$, and let $C_0$ be as in \eqref{813}. There is $N_0$ such that the following holds for all $N\ge N_0$. Let $0\le\gamma'\le\gamma_{\max}$, let $a\le b$ and $\gamma=\Phi(a,b)$, and let $S=(H_{\gamma'}-z)^{-1}$, $h_{ab}=(H_{\gamma'})_{ab}$ and $R=(Q-z)^{-1}$, where $Q$ is obtained from $H_{\gamma'}$ by replacing the entries $(a,b)$ and $(b,a)$ by $0$. Let $m_0:=4$ if $a\ne b$ and $m_0:=2$ if $a=b$. Let $1\le\zeta\le\varphi^2$, let $s\in\mathbb N$ with $s\le K_s\varphi^2$, and let $\xi:=\lceil2\zeta/\phi\rceil$. Then there are real numbers $\mathcal A_{\al}$, $\al=(\al_1, \al_2,\cdots, \al_s) \in \mathbb N^s$, $|\al|=\sum \al_t$, which depend on $N$, $H_{\gamma'}$, $(a,b)$, $\zeta$ and $s$, but not on $z$ or on the indices $i_t,j_t$, such that for all $z\in{\bf S}(C_0)$ and all $i_1,j_1,\dots,i_s,j_s$,
+\begin{equation} \label{eq:S_exp2}
+\begin{split}
+\Big|\E  \prod_{t=1}^s S_{i_t j_t} &-\sum_{k=0}^{m_0}\E [ (-h_{ab})^{k}]\sum_{\al\in\mathbb N^s:\,|\al|=k}\E\,\mathcal P_{\gamma,\al}\prod_{t=1}^sR_{i_tj_t}\\
+&- \sum_{\al\in\mathbb N^s:\,m_0<|\al|\leq \xi }
+\mathcal A_{\al} \,\E \,\mathcal P_{\gamma,\al}\prod_{t=1}^s S _{i_t j_t}\Big|\le 4^sN^{-\zeta},
+\end{split}
+\end{equation}
+and
+\be\label{boundcalA}
+|\mathcal A_{\al }| \leq  N^{-2-|\al| \phi /10}\quad (a\ne b),\qquad |\mathcal A_{\al }| \leq  N^{-1-|\al| \phi /4}\quad (a= b).
+\ee
+Here $\mathcal A_\al:=0$ outside the window $m_0<|\al|\le\xi$, which is part of the statement, so that \eqref{boundcalA} holds for all $\al\in\mathbb N^s$. Similarly, with the same $\mathcal A_\al$,
+\begin{equation} \label{eq:S_exp3}
+\begin{split}
+\Big|\E  \prod_{t=1}^s (S-m_{sc} )_{i_t j_t} &-\sum_{k=0}^{m_0}\E [ (-h_{ab})^{k}]\sum_{|\al|=k}\E\,\wt{\mathcal P}_{\gamma,\al}\prod_{t=1}^s(R-m_{sc})_{i_tj_t}\\
+&- \sum_{m_0<|\al|\leq \xi } \mathcal A_{\al} \,\E \,\wt {\mathcal P}_{\gamma,\al}\prod_{t=1}^s (S-m_{sc}) _{i_t j_t}\Big|\le 4^sN^{-\zeta}.
+\end{split}
+\end{equation}
+Both estimates also hold for products in which some factors are replaced by their complex conjugates, with $\mathcal P_{\gamma,k}\overline{G_{ij}}:=\overline{\mathcal P_{\gamma,k}G_{ij}}$ and $\wt{\mathcal P}_{\gamma,k}\overline{(G-m_{sc})_{ij}}:=\overline{\wt{\mathcal P}_{\gamma,k}(G-m_{sc})_{ij}}$, and for products that mix factors $S_{ij}$ and $(S-m_{sc})_{ij}$.
+
+Furthermore, there are real numbers $\wt{\mathcal A}_\al$, with the same dependence, such that
+\begin{equation} \label{eq:S_exp4}
+\Big|\E  \prod_{t=1}^s S_{i_t j_t} -\E  \prod_{t=1}^s R_{i_t j_t} - \sum_{\al\in\mathbb N^s:\,1\le |\al|\leq \xi }
+  \wt {\mathcal A}_{\al }\, \E\,\mathcal P_{\gamma,\al}\prod_{t=1}^s S _{i_t j_t}\Big|\le 4^sN^{-\zeta},
+\end{equation}
+where, both for $a\ne b$ and for $a=b$,
+\be\label{boundcalA2}
+| \wt {\mathcal A}_{\al }| \leq  N^{-  |\al| \phi /10}.
+\ee
+Here $\wt{\mathcal A}_\al:=0$ outside the window $1\le|\al|\le\xi$, which is part of the statement. The same remark on conjugate and centred factors applies to \eqref{eq:S_exp4}.
+\end{lem}
+
+We prove this lemma later in the section.
+
+\medskip
+\noindent{\it The iteration.} A {\it word} of length $s$ is a product $\omega=\prod_{t=1}^sg_t$ in which every factor $g_t$ is one of $G_{xy}$, $\overline{G_{xy}}$, $(G-m_{sc})_{xy}$ and $\overline{(G-m_{sc})_{xy}}$; we write $\omega(G)$ for its value at a matrix $G$. The operators $\mathcal P_{\gamma,{\bf k}}$ act on words factor by factor as in \eqref{taz2} and \eqref{taz2wt} (for centred factors $\mathcal P_{\gamma,k}$ means $\wt{\mathcal P}_{\gamma,k}$), with the conjugation rule of Lemma \ref{lem:S_expansion}. A {\it formal sum} $\mathcal F=\sum_cf_c\omega_c$ is a finite linear combination of words with weights $f_c\ge0$; its total weight is $\|\mathcal F\|:=\sum_cf_c$, and $\mathcal P_{\gamma,{\bf k}}\mathcal F:=\sum_cf_c\,\mathcal P_{\gamma,{\bf k}}\omega_c$. If $\omega$ has length $s'$ and $|{\bf k}|=m$, then $\mathcal P_{\gamma,{\bf k}}\omega$ is a sum of at most $2^m$ words of length $s'+m$, since by \eqref{taz1} each $*_\gamma$-product doubles the number of terms if $a\ne b$ and does not change it if $a=b$. For data $d=((\gamma_1,{\bf k}_1),\dots,(\gamma_n,{\bf k}_n))$ we write $\mathcal P_d:=\mathcal P_{\gamma_n,{\bf k}_n}\cdots\mathcal P_{\gamma_1,{\bf k}_1}$ (so $\mathcal P_{\gamma_1,{\bf k}_1}$ acts first) and $|d|:=\sum_t|{\bf k}_t|$; for the empty data $d=\emptyset$, $\mathcal P_\emptyset$ is the identity and $|\emptyset|=0$. We write $m_0(\gamma):=2$ and $W(\gamma):=N^{-1}$ if $\gamma=\Phi(a,a)$, $m_0(\gamma):=4$ and $W(\gamma):=N^{-2}$ otherwise, and
+$$
+w(d):=\prod_{t=1}^nW(\gamma_t)\,N^{-(\phi/20)|{\bf k}_t|},\qquad w(\emptyset)=1.
+$$
+
+Fix $C_1$, $\phi>0$ and $K_s>0$, and let $K':=K_s+(6/\phi+1)(10/\phi+1)$. Let $C_0$ be at least the constants of \eqref{813} and of Lemma \ref{lem:S_expansion} with $K_s$ replaced by $K'$. We show that there is $N_0$ such that the following holds for all $N\ge N_0$, all pairs $(H^{\V},H^{\w})$ as above with $q\ge N^{\phi}$, all $0\le\gamma_0\le\gamma_{\max}$, all $\zeta$ with $1\le\zeta\le\varphi$, all $s\in\mathbb N$ with $s\le K_s\zeta$, all $z\in{\bf S}(C_0)$, and every formal sum $\mathcal F$ of words of length $s$ with total weight $\|\mathcal F\|=1$ (that is, $\mathcal F=\sum_{I,J}f(I,J)\,\omega_{I,J}$ with $f$ as in \eqref{fIJ} below): the sum form \eqref{HHtt} and the max forms \eqref{HHtt2}, \eqref{HHtt3} and \eqref{bssm} hold, with
+$$
+n_*:=\lceil6\zeta/\phi\rceil,\qquad\xi_*:=\lceil2(2\zeta+3)/\phi\rceil .
+$$
+All words that occur below have length at most $s+n_*\xi_*\le K'\varphi^2$, since $s\le K_s\zeta$, $1\le\zeta\le\varphi$ and $n_*\xi_*\le(6\zeta/\phi+1)(10\zeta/\phi+1)$. We take $N_0$ so large that $\varphi\ge3$ (so that $2\zeta+3\le\varphi^2$), $\rho:=N^{\phi/20}\ge8$ (so that $\theta:=N^{-\phi/5}=\rho^{-4}\le1/2$), $8(K'\varphi^2)^5\le N^{\phi/20}$, $(N+1)^{K'\varphi^2}N^{C}e^{-c\varphi^3}\le1$ for the constants $c$, $C$ of the $3$-high probability in \eqref{813}, and $16\cdot4^{K_s}\le N^{1/5}$. We write $\E\,\mathcal F(G^{\gamma})$ for the expectation of $\mathcal F$ evaluated at $G^\gamma=(H_\gamma-z)^{-1}$; in particular $G^0=\wt G$.
+
+{\it Step 1: one swap.} Fix $\gamma=\Phi(a,b)$ and a word $\omega$ of length $s'\le K'\varphi^2$. Lemma \ref{lem:S_expansion} with $\zeta$ replaced by $2\zeta+3$ and $K_s$ by $K'$, applied to $H_\gamma$ ($\gamma'=\gamma$, $h_{ab}=v_{ab}$) and to $H_{\gamma-1}$ ($\gamma'=\gamma-1$, $h_{ab}=w_{ab}$), gives coefficients $\mathcal A^{\gamma,0}_\al$ and $\mathcal A^{\gamma,1}_\al$ satisfying \eqref{boundcalA}, with the same matrix $R$ in both cases, such that
+\be
+\E\, \omega(S) =\sum_{k=0}^{m_0(\gamma)}\E [ (-v_{ab})^{k}]\sum_{|\al|=k}\E\,\mathcal P_{\gamma,\al}\omega(R)+ \sum_{m_0(\gamma)<|\al|\le\xi_*}
+  \mathcal A^{\gamma, 0}_{\al } \E\,\mathcal P_{\gamma,\al}\omega(S)  + \epsilon^{\gamma,0}(\omega),
+\ee
+\be
+\E\, \omega(T) =\sum_{k=0}^{m_0(\gamma)}\E [ (-w_{ab})^{k}]\sum_{|\al|=k}\E\,\mathcal P_{\gamma,\al}\omega(R)+ \sum_{m_0(\gamma)<|\al|\le\xi_*}
+  \mathcal A^{\gamma, 1}_{\al } \E\,\mathcal P_{\gamma,\al}\omega(T) +\epsilon^{\gamma,1}(\omega),
+\ee
+with $|\epsilon^{\gamma,a}(\omega)|\le4^{s'}N^{-2\zeta-3}$. For words with centred factors one uses \eqref{eq:S_exp3}. Since $\E(v_{ab})^k=\E(w_{ab})^k$ for $k\le m_0(\gamma)$ (four matched moments off the diagonal, two on it), the first sums coincide. As the coefficients do not depend on the word, for every formal sum $\mathcal F'$ of words of length $s'$ we obtain
+\begin{equation} \label{zddd0}
+\begin{split}
+\Big|\E\,\mathcal F'(G^{\gamma})-\E\,\mathcal F'(G^{\gamma-1})&-\sum_{m_0(\gamma)<|\al|\le\xi_*}\Big(\mathcal A^{\gamma,0}_\al\,\E\,\mathcal P_{\gamma,\al}\mathcal F'(G^{\gamma})-\mathcal A^{\gamma,1}_\al\,\E\,\mathcal P_{\gamma,\al}\mathcal F'(G^{\gamma-1})\Big)\Big|\\
+&\le2\cdot4^{s'}N^{-2\zeta-3}\|\mathcal F'\|.
+\end{split}
+\end{equation}
+Summing over the at most $\gamma_{\max}\le N^2$ swaps, we obtain for every $0\le\gamma'\le\gamma_{\max}$
+\be \label{zddd}
+\left|\E\,\mathcal F'(G^{\gamma'})\right|\leq \left|\E\,\mathcal F'(G^{0})\right|
++\sum_{\gamma=1}^{\gamma'} \sum_{a=0, 1} \sum_{m_0(\gamma)<|\al|\le\xi_* } | \mathcal A^{\gamma, a}_{\al}|
+ \left|\E\, \mathcal P_{\gamma, \al}\mathcal F'(G^{\gamma-a})\right|
++ 2N^2 4^{s'}N^{-2\zeta-3}\|\mathcal F'\|.
+\ee
+
+{\it Step 2: the coefficients.} Let $t\ge1$ with $8t^5\le N^{\phi/20}$, and let $s'\le t$. We claim that
+\be\label{smbl}
+\sum_{\gamma=1}^{\gamma_{\max}}\sum_{a=0,1}\sum_{\al\in\mathbb N^{s'}:\,m_0(\gamma)<|\al|\le\xi_*}|\mathcal A^{\gamma,a}_\al|\,N^{(\phi/20)|\al|}\le N^{-\phi/5}.
+\ee
+Indeed, the number of $\al\in\mathbb N^{s'}$ with $|\al|=m$ is at most $t^m$. Let $x:=N^{-\phi/20}$, so that $tx\le1/8$. By \eqref{boundcalA}, an off-diagonal $\gamma$ contributes at most $2N^{-2}\sum_{m\ge5}(tx)^m\le4N^{-2}(tx)^5$, and a diagonal $\gamma$ at most $2N^{-1}\sum_{m\ge3}(tx^4)^m\le4N^{-1}(tx^4)^3$. With at most $N^2/2$ off-diagonal and $N$ diagonal $\gamma$, the left side of \eqref{smbl} is at most $2t^5N^{-\phi/4}+4t^3N^{-3\phi/5}\le N^{-\phi/5}(2t^5N^{-\phi/20}+4t^5N^{-\phi/20})\le N^{-\phi/5}$. Moreover, for $|\al|=m\ge1$ we have $2N^{-2-m\phi/10}\le N^{-2}N^{-(\phi/20)m}$ and $2N^{-1-m\phi/4}\le N^{-1}N^{-(\phi/20)m}$, since $N^{\phi/20}\ge8$. Hence
+\be\label{absorb}
+|\mathcal A^{\gamma,0}_\al|+|\mathcal A^{\gamma,1}_\al|\le W(\gamma)\,N^{-(\phi/20)|\al|}.
+\ee
+
+{\it Step 3: one word.} For every word $\omega$ of length $s'\le K'\varphi^2$ and every $0\le\gamma'\le\gamma_{\max}$,
+$$
+|\E\,\omega(G^{\gamma'})|\le2\cdot4^{s'+1}.
+$$
+Indeed, on the event of \eqref{813} for $H_{\gamma'}$, \eqref{bG4} with ${\bf k}=0$ gives $|\omega(G^{\gamma'})|\le4^{s'+1}$; outside it, $|\omega(G^{\gamma'})|\le(\eta^{-1}+1)^{s'}\le(N+1)^{K'\varphi^2}$, and the event has probability at most $N^{C}e^{-c\varphi^3}$. Consequently, $|\E\,\mathcal F'(G^{\gamma'})|\le2\cdot4^{s'+1}\|\mathcal F'\|$ for every formal sum $\mathcal F'$ of words of length $s'$.
+
+{\it Step 4: induction.} Let $E_*:=4N^2\,4^sN^{-2\zeta-3}$. For $s'\in\mathbb N$ and $j\in\mathbb N$, let $\mathcal D_j(s')$ be the set consisting of the empty data and of the data $d=((\gamma_1,{\bf k}_1),\dots,(\gamma_n,{\bf k}_n))$ with $1\le n\le j$ that satisfy \eqref{conK} below with $s'$ in place of $s$. We prove by induction on $j$: for all $o,j\in\mathbb N$ with $s':=s+o$ and $s'+j\xi_*\le s+n_*\xi_*$, every formal sum $\mathcal F'$ of words of length $s'$ with $\|\mathcal F'\|\le2^o$, and every $0\le\gamma'\le\gamma_{\max}$,
+\begin{equation} \label{722s}
+\left|\E\,\mathcal F'(G^{\gamma'})\right|\le\sum_{d\in\mathcal D_j(s')}w(d)\left|\E\,\mathcal P_d\mathcal F'(G^0)\right|+\rho^o\left(\theta^j\,8\cdot4^s+2E_*\right).
+\end{equation}
+For $j=0$, $\mathcal D_0(s')=\{\emptyset\}$, and Step 3 gives $|\E\,\mathcal F'(G^{\gamma'})|\le2^o\cdot2\cdot4^{s+o+1}=8^o\cdot8\cdot4^s\le\rho^o\,8\cdot4^s$, which implies \eqref{722s}. Assume \eqref{722s} for $j$, and let $s'+(j+1)\xi_*\le s+n_*\xi_*$. We apply \eqref{zddd}; its last term is at most $2N^2\,4^{s+o}N^{-2\zeta-3}2^o\le8^oE_*\le\rho^oE_*$. For each $(\gamma,\al)$ in \eqref{zddd}, $\mathcal F'':=\mathcal P_{\gamma,\al}\mathcal F'$ is a formal sum of words of length $s'+|\al|$ with $\|\mathcal F''\|\le2^{o+|\al|}$, and $s'+|\al|+j\xi_*\le s+n_*\xi_*$. By \eqref{722s} for $j$,
+$$
+|\E\,\mathcal F''(G^{\gamma-a})|\le\Sigma(\gamma,\al)+\rho^{o+|\al|}\left(\theta^j\,8\cdot4^s+2E_*\right),
+$$
+where
+$$
+\Sigma(\gamma,\al):=\sum_{d'\in\mathcal D_j(s'+|\al|)}w(d')\left|\E\,\mathcal P_{d'}\mathcal P_{\gamma,\al}\mathcal F'(G^0)\right|.
+$$
+We multiply by $|\mathcal A^{\gamma,a}_\al|$ and sum over $a$, $\gamma$ and $\al$; since all terms are nonnegative, the sum over $\gamma\le\gamma'$ may be extended to all $\gamma$. By \eqref{absorb}, the first parts give at most $\sum_{\gamma,\al}W(\gamma)N^{-(\phi/20)|\al|}\Sigma(\gamma,\al)$, and this is the sum in \eqref{722s} for $j+1$ over the nonempty data, which are exactly the data $d=((\gamma,\al),d')$ with $d'\in\mathcal D_j(s'+|\al|)$; note that $w(d)=W(\gamma)N^{-(\phi/20)|\al|}w(d')$ and $\mathcal P_d=\mathcal P_{d'}\mathcal P_{\gamma,\al}$. The term $|\E\,\mathcal F'(G^0)|$ of \eqref{zddd} is the term $d=\emptyset$. By \eqref{smbl} with $t=K'\varphi^2$, the second parts give at most $\theta\rho^o(\theta^j\,8\cdot4^s+2E_*)\le\rho^o(\theta^{j+1}\,8\cdot4^s+E_*)$, since $2\theta\le1$. Adding the swap term $\rho^oE_*$ gives \eqref{722s} for $j+1$.
+
+{\it Step 5: conclusion.} We apply \eqref{722s} with $o=0$, $j=n_*$, $\mathcal F'=\mathcal F$ and $\gamma'=\gamma_0$. Since $\theta^{n_*}\le N^{-6\zeta/5}$ and $2E_*=8\cdot4^sN^{-2\zeta-1}\le8\cdot4^sN^{-6\zeta/5}$, the remainder is at most $16\cdot4^sN^{-6\zeta/5}\le N^{-\zeta}$, because $16\cdot4^s\le(16\cdot4^{K_s})^{\zeta}\le N^{\zeta/5}$ (by $s\le K_s\zeta$ and $\zeta\ge1$). This replaces the counting argument based on $\sum_i|{\bf k}_i|\ge5n$. We obtain the sum form
+\begin{equation} \label{HHtt}
+\begin{split}
+\left|\E\,\mathcal F(G^{\gamma_0})\right|
+&\leq \sum_{d}w(d)\left|\E\,\mathcal P_d\mathcal F(G^0)\right|+N^{-\zeta}\\
+&=\left|\E\,\mathcal F(G^0)\right|+\sum_{d\ne\emptyset}\prod_{t=1}^n\Big(W(\gamma_t)N^{-\frac{\phi}{20}|{\bf k}_t|}\Big)\\
+&\qquad\times\left|\E\,\mathcal P_{\gamma_n,{\bf k}_n}\cdots\mathcal P_{\gamma_1,{\bf k}_1}\mathcal F(G^0)\right|+N^{-\zeta},
+\end{split}
+\end{equation}
+where $d$ runs over the empty data and all data $d=((\gamma_1,{\bf k}_1),\dots,(\gamma_n,{\bf k}_n))$, $1\le\gamma_t\le\gamma_{\max}$, with
+\be\label{conK}
+1\le n\leq n_*,\quad {\bf k_1}\in \mathbb N^s,\quad {\bf k_2}\in \mathbb N^{s+|{\bf k_1}|}, \quad {\bf k_3}\in \mathbb N^{s+|{\bf k_1}| +|{\bf k_2}|} , \quad{\rm  etc., \quad and  }\quad m_0(\gamma_t)<|{\bf k}_t|\leq \xi_*.
+\ee
+The left side of \eqref{HHtt} involves $H_{\gamma_0}$, and the right side involves only $\wt H=H_0$.
+
+\medskip
+\noindent{\it The max forms.} For every word $\omega$ of length $s$,
+\begin{equation} \label{HHtt2}
+\left|\E\, \omega(G^{\gamma_0})\right|\leq \left|\E\, \omega(G^0)\right|+\max_{d\ne\emptyset}N^{-(\phi/20)|d|}\left|\E\,\mathcal P_d\,\omega(G^0)\right|+N^{-\zeta},
+\end{equation}
+where the maximum is over the nonempty data satisfying \eqref{conK}. This is the case of a single word in the following statement. Since the coefficients $\mathcal A$ and the operators $\mathcal P$ do not depend on the indices $i_t$ and $j_t$ $(1 \leq t \leq s)$, we may consider linear combinations with a coefficient function $f(I,J)$,
+\be\label{fIJ}
+\sum_{I, J} f(I,J)=1, {  \quad f(I, J) \geq 0, }\quad I=(i_1, i_2, \cdots, i_s), \quad  J=(j_1, j_2, \cdots, j_s),
+\ee
+that is, formal sums $\mathcal F=\sum_{I,J}f(I,J)\,\omega_{I,J}$, where the words $\omega_{I,J}$ of length $s$ have the indices $I,J$. For such $\mathcal F$,
+\begin{align}\label{HHtt3}
+\left|\E\sum_{I,J} f(I,J)\,\omega_{I,J}(G^{\gamma_0})\right|
+\leq& \left|\E \sum_{I,J} f(I,J)\,\omega_{I,J}(G^0)\right|\\\nonumber
++&\max_{ {\bf k}, n, \gamma } (N^{-\phi/20})^{\sum_i |{\bf k_i}|}
+\left|\E \sum_{I,J} f(I,J) \mathcal P_{\gamma_n, {\bf k}_n}\cdots \mathcal P_{\gamma_1, {\bf k}_1} \omega_{I,J}(G^0)\right|+N^{-\zeta},
+\end{align}
+the maximum being over $n$, $\gamma_1,\dots,\gamma_n$ and ${\bf k}_1,\dots,{\bf k}_n$ satisfying \eqref{conK}. Equivalently: if $B\ge0$ and $N^{-(\phi/20)|d|}|\E\,\mathcal P_d\mathcal F(G^0)|\le B$ for every nonempty $d$ satisfying \eqref{conK}, then $|\E\,\mathcal F(G^{\gamma_0})|\le|\E\,\mathcal F(G^0)|+B+N^{-\zeta}$.
+
+The max forms are not consequences of \eqref{HHtt}: bounding each term of \eqref{HHtt} by $B N^{(\phi/20)|d|}$ leaves $B\sum_{d\ne\emptyset}\prod_tW(\gamma_t)$, which is not bounded by $B$: already $\sum_\gamma W(\gamma)=1+(N-1)/(2N)>1$. They are proved by the same induction, with the uniform bound $B$ in place of the sums. Namely, for $0\le j\le n_*$, every $d$ of length $n_*-j$ satisfying \eqref{conK} (or $d=\emptyset$ if $j=n_*$) and every $0\le\gamma'\le\gamma_{\max}$,
+$$
+\left|\E\,\mathcal P_d\mathcal F(G^{\gamma'})\right|\le\left|\E\,\mathcal P_d\mathcal F(G^0)\right|+\rho^{|d|}\left(B+\theta^j\,8\cdot4^s+2E_*\right).
+$$
+For $j=0$ this follows from Step 3, as $\|\mathcal P_d\mathcal F\|\le2^{|d|}$. For the step from $j-1$ to $j$, we apply \eqref{zddd} to $\mathcal F'=\mathcal P_d\mathcal F$. For each $(\gamma,\al)$, the data $d'$ obtained by appending $(\gamma,\al)$ to $d$ is nonempty, has length $n_*-j+1$ and satisfies \eqref{conK}, and $\mathcal P_{\gamma,\al}\mathcal P_d=\mathcal P_{d'}$. By the induction hypothesis and the assumption on $B$, $|\E\,\mathcal P_{d'}\mathcal F(G^{\gamma-a})|\le\rho^{|d'|}(2B+\theta^{j-1}\,8\cdot4^s+2E_*)$. By \eqref{smbl}, the sum over $(\gamma,a,\al)$ is at most $\theta\rho^{|d|}(2B+\theta^{j-1}\,8\cdot4^s+2E_*)\le\rho^{|d|}(B+\theta^j\,8\cdot4^s+E_*)$. Adding the swap term $\rho^{|d|}E_*$ completes the step. For $d=\emptyset$ and $j=n_*$, Step 5 gives \eqref{HHtt3}.
+
+In application, we let $H=H^{\gamma_{\max}}$, $\wt H= H^0$.
+
+For words whose factors are centred, \eqref{HHtt3} reads as follows; here Step 1 uses \eqref{eq:S_exp3}, not \eqref{eq:S_exp4}:
+\begin{equation} \label{bssm}
+\begin{split}
+& \left|\E \sum_{I,J} f(I,J)\prod_{t=1}^s ((G -m_{sc}) _{i_t j_t})\right| \\
+&\leq
+\left|\E \sum_{I,J} f(I,J)\prod_{t=1}^s ((\wt G -m_{sc}) _{i_t j_t})\right| \\
+& \quad +
+ \max_{\gamma, n, {\bf k}}(N^{-\phi/20})^{\sum_i |{\bf k_i}|}
+ \left|\E \sum_{I,J} f(I,J)\wt {\mathcal P}_{\gamma_n, {\bf k}_n}\cdots  \wt {\mathcal P}_{\gamma_1, {\bf k}_1}  \left(\prod_{t=1}^s (\wt G -m_{sc})  _{i_t j_t}\right)\right|+N^{-\zeta}.
+\end{split}
+\end{equation}
+The same holds when some of the factors are replaced by their complex conjugates. We note that, in the case $f=N^{-s}\prod \delta_{i_tj_t}$ (with $f(I,J)=0$ unless $I=J$), the left hand side equals $|\E (m-m_{sc})^s|$ and the first term in the right hand side equals $|\E (\wt m-m_{sc})^s|$; with conjugates on half of the factors, $s$ even, they equal $\E|m-m_{sc}|^s$ and $\E|\wt m-m_{sc}|^s$.
+
+Now, we first use \eqref{HHtt} to prove Lemma \ref{lem: WBGij}. The following lemma bounds the iterated words that occur.
+
+\begin{lem}\label{lem:words}
+Let $H$ be a random real symmetric matrix, $G=(H-z)^{-1}$ with $\eta>0$, $i\ne j$ and $0\le\epsilon\le1$, and let $\Omega$ be an event on which $|G_{xy}-\delta_{xy}m_{sc}|\le\epsilon$ for all $x,y$. Let $n_0,\xi\in\mathbb N$, and let $d=((\gamma_1,{\bf k}_1),\dots,(\gamma_n,{\bf k}_n))$ with $n\le n_0$, ${\bf k}_t\in\mathbb N^{2+|{\bf k}_1|+\dots+|{\bf k}_{t-1}|}$ and $m_0(\gamma_t)<|{\bf k}_t|\le\xi$. Let $\Phi(a_t,b_t)=\gamma_t$. Then
+$$
+\left|\E\,\mathcal P_d\big(G_{ij}\overline{G_{ij}}\big)\right|\le4^{|d|}\Big(c_d+(\eta^{-1}+1)^{2+n_0\xi}\,\p(\Omega^c)\Big),
+$$
+where $c_d=4$ if $\{a_t,b_t\}\cap\{i,j\}\ne\emptyset$ for some $t$, and $c_d=\epsilon^2$ otherwise.
+\end{lem}
+
+\begin{proof}
+By the remark at the beginning of the iteration, $\mathcal P_d(G_{ij}\overline{G_{ij}})$ is a sum of at most $2^{|d|}$ words of length $2+|d|\le2+n_0\xi$, whose factors are entries of $G$ or $\overline G$. On $\Omega$ every factor is at most $|m_{sc}|+\epsilon\le2$, so every word is at most $2^{2+|d|}$, which gives the bound with $c_d=4$. Off $\Omega$ every factor is at most $\eta^{-1}$, which gives the term with $\p(\Omega^c)$. Now let $\{a_t,b_t\}\cap\{i,j\}=\emptyset$ for all $t$. The operator $\mathcal P_{\gamma_t,k}$ with $k\ge1$ replaces a factor $G_{xy}$ by chains $G_{xu_1}G_{v_1u_2}\cdots G_{v_ky}$ with $u_r,v_r\in\{a_t,b_t\}$; it keeps the end indices $x,y$ and creates only indices in $\{a_t,b_t\}$. Hence the index $i$ appears in every word exactly twice, as the first index of the first factor of the chain coming from $G_{ij}$ and of the chain coming from $\overline{G_{ij}}$. The other index of each of these two factors is $j$ or some $a_t$ or $b_t$, so it differs from $i$. Thus every word contains two off-diagonal factors, which are at most $\epsilon$ on $\Omega$, and is at most $\epsilon^22^{|d|}$ on $\Omega$. This gives the bound with $c_d=\epsilon^2$.
+\end{proof}
+
+\begin{proof}[Proof of Lemma \ref{lem: WBGij}]
+Let $H$ satisfy the conditions of Lemma \ref{lem: WBGij}; in particular $|h_{ij}|\le N^{-\phi}$ almost surely. Fix $0<c<1$, let $z=E+i\eta$ with $|E|\le5$ and $\eta\ge N^{-1+c}$, and let $i\ne j$. All constants below depend only on $C_1$, $\phi$ and $c$. We write
+$$
+\Psi:=\frac{\im m_{sc}(z)}{N\eta}+\frac1{(N\eta)^2},\qquad\im m_{sc}(z)=\int\frac{\eta\,\rho_{sc}(x)\,dx}{(x-E)^2+\eta^2}\ge\frac{\eta}{49+\eta^2},
+$$
+where the inequality holds since $|x-E|\le7$ on the support of $\rho_{sc}$. In particular, for $0<\eta\le10$ we have $49+\eta^2\le149$, hence $N^{-1}\le149\,\im m_{sc}/(N\eta)\le149\,\Psi$.
+
+{\it The case $\eta>10$.} Let $G^{(i)}$ and $G^{(ij)}$ be the resolvents of the matrices obtained from $H$ by removing the row and the column $i$, and the rows and the columns $i$ and $j$, respectively. By the Schur complement formula,
+$$
+G_{ij}=-G_{ii}\,G^{(i)}_{jj}\Big(h_{ij}-Z\Big),\qquad Z:=\sum_{k,l\notin\{i,j\}}h_{ik}G^{(ij)}_{kl}h_{lj}.
+$$
+Since $|G_{ii}|,|G^{(i)}_{jj}|\le\eta^{-1}$, we get $|G_{ij}|^2\le\eta^{-4}(2h_{ij}^2+2|Z|^2)$. Let $Y_k:=\sum_{l\notin\{i,j\}}G^{(ij)}_{kl}h_{lj}$. The entries $h_{ik}$, $k\notin\{i,j\}$, are independent of each other and of $(Y_k)_k$, centred, with variance $N^{-1}$; hence $\E|Z|^2=N^{-1}\sum_k\E|Y_k|^2$. In the same way, $\E|Y_k|^2=N^{-1}\sum_{l\notin\{i,j\}}\E|G^{(ij)}_{kl}|^2\le N^{-1}\eta^{-2}$, since $\sum_l|G^{(ij)}_{kl}|^2\le\|G^{(ij)}\|^2\le\eta^{-2}$. Therefore $\E|Z|^2\le N^{-1}\eta^{-2}$ and
+$$
+\E|G_{ij}|^2\le\eta^{-4}\big(2N^{-1}+2N^{-1}\eta^{-2}\big)\le\frac3{N\eta^4}\le\frac{\im m_{sc}}{N\eta},
+$$
+where the last inequality follows from $\im m_{sc}\ge\eta/(49+\eta^2)$ and $3(49+\eta^2)\le\eta^4$ for $\eta\ge10$.
+
+{\it The case $\eta\le10$.} Let $\wt H$ match $H$ as in Lemma \ref{lem: match}. Its support parameter is $\wt q=N^{1/2}/(K\log N)$ with $K:=(2C_1+4)C_1$, so $\wt q\sim N^{1/2}/\log N$ and $|\wt h_{ij}|\le\wt q^{-1}$ almost surely. The pair $(H,\wt H)$ has the properties stated at the beginning of this section with $q=\min(N^{\phi},\wt q)\ge N^{\phi_0}$, $\phi_0:=\min(\phi,1/4)$, for $N\ge N_0$. For $N\ge N_0$ we also have $z\in{\bf S}(C')$ for any fixed $C'$, since $\eta\ge N^{-1+c}>\varphi^{C'}N^{-1}$. By Lemma \ref{lem: old} with $\zeta=1$, applied to $\wt H$, there are constants $C_L$, $c_L$, $C_L'$ and an event $\Omega$ with $\p(\Omega^c)\le N^{C_L'}e^{-c_L\varphi}$ on which
+\be\label{tddc}
+|\wt G_{xy}-\delta_{xy}m_{sc}|\leq \epsilon:=\varphi^{C_L}\left(\frac1{\wt q}+\sqrt{\frac{\im m_{sc}}{N\eta}}+\frac{1}{N\eta}\right)\quad\text{for all }x,y.
+\ee
+The term $\wt q^{-1}$ is kept. Let $c':=\min(c,1/2)$. For $N\ge N_0$, $\varphi^{C_L}\le N^{c'/4}$ and each of the three terms in the parenthesis is at most $N^{-c'/2}$, so $\epsilon\le3N^{-c'/4}\le1$; moreover $\epsilon^2\le3\varphi^{2C_L}(\wt q^{-2}+\im m_{sc}/(N\eta)+(N\eta)^{-2})$.
+
+We apply \eqref{HHtt} with $\phi_0$ in place of $\phi$, $K_s=3$, $\zeta=1$, $s=2\le K_s\zeta$, $\gamma_0=\gamma_{\max}$ and the single word $G_{ij}\overline{G_{ij}}$. Since $\E\,G_{ij}\overline{G_{ij}}=\E|G_{ij}|^2$, we obtain
+\be
+\E|G_{ij}|^2\le\sum_dw(d)\left|\E\,\mathcal P_d\big(\wt G_{ij}\overline{\wt G_{ij}}\big)\right|+N^{-1},
+\ee
+the sum being over the data of \eqref{conK} with $s=2$, $n_*=\lceil6/\phi_0\rceil$ and $\xi_*=\lceil10/\phi_0\rceil$. By Lemma \ref{lem:words} with $n_0=n_*$, $\xi=\xi_*$ and $\eta^{-1}\le N$, each term is at most $w(d)4^{|d|}(c_d+(N+1)^{2+n_*\xi_*}\p(\Omega^c))$.
+
+We now bound the weights. Note that $w(d)4^{|d|}=\prod_tW(\gamma_t)y^{|{\bf k}_t|}$ with $y:=4N^{-\phi_0/20}$. Let $t_*:=2+n_*\xi_*$, so that every word length $s'$ that occurs satisfies $s'\le t_*$, and let $N_0$ be so large that $t_*y\le1/8$. The number of ${\bf k}\in\mathbb N^{s'}$ with $|{\bf k}|=m$ is at most $t_*^m$. Hence, for each step,
+$$
+\sum_{\gamma}W(\gamma)\sum_{m_0(\gamma)<|{\bf k}|\le\xi_*}y^{|{\bf k}|}\le\frac{N^2}2N^{-2}\cdot2(t_*y)^5+N\cdot N^{-1}\cdot2(t_*y)^3\le\frac14.
+$$
+Restricted to the $\gamma=\Phi(a,b)$ with $\{a,b\}\cap\{i,j\}\ne\emptyset$ (at most $2N$ off-diagonal and $2$ diagonal ones), the same sum is at most $2N\cdot N^{-2}\cdot2(t_*y)^5+2N^{-1}\cdot2(t_*y)^3\le1/(16N)$. Summing over the steps one at a time, we get $\sum_dw(d)4^{|d|}\le\sum_{n\ge0}4^{-n}\le2$. For the data that meet $\{i,j\}$, at least one of the $n$ steps is restricted, so their total weight is at most $\sum_{n\ge1}n4^{-(n-1)}/(16N)=1/(9N)$. This is the gain $N^{-1}$ of the touching iterates; in particular it is at most $\lceil6/\phi_0\rceil/N$. Therefore
+\be\label{sysz}
+\E|G_{ij}|^2\le2\epsilon^2+2(N+1)^{2+n_*\xi_*}N^{C_L'}e^{-c_L\varphi}+\frac4{9N}+\frac1N.
+\ee
+We bound the four terms by multiples of $\Psi$, using $N^{-1}\le149\,\Psi$. First, $\wt q^{-2}=K^2(\log N)^2N^{-1}\le149K^2(\log N)^2\Psi$, so $2\epsilon^2\le6\varphi^{2C_L}(149K^2(\log N)^2+1)\Psi$. Second, for $N\ge N_0$ we have
+$$
+2(N+1)^{2+n_*\xi_*}N^{C_L'}e^{-c_L\varphi}\le(149N)^{-1}\le\Psi,
+$$
+since $\varphi\ge(\log N)^3$. Third, $4/(9N)+1/N\le298\,\Psi$. Hence
+$$
+\E|G_{ij}|^2\le\varphi^{2C_L}\Big(6\big(149K^2(\log N)^2+1\big)+299\Big)\Psi\le\varphi^{2C_L+1}\Psi
+$$
+for $N\ge N_0$, since $(\log N)^3\le\varphi$. This is \eqref{res: WBGij} with $C=2C_L+1$, and it completes the proof of Lemma \ref{lem: WBGij}.
+\end{proof}
+
+Next, we use \eqref{bssm} to prove Lemma \ref{lem:p moment}.
+\begin{proof}[Proof of Lemma \ref{lem:p moment}]
+We prove \eqref{sqbm} directly, with $C=2$. Let $C_0$ be the constant of \eqref{813} and of \eqref{bssm} for $K_s=1$, let $z\in{\bf S}(C_0)$, let $X,Y\ge0$, and assume that \eqref{asXY} holds for $\wt H$ outside an event of probability at most $N^{C'}e^{-c'\varphi^3}$. The threshold $N_0$ depends on $c'$ and $C'$. Let $p=2h\le\varphi$ with $h\ge1$ (for $p=0$ there is nothing to prove). Since $|m-m_{sc}|^p=(m-m_{sc})^h\,\overline{(m-m_{sc})}^h$,
+\be
+|m-m_{sc}|^p=\frac1{N^p}\sum_{i_1,\dots,i_p}\prod_{t=1}^{h}(G-m_{sc})_{i_ti_t}\prod_{t=h+1}^{p}\overline{(G-m_{sc})_{i_ti_t}}=:\mathcal F(G),
+\ee
+a formal sum of words of length $p$ with centred factors, with weights $f(I,I)=N^{-p}$ and $f(I,J)=0$ for $I\ne J$, which satisfy \eqref{fIJ}. We apply \eqref{bssm}, with conjugates on half of the factors, in the equivalent form with a bound $B$, with $s=\zeta=p$ and $K_s=1$; then $1\le\zeta\le\varphi$ and $s\le K_s\zeta$. If $B\ge0$ bounds $N^{-(\phi/20)|d|}|\E\,\wt{\mathcal P}_d\mathcal F(\wt G)|$ for every nonempty $d$ satisfying \eqref{conK}, then
+\begin{align}\label{bssm2}
+\E|m-m_{sc}|^p
+\leq
+\E|\wt m-m_{sc}|^p+B+N^{-p}.
+\end{align}
+Fix such $d$ and $I=(i_1,\dots,i_p)$. The expression
+\be\label{dsb}
+\wt {\mathcal P}_{\gamma_n, {\bf k}_n}\cdots  \wt {\mathcal P}_{\gamma_1, {\bf k}_1}  \left(\prod_{t=1}^h (\wt G-m_{sc})_{i_ti_t}\prod_{t=h+1}^p\overline{(\wt G-m_{sc})_{i_ti_t}} \right)
+\ee
+is a sum of at most $2^{|d|}$ products $\beta_1[i_1]\cdots\beta_p[i_p]$ of total length $p+|d|$. Here the block $\beta_t[i_t]$ contains all factors that carry the index $i_t$, and it is either (a) $(\wt G-m_{sc})_{i_ti_t}$ or its conjugate, or (b) a chain $\wt G_{i_tx}\cdots\wt G_{yi_t}$ or its conjugate, whose inner factors and end indices $x,y$ come from the $\gamma_u$ and do not depend on $I$. Indeed, $\wt{\mathcal P}_{\gamma,k}$ with $k\ge1$ replaces $(\wt G-m_{sc})_{ii}$ by chains $\wt G_{iu_1}\cdots\wt G_{v_ki}$ with $u_r,v_r\in\{a,b\}$, $\Phi(a,b)=\gamma$, and it replaces a factor of a chain by chains with the same end indices. So the shapes (a) and (b) are preserved, and the blocks do not depend on $I$.
+
+Let $\wt\Omega$ be the intersection of the event \eqref{813} for $\wt H$ with the event \eqref{asXY}; then $\p(\wt\Omega^c)\le N^{C''}e^{-c''\varphi^3}$. On $\wt\Omega$ every factor is at most $3$, since $|m_{sc}|\le1$. Let $Q:=X^2+Y+18N^{-1}$. For every block $\beta$ of length $|\beta|$, on $\wt\Omega$,
+$$
+\Big|\frac1N\sum_{i=1}^N\beta[i]\Big|\le3^{|\beta|}Q .
+$$
+In case (a) the left side is $|\wt m-m_{sc}|\le Y$. In case (b), for $i\notin\{x,y\}$ both end factors are off-diagonal and at most $X$; the two values $i\in\{x,y\}$ contribute at most $9+9$; and the inner factors are at most $3$. So the left side is at most $3^{|\beta|-2}(X^2+18N^{-1})\le3^{|\beta|}Q$. Since the blocks of one product carry distinct summation indices, $N^{-p}\sum_{i_1,\dots,i_p}\prod_t\beta_t[i_t]=\prod_tN^{-1}\sum_i\beta_t[i]$. Hence, on $\wt\Omega$,
+\be
+\Big|\frac1{N^p}\sum_{i_1,\dots,i_p}\wt{\mathcal P}_d\Big(\prod_{t=1}^h (\wt G-m_{sc})_{i_ti_t}\prod_{t=h+1}^p\overline{(\wt G-m_{sc})_{i_ti_t}}\Big)\Big|\le2^{|d|}\,3^{p+|d|}Q^p=6^{|d|}3^pQ^p .
+\ee
+Off $\wt\Omega$, the factors are at most $\eta^{-1}+1\le N+1$ and the words have length $p+|d|\le K'\varphi^2$. So this part of the expectation is at most $2^{|d|}(N+1)^{K'\varphi^2}N^{C''}e^{-c''\varphi^3}\le N^{-p}$ for $N\ge N_0$, since $\varphi/\log N\to\infty$. Since $N^{\phi/20}\ge6$ for $N\ge N_0$, the premise of \eqref{bssm2} holds with $B:=3^pQ^p+N^{-p}$, and \eqref{bssm2} gives
+$$
+\E|m-m_{sc}|^p\le\E|\wt m-m_{sc}|^p+3^pQ^p+2N^{-p}.
+$$
+For $N\ge N_0$ we have $\varphi\ge18$, so $Q\le X^2+Y+\varphi N^{-1}$ and $N^{-p}\le(X^2+Y+\varphi N^{-1})^p$. Since $3^p+2\le(2p)^{2p}$ for $p\ge2$,
+$$
+\E|m-m_{sc}|^p\le\E|\wt m-m_{sc}|^p+(2p)^{2p}\left(X^2+Y+\varphi N^{-1}\right)^p,
+$$
+which is \eqref{sqbm} with $C=2$. This completes the proof of Lemma \ref{lem:p moment}.
+\end{proof}
+

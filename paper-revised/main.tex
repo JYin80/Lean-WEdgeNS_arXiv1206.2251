@@ -1,0 +1,225 @@
+\documentclass[reqno, 10pt]{amsart}
+
+%\documentclass[draft]{article}
+\usepackage{color}
+\usepackage[hyphens]{url}
+
+\newcommand{\cored}{\color{red}}
+\newcommand{\cob}{\color{blue}}
+\newcommand{\nc}{\normalcolor}
+
+
+% PAGE Environments ------------------------------------------------------
+\usepackage[top=4cm, bottom=2.7cm, left=3cm, right=3cm]{geometry}
+
+% THEOREM Environments ---------------------------------------------------
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{ex}[thm]{Example}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{cond}[thm]{Condition}
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+
+
+
+% User Defined Commands --------------------------------------------------
+\newcommand{\U}{\mathbf{u}}
+\newcommand{\V}{\mathbf{v}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\z}{\mathbf{z}}
+
+\newcommand{\N}{\mathcal{N}}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\p}{\mathbb{P}}
+
+\newcommand{\im}{\mathrm{Im}\:}
+\newcommand{\re}{\mathrm{Re}\:}
+\newcommand{\tr}{\mathrm{Tr}\:}
+
+% SECTION Environments ---------------------------------------------------
+\numberwithin{equation}{section}
+%\numberwithin{lem}{section}
+\numberwithin{thm}{section}
+%\numberwithin{cor}{section}
+%\numberwithin{prop}{section}
+%\numberwithin{rem}{section}
+%\numberwithin{defn}{section}
+%\numberwithin{cond}{section}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\al}{\alpha}
+\newcommand{\e}{\epsilon}
+\newcommand{\wt}{\widetilde}
+
+\begin{document}
+
+\title{A Necessary and Sufficient condition for Edge Universality of Wigner matrices}
+
+\author{Ji Oon Lee}
+\address{Department of Mathematical Sciences\\
+Korea Advanced Institute of Science and Technology\\
+Daejeon, 305701, Republic of Korea}
+\email{jioon.lee@kaist.edu}
+\thanks{Ji Oon Lee is Partially supported by Basic Science Research Program through the National Research Foundation of Korea Grant  2011-0013474}
+
+\author{Jun Yin}
+\address{Department of Mathematics\\
+University of Wisconsin-Madison\\
+480 Lincoln Dr., Madison\\
+WI 53706, USA}
+\email{jyin@math.wisc.edu}
+\thanks{Jun Yin  is Partially supported by  National Research Foundation of U.S.  Grant  DMS-1001655}
+
+%\subjclass{Primary 81V70; Secondary 82C10}
+
+\keywords{Edge universality, Tracy-Widom distribution}
+
+  
+\begin{abstract}
+
+In this paper, we prove a necessary and sufficient condition for Tracy-Widom law of Wigner matrices. Consider $N \times N$ symmetric Wigner matrices $H$ with $H_{ij} = N^{-1/2} x_{ij}$, whose upper right entries $x_{ij}$ $(1\le i< j\le N)$ are $i.i.d.$ random variables with distribution $\mu$ and diagonal entries $x_{ii}$ $(1\le i\le N)$ are $i.i.d.$ random variables with distribution $\wt \mu$. The means of $\mu$ and $\wt \mu$ are zero, the variance of $\mu$ is 1, and the variance of $\wt \mu $ is finite. We prove that, for real symmetric Wigner matrices, $\lim_{s\to \infty}s^4\p(|x_{12}| \ge s)=0$ is necessary and sufficient for the edge universality of the largest eigenvalue $\lambda_N$. If it holds, the distribution function of $N^{2/3}(\lambda_N-2)$ is that of the GOE up to a shift $N^{-\delta}$ and an additive error $o(1)$ uniform in $s$, so that, by the theorem of Tracy and Widom \cite{TR1, TR2}, it converges to the Tracy-Widom law $F_1$. If it fails, $N^{2/3}(\lambda_N-2)$ is not tight. The proof, including the results of \cite{EKYY1}, \cite{EKYY2}, \cite{EYY} that it uses, is formalized in Lean 4 \cite{Lean}; the Tracy-Widom limit of the GOE is taken from \cite{TR1, TR2} and is not part of the formalization.
+\end{abstract}
+
+% \maketitle \thispagestyle{empty}
+ 
+\maketitle{} \thispagestyle{headings}
+
+\noindent\emph{This is a revised version of arXiv:1206.2251v2; Appendix A lists the changes.}
+\medskip
+
+\input{sec1}
+\input{sec2}
+\input{sec3}
+\input{sec4}
+\input{sec5}
+\input{sec6}
+\appendix
+\input{appendix}
+\section*{Acknowledgment} 
+The authors would like to thank H.-T. Yau for helpful discussions.
+
+\begin{thebibliography}{}
+
+\bibitem{ABP} Auffinger, A., Ben Arous, G., P\'ech\'e, S.: \emph{Poisson Convergence for the Largest Eigenvalues of Heavy Tailed Random Matrices}, Ann. Inst. Henri Poincar\'e - Probab. Stat. \textbf{45}, 589-610 (2009).
+
+\bibitem{BY} Bai, Z. D., Yin, Y. Q.: \emph{Necessary and Sufficient Conditions for Almost Sure Convergence of the Largest Eigenvalue of a Wigner Matrix}, Ann. of Probab. \textbf{16}, 1729-1741 (1988).
+
+\bibitem{BBaP} Baik, J., Ben Arous, G., P\'ech\'e, S.: \emph{Phase Transition of the Largest Eigenvalue for Nonnull Complex Sample Covariance Matrices}, Ann. Probab. \textbf{33}, 1643-1697 (2005).
+
+\bibitem{BPZ} Bao, Z., Pan, G., Zhou. W.: \emph{Tracy-Widom Law for the Extreme eigenvalues of Sample Correlation Matrices}, arXiv:1110.5208 (2011).
+
+\bibitem{BG} Ben Arous, G., Guionnet, A.: \emph{The Spectrum of Heavy Tailed Random Matrices}, Comm. Math. Phys. \textbf{278}, 715-751 (2008).
+
+\bibitem{BP} Ben Arous, G., P\'ech\'e, S.: \emph{Universality of Local Eigenvalue Statistics for Some Sample Covariance Matrices}, Comm. Pure Appl. Math. \textbf{58}, 1-42 (2005).
+
+\bibitem{BBP} Biroli, G., Bouchaud, J.-P., Potters, M.: \emph{On the Top Eigenvalue of Heavy-Tailed Random Matrices},
+Europhysics Lett. \textbf{78} 10001, (2007).
+
+\bibitem{BI} Bleher, P., Its, A.: \emph{Semiclassical Asymptotics of Orthogonal Polynomials, Riemann-Hilbert Problem, and Universality in the Matrix Model}, Ann. of Math. \textbf{150}, 185-266 (1999).
+
+\bibitem{BV1} Bloemendal, A., Vir\'ag, B.: \emph{Limits of Spiked Random Matrices I}, arXiv:1011.1877 (2010).
+
+\bibitem{BV2} Bloemendal, A., Vir\'ag, B.: \emph{Limits of Spiked Random Matrices II}, arXiv:1109.3704 (2011).
+
+\bibitem{D1} Dyson, F. J.: \emph{Statistical Theory of Energy Levels of Complex Systems, I, II, and III.}, J. Math. Phys. \textbf{3}, 140-156, 157-165, 166-175 (1962).
+
+\bibitem{D2} Dyson, F. J.: \emph{Correlations between Eigenvalues of a Random Matrix}, Commun. Math. Phys. \textbf{19}, 235-250, (1970).
+
+\bibitem{DKMVZ1} Deift, P., Kriecherbauer, T., McLaughlin, K. T-R, Venakides, S., Zhou, X.: \emph{Uniform Asymptotics for Polynomials Orthogonal with Respect to Varying Exponential Weights and Applications to Universality Questions in Random Matrix Theory}, Comm. Pure Appl. Math. \textbf{52}, 1335-1425 (1999).
+
+\bibitem{DKMVZ2} Deift, P., Kriecherbauer, T., McLaughlin, K. T-R, Venakides, S., Zhou, X.: \emph{Strong Asymptotics of Orthogonal Polynomials with Respect to Exponential Weights}, Comm. Pure Appl. Math. \textbf{52}, 1491-1552 (1999).
+
+\bibitem{EKYY1} Erd\H{o}s, L., Knowles, A., Yau, H.-T., Yin, J.: \emph{Spectral Statistics of Erd\H{o}s-R\'enyi Graphs I: Local Semicircle Law}, Ann. Probab. \textbf{41} (2013); arXiv:1103.1919v5.
+
+\bibitem{EKYY2} Erd\H{o}s, L., Knowles, A., Yau, H.-T., Yin, J.: \emph{Spectral Statistics of Erd\H{o}s-R\'enyi Graphs II: Eigenvalue Spacing and the Extreme Eigenvalues}, arXiv:1103.3869v3.
+
+\bibitem{ESY1} Erd\H{o}s, L., Schlein, B., Yau, H.-T.: \emph{Semicircle Law on Short Scales and Delocalization of Eigenvectors for Wigner Random Matrices}, Ann. Probab. \textbf{37}, 815-852 (2009).
+
+\bibitem{ESY2} Erd\H{o}s, L., Schlein, B., Yau, H.-T.: \emph{Local Semicircle Law and Complete Delocalization for Wigner Random Matrices}, Commun. Math. Phys. \textbf{287}, 641-655 (2009).
+
+\bibitem{ESY3} Erd\H{o}s, L., Schlein, B., Yau, H.-T.: \emph{Wegner Estimate and Level Repulsion for Wigner Random Matrices}, Int. Math. Res. Notices. \textbf{2010}, 436-479 (2010).
+
+\bibitem{ESY4} Erd\H{o}s, L., Schlein, B., Yau, H.-T.: \emph{Universality of Random Matrices and Local Relaxation flow}, Invent. Math. \textbf{185}, 75-119 (2011).
+
+\bibitem{ESYY} Erd\H{o}s, L., Schlein, B., Yau, H.-T., Yin, J.: \emph{The Local Relaxation Flow Approach to Universality of the Local Statistics for Random Matrices}, Ann. Inst. H. Poincar\'e Probab. Statist. \textbf{48}, 1-46 (2012).
+
+\bibitem{EY} Erd\H{o}s, L., Yau, H.-T.: \emph{Universality of Local Spectral Statistics of Random Matrices}, Bull. Amer. Math. Soc. \textbf{49}, 377-414 (2012).
+
+\bibitem{EY2} Erd\H{o}s, L., Yau, H.-T.: \emph{A Comment on the Wigner-Dyson-Mehta Bulk Universality Conjecture for Wigner Matrices}, Electron. J. Probab. \textbf{17}, 1-5 (2012).
+
+\bibitem{EYY1} Erd\H{o}s, L., Yau, H.-T., Yin, J.: \emph{Bulk Universality for Generalized Wigner Matrices}, arXiv:1001.3453 (2010).
+
+\bibitem{EYY2} Erd\H{o}s, L., Yau, H.-T., Yin, J.: \emph{Universality for Generalized Wigner Matrices with Bernoulli Distribution}, J. Comb. \textbf{2}, 15-82 (2012).
+
+\bibitem{EYY} Erd\H{o}s, L., Yau, H.-T., Yin, J.: \emph{Rigidity of Eigenvalues of Generalized Wigner Matrices}, Adv. Math. \textbf{229}, 1435-1515 (2012); arXiv:1007.4652v7.
+
+\bibitem{F} Forrester, P.: \emph{The Spectral Edge of Random Matrix Ensembles}, Nucl. Phys. B \textbf{402}, 709-728 (1993).
+
+\bibitem{J1} Johansson, K.: \emph{Shape Fluctuations and Random Matrices}, Comm. Math. Phys. \textbf{209}, 437-476 (2000).
+
+\bibitem{J2} Johansson, K.: \emph{Universality of the Local Spacing Distribution in Certain Ensembles of Hermitian Wigner Matrices}, Comm. Math. Phys. \textbf{215}, 683-705 (2001).
+
+\bibitem{J3} Johansson, K.: \emph{Universality for Certain Hermitian Wigner Matrices under Weak Moment Conditions}, Ann. Inst. H. Poincar\'e Probab. Statist. \textbf{48}, 47-79 (2012).
+
+\bibitem{Jo} Johnstone, I. M.: \emph{On the Distribution of the Largest Eigenvalue in Principal Components Analysis}, Ann. Statist. \textbf{29}, 295-327 (2001).
+
+\bibitem{OK} Khorunzhiy, O.: \emph{High Moments of Large Wigner Random Matrices and Asymptotic Properties of the Spectral Norm}, Random Oper. Stoch. Equ., \textbf{20}, 25-68, (2012).
+
+\bibitem{KY0} Knowles, A., Yin, J.: \emph{Eigenvector distribution of Wigner matrices}, arXiv:1102.0057v4 (2011).
+
+\bibitem{KY} Knowles, A., Yin, J.: \emph{The Isotropic Semicircle Law and Deformation of Wigner Matrices}, arXiv:1110.8449v1 (2011).
+
+\bibitem{M} Mehta, M. L.: \emph{On the Statistical Properties of the Level-Spacings in Nuclear Spectra}, Nuclear Phys. \textbf{18}, 395-419 (1960).
+
+\bibitem{MG} Mehta, M. L., Gaudin, M.: \emph{On the Density of Eigenvalues of a Random Matrix}, Nuclear Phys. \textbf{18}, 420-427 (1960).
+
+\bibitem{P} P\'ech\'e, S.: \emph{The Largest Eigenvalue of Small Rank Perturbations of Hermitian Random Matrices}, Prob. Theor. Rel. Fields \textbf{134}, 127-173 (2006).
+
+\bibitem{P2} P\'ech\'e, S., Soshnikov, A.: \emph{On the Lower bound of the Spectral Norm of Symmetric Random Matrices with Independent Entries}, Elect. Comm. in Probab. \textbf{13}, 280-209 (2008).
+
+\bibitem{P3} P\'ech\'e, S., Soshnikov, A.: \emph{Wigner Random Matrices with Non-Symmetrically Distributed Entries}, J. Stat. Phys. \textbf{129}, 857-884 (2007).
+
+\bibitem{PS} Pastur, L., Shcherbina, M.: \emph{Bulk Universality and Related Properties of Hermitian Matrix Models}, J. Stat. Phys. \textbf{130}, 205-250 (2008).
+
+\bibitem{PY1} Pillai, N. S., Yin, J.: \emph{Universality of Covariance Matrices}, arXiv:1110.2501 (2011).
+
+\bibitem{PY2} Pillai, N. S., Yin, J.: \emph{Edge Universality of Correlation Matrices}, arXiv:1112.2381 (2011).
+
+\bibitem{R} Ruzmaikina, A.: \emph{Universality of the Edge Distribution of Eigenvalues of Wigner Random Matrices with Polynomially Decaying Distributions of Entries}, Comm. Math. Phys. \textbf{261}, 277-296 (2006).
+
+\bibitem{TR1} Tracy, C., Widom, H.: \emph{Level-Spacing Distributions and the Airy Kernel}, Comm. Math. Phys. \textbf{159}, 151-174 (1994).
+
+\bibitem{TR2} Tracy, C., Widom, H.: \emph{On Orthogonal and Symplectic Matrix Ensembles}, Comm. Math. Phys. \textbf{177}, 727-754 (1996).
+
+\bibitem{So1} Feldheim. O. N., Sodin. S.: \emph{A Universality Result for the Smallest eigenvalues of Certain Sample Covariance Matrices}, Geom. Funct. Anal. \textbf{20}, 88-123 (2010).
+
+\bibitem{S1} Soshnikov, A.: \emph{Universality at the Edge of the Spectrum in Wigner Random Matrices}, Comm. Math. Phys. \textbf{207}, 697-733 (1999).
+
+\bibitem{S2} Soshnikov, A.: \emph{Poisson Statistics for the Largest Eigenvalue of Wigner Random Matrices with Heavy Tails}, Elect. Comm. in Probab. \textbf{9}, 82-91 (2004).
+
+\bibitem{S3} Soshnikov, A.: \emph{A Note on Universality of the Distribution of the Largest Eigenvalues in Certain
+Sample Covariance Matrices}, J. Stat. Phys., 108, 1033-1056 (2002).
+
+\bibitem{TV1} Tao, T., Vu, V.: \emph{Random Matrices: Universality of the Local Eigenvalue Statistics}, Acta Math, \textbf{206}, 127-204 (2011).
+
+\bibitem{TV2} Tao, T., Vu, V.: \emph{Random Matrices: Universality of Local Eigenvalue Statistics up to the Edge}, Comm. Math. Phys. \textbf{298}, 549-572 (2010).
+
+\bibitem{TV3} Tao, T., Vu, V.: \emph{A central limit theorem for the determinant of a Wigner matrix}, arXiv:1111.6300v3 (2011).
+
+\bibitem{W} Wigner, E.: \emph{Characteristic Vectors of Bordered Matrices with Infinite Dimensions}, Ann. of Math. \textbf{62}, 548-564 (1955).
+
+\bibitem{Lean} Lean 4 and Mathlib formalization of Theorem 1.2 of this paper (library \texttt{WEdgeNS}), \url{https://github.com/JYin80/Lean-WEdgeNS_arXiv1206.2251}.
+
+\end{thebibliography}
+
+\end{document}

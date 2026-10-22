@@ -1,0 +1,301 @@
+\section{Proof of the main result} \label{sec4}
+
+In this section, we prove the main result, Theorem \ref{main result}. Let $H_N$ be a Wigner matrix defined as in Definition \ref{def: SWigner} such that $x_{12}$ and $x_{11}$ have distributions $\nu$ and $\wt \nu$, respectively. We begin by proving the second part of the main result.
+
+\begin{proof}[Proof of the main result: Necessary condition]
+Assume that $s^{4}\p(|x_{12}|\ge s)$ does not tend to $0$ as $s\to\infty$. We note that there exists a constant $0 < c_1 < 1/2$ and a sequence $r_1, r_2, \cdots$ such that $r_k \ge 4$, $r_k \to \infty$ as $k \to \infty$ and
+\be
+{\p}(|x_{12}| \ge r_k) \ge c_1 r_k^{-4}.
+\ee
+
+Consider an event
+\be
+\Gamma_N := \{ \text{ There exist } i \text{ and } j, \: 1 \leq i < j \leq N, \text{ such that } |h_{ij}| \geq 4, |h_{ii}| \le 1, \text{ and } |h_{jj}| \le 1 \}.
+\ee
+We first show that, when $\Gamma_N$ holds, $\lambda_N (H_N) \geq 3$. Define $\U \in \mathbb{R}^N$ through
+\be
+\U(m) =
+	\begin{cases}
+	1/\sqrt{2} & \text{ if } m = i, \\
+	(1/\sqrt{2}) \cdot \text{sgn} (h_{ij}) & \text{ if } m = j, \\
+	0 & \text{ otherwise }.
+	\end{cases}
+\ee
+Here, $\text{sgn} (h_{ij}) := |h_{ij}| / h_{ij}$. Since $\| \U \|_2 = 1$, it can be easily seen that
+\be
+\lambda_N (H_N) \geq \langle \U, H_N \U \rangle = h_{ii} | \U_i |^2 + h_{jj} | \U_j |^2 + h_{ij} \U_i \U_j + h_{ji} \U_j \U_i = |h_{ij}| + \frac{h_{ii} + h_{jj}}{2} \geq 4-1= 3.
+\ee
+
+We now prove that there exists a constant $c_0 > 0$, independent of $N$, such that $\p (\Gamma_N) \geq c_0$ for any $N \in \{ \lfloor (r_k / 4)^2 \rfloor : k \in \mathbb{N} \}$ with $N \geq \max(2, 2 \E|x_{11}|^2)$. Since $r_k \to \infty$, there are infinitely many such $N$, so this implies \eqref{nec}. Define an event
+\be
+\Gamma'_N := \{ \text{ There exist } i \text{ and } j, \: 1 \leq i < j \leq N, \text{ such that } |h_{ij}| \geq 4 \}.
+\ee
+If $N = \lfloor (r_k / 4)^2 \rfloor$, then $4\sqrt N\le r_k$ and $r_k^2< 16(N+1)\le 32 N$, hence $r_k^{-4}\ge N^{-2}/1024$, and we have that
+\be \begin{split}
+1 - \p (\Gamma'_N) &= \big( 1 - \p (|h_{12}| \geq 4) \big)^{N(N-1)/2} \leq \big( 1 - \p (|x_{12}| \geq r_k) \big)^{N(N-1)/2} \\
+&\leq \left( 1 - c_1 r_k^{-4} \right)^{N(N-1)/2} \leq (1 - c_2 N^{-2})^{N(N-1)/2}
+\end{split} \ee
+with $c_2 := c_1/1024$. Since $N(N-1)/2\ge N^2/4$ for $N\ge2$, we have $(1 - c_2 N^{-2})^{N(N-1)/2} \leq e^{-c_2/4}=: c_3$, and $0 < c_3 < 1$ is independent of $N$. Hence $\p (\Gamma'_N) \geq 1- c_3$. From Markov inequality, we have for every $i$
+\be
+\p ( |h_{ii}| > 1 ) = \p ( |x_{ii}| > \sqrt{N} ) \leq N^{-1} \E |x_{ii}|^2 \leq \frac{1}{2}.
+\ee
+On $\Gamma'_N$, let $(i',j')$ be the first pair $(i,j)$, $i<j$, in the lexicographic order such that $|h_{ij}|\ge4$. It is a function of the off-diagonal entries alone, hence independent of the diagonal entries, and the diagonal entries are independent of each other. Since the events $\{(i',j')=(i,j)\}$ are disjoint, we find that
+\be
+\p (\Gamma_N) \geq \sum_{i<j} \p\big((i',j')=(i,j)\big)\, \p(|h_{ii}|\le1)\,\p(|h_{jj}|\le1) \geq \frac14\p (\Gamma'_N) \geq \frac{1}{4}(1-c_3).
+\ee
+This completes the proof with $c_0:=(1-c_3)/4$.
+\end{proof}
+
+Next, we prove that, if \eqref{crit} holds, then there exist $\delta>0$ and a sequence $\epsilon_N\to0$ such that, for all $N\ge N_0$ and all $s\in\mathbb R$,
+\begin{equation} \label{suff}
+\p \Big( N^{2/3} (\wt \lambda_N -2) \leq s - N^{-\delta} \Big) - \epsilon_N \leq \p \big( N^{2/3} (\lambda_N -2) \leq s \big) \leq \p \Big( N^{2/3} (\wt \lambda_N -2) \leq s + N^{-\delta} \Big) + \epsilon_N,
+\end{equation}
+where $\lambda_N$ is the largest eigenvalue of $H_N$ and $\wt \lambda_N$ denotes the largest eigenvalue of GOE. This is \eqref{def: ranvec}. The constants $\delta$, $N_0$ and the sequence $(\epsilon_N)$ depend only on $\nu$ and $\wt\nu$, and not on $s$.
+
+\begin{rem} \label{rem: additive error}
+The additive error $\epsilon_N$ in \eqref{suff} cannot in general be taken to be $N^{-\delta}$. Let $\nu$ be the law of Remark \ref{example} and $\wt\nu$ the centered Gaussian law with variance $2$. Since $\p(|x_{12}|\ge r)\ge c r^{-4}(\log r)^{-1}$ for large $r$, the independence of the $N(N-1)/2$ entries $h_{ij}$, $i<j$, gives $\p(\exists\, i<j: |h_{ij}|\ge4)\ge c_\nu/\log N$ for large $N$, with a constant $c_\nu>0$ depending only on $\nu$. Since $h_{kk}$ is Gaussian with variance $2/N$, $\p(\max_k|h_{kk}|\ge1/2)\le 2Ne^{-N/16}$. On the intersection of the events $\{\exists\, i<j: |h_{ij}|\ge4\}$ and $\{\max_k|h_{kk}|<1/2\}$, the argument of (4.4) gives $\lambda_N>7/2$, hence $\p(N^{2/3}(\lambda_N-2)\le N^{2/3})\le 1-c_\nu/\log N+2Ne^{-N/16}$. For the GOE, $\wt\lambda_N$ is a $\sqrt{2/N}$-Lipschitz function of independent standard Gaussian variables and $\E\wt\lambda_N\le2$, so $\p(\wt\lambda_N\le5/2)\ge1-e^{-N/16}$ by Gaussian concentration. Hence the lower half of \eqref{suff} with $\epsilon_N=N^{-\delta}$ at $s=N^{2/3}$ would give $1-e^{-N/16}-N^{-\delta}\le1-c_\nu/\log N+2Ne^{-N/16}$, which fails for every $\delta>0$ and all large $N$. This example is not formalized. Under the additional conditions $\E|x_{12}|^{4+a}<\infty$ and $\E|x_{11}|^{2+b}<\infty$ for some $a,b>0$, one expects \eqref{suff} to hold with $\epsilon_N=N^{-\delta'}$ for some $\delta'>0$; this is not proved here.
+\end{rem}
+
+If $H_N$ satisfies the assumption in Theorem \ref{thm: new rigidity}, then \eqref{suff} indeed holds, with $\epsilon_N=N^{-\delta}$, as we have seen from Theorem \ref{thm: new edge un}. Thus, we construct from $H_N$ a random matrix $\wt H^S$ whose entries are bounded almost surely by $N^{-\phi}$ for some $\phi>0$ and which satisfies the moment conditions in Theorem \ref{thm: new rigidity}. Comparing the largest eigenvalue of $\wt H^S$ with that of $H_N$, we will show that the difference between them will be negligible with probability $1 - o(1)$.
+
+\begin{proof}[Proof of the main result: Sufficient condition]
+Fix $0<\e<1/30$. (The cut-off steps below need $\e<1/2$, \eqref{mkgd} needs $\e<1/8$, the lower bound in (4.47) needs $\e<1/20$, and \eqref{928} and (4.46) need $\e<1/30$.) For any $N$, let $T:=N^{1/2-\e}$ and define
+\be \label{de61}
+\al:=\al_N:=\p\left(|x_{12}|> N^{1/2-\e}\right), \quad \wt \al:=\wt\al_N:=\p\left(|x_{11}|> N^{1/2-\e}\right),
+\ee
+\be\label{de62}
+\beta:= \beta_N:=\E \left[ {\bf 1}\left(|x_{12}|>  N^{1/2-\e}\right) x_{12} \right], \quad  \wt\beta:=\wt \beta_N:=\E \left[ {\bf 1}\left(|x_{11}|>  N^{1/2-\e}\right) x_{11} \right].
+\ee
+By \eqref{crit}, $\E|x_{11}|^2<\infty$ and integration by parts, we have, as $N\to\infty$,
+\be
+\al = o( N^{-2+4\e}),\quad \wt \al = o( N^{-1+2\e}),
+\ee
+\be
+\beta= o( N^{-3/2+3\e}),\quad \wt \beta = o( N^{-1/2+\e}).
+\ee
+Indeed, $T^4\al\le\sup_{r\ge T}r^4\p(|x_{12}|\ge r)\to0$; $|\beta|\le T\al+\int_T^\infty\p(|x_{12}|>r)\,{\rm d}r$, so $T^3|\beta|\to0$; and $T^2\wt\al+T|\wt\beta|\le2\E[|x_{11}|^2{\bf 1}(|x_{11}|>T)]\to0$. In the same way, $\E[|x_{12}|^2{\bf 1}(|x_{12}|>T)]=o(N^{-1+2\e})$. In particular $\al,\wt\al<1$ for all large $N$, and we consider only such $N$. Let
+$$
+m:=\E\big[x_{12}\,\big|\,|x_{12}|\le T\big]=-\frac{\beta}{1-\al}, \qquad \wt m:=\E\big[x_{11}\,\big|\,|x_{11}|\le T\big]=-\frac{\wt\beta}{1-\wt\al},
+$$
+where the identities use $\E x_{12}=\E x_{11}=0$. Then $m=o(N^{-3/2+3\e})$ and $\wt m=o(N^{-1/2+\e})$.
+
+Let $\nu_S$, $\nu_L$ be the following distributions:
+\be\label{95}
+\nu_S:=\text{the law of } x_{12}-m \text{ given } |x_{12}|\le T, \quad \nu_L:=\begin{cases}\text{the law of } x_{12}-m \text{ given } |x_{12}|> T & \text{if } \al>0,\\ \delta_0 & \text{if } \al=0,\end{cases}
+\ee
+and let $\wt \nu_S$, $\wt \nu_L$ be defined in the same way from $x_{11}$, $\wt m$ and $\wt\al$:
+\be\label{96}
+\wt\nu_S:=\text{the law of } x_{11}-\wt m \text{ given } |x_{11}|\le T, \quad \wt\nu_L:=\begin{cases}\text{the law of } x_{11}-\wt m \text{ given } |x_{11}|> T & \text{if } \wt\al>0,\\ \delta_0 & \text{if } \wt\al=0.\end{cases}
+\ee
+Here, the subindices $S$ and $L$ are for small and large, respectively. Let $\nu_c$, $\wt \nu_c$ be the distribution such that $x=1$ with probability $\al $ and $\wt \al$, otherwise $x=0$.
+
+On a product probability space, let $H^S$, $H^L$ and $H^C$ be the random symmetric matrices such that $H^S_{ij}=N^{-1/2} x^S_{ij}$, $H^L_{ij}=N^{-1/2} x^L_{ij}$, and $H^C_{ij}= c_{ij}$, where $x^S_{ij}$, $x^L_{ij}$, and $c_{ij}$ $(i\le j)$ are independent random variables such that:
+
+(1) the entries $x^S_{ij}$ have distribution $\nu_S$ if $i\ne j$ and  $x^S_{ii}$ have distribution $ \wt \nu_S$,
+
+(2) the entries $x^L_{ij}$ have distribution $\nu_L$ if $i\ne j$ and  $x^L_{ii}$ have distribution $ \wt \nu_L$,
+
+(3) the entries $c_{ij}$ have distribution $\nu_c$ if $i\ne j$ and $c_{ii}$ have distribution $\wt \nu_c$.
+
+For one entry $i<j$ and a Borel set $A$, $\p\big((1-c_{ij})x^S_{ij}+c_{ij}x^L_{ij}+m\in A\big)=(1-\al)\,\p(x_{12}\in A\,|\,|x_{12}|\le T)+\al\,\p(x_{12}\in A\,|\,|x_{12}|> T)=\p(x_{12}\in A)$, where the second term is $0$ if $\al=0$; the diagonal entries are treated in the same way. Since the triples $(x^S_{ij},x^L_{ij},c_{ij})$, $i\le j$, are independent, the random matrix $H$ defined by
+\be \label{de67}
+H_{ij} := H^S_{ij} (1-H^C_{ij}) + H^L_{ij} H^C_{ij} + M_{ij}, \qquad M_{ij}:=N^{-1/2} m+N^{-1/2} (\wt m-m) \delta_{ij},
+\ee
+has the same law as $H_N$, for every $N$ with $\al,\wt\al<1$. From now on, we work on this product space and with $H$ in place of $H_N$. Writing $M=N^{-1/2}mJ+N^{-1/2}(\wt m-m)I$, where $J$ is the matrix whose entries are all $1$, the scalar part shifts the largest eigenvalue exactly and $\|N^{-1/2}mJ\|=N^{1/2}|m|$. Hence, for every real symmetric matrix $A$ and all large $N$,
+\be\label{jlxf}
+\big|\lambda_N(A+M)-\lambda_N(A)\big|\leq N^{1/2}|m|+N^{-1/2}\big(|m|+|\wt m|\big)\le N^{-1+4\e},
+\ee
+since the middle term is $o(N^{-1+3\e})+o(N^{-1+\e})$; the same bound holds for $\|M\|$.
+By \eqref{crit} and integration by parts, we have for $i\neq j$,
+\be
+\E (x^S_{ij})=0,  \quad \E |x^S_{ij}|^2=\frac{1}{1-\al }\int_{|x|\leq T} (x-m)^2 \, {\rm d}\nu(x)=1-o(N^{-1+2\e}),
+\ee
+$$
+\E |x^S_{ij}|^3= O(1),  \quad \E  |x^S_{ij}|^4=   O (\log N) ,
+$$
+and
+\be
+\E x^S_{ii} =0, \quad \E |x^S_{ii}|^2=\frac{1}{1-\wt \al}\int_{|x|\leq T} (x-\wt m)^2 \, {\rm d}\wt\nu(x)\le \frac{\E|x_{11}|^2}{1-\wt\al}\le C_1.
+\ee
+Here the second moment in (4.18) is $(1-\al)^{-1}(1-\E[|x_{12}|^2{\bf 1}(|x_{12}|>T)])-m^2$. Let $\sigma:=(\E |x^S_{12}|^2)^{1/2}$. We note that the matrix
+$$
+\wt H^S:=\sigma^{-1} H^S
+$$
+is a generalized symmetric Wigner matrix whose entries satisfy $|\wt H^S_{ij}|\le N^{-\phi_s}$ almost surely, with $\phi_s:=3\e/4\in(\e/2,\e)$, for all large $N$: indeed $|x^S_{ij}+m|\le T$, so $|x^S_{ij}|\le 2T$ and $|\wt H^S_{ij}|\le2\sigma^{-1}N^{-\e}$. By (4.18) and (4.19), $\wt H^S$ satisfies the conditions for $H$ in Theorem \ref{thm: new rigidity} with $\phi=\phi_s$ and a constant $C_1$ depending only on $\nu$, $\wt\nu$ and $\e$, for all large $N$. Hence, by Theorem \ref{thm: new edge un}, there exist $\delta_0>0$ and $N_0$, depending only on $C_1$ and $\phi_s$, such that, for all $N\ge N_0$ and any $s \in \mathbb{R}$, we have
+\begin{equation}\label{qbtt} \begin{split}
+\p^{GOE} \Big( N^{2/3} (\lambda_N -2) \leq s - N^{-\delta_0} \Big) - N^{-\delta_0} &\leq \p^{\wt S} \big( N^{2/3} (\lambda_N -2) \leq s \big) \\
+&\leq \p^{GOE} \Big( N^{2/3} (\lambda_N -2) \leq s + N^{-\delta_0} \Big) + N^{-\delta_0},
+\end{split} \end{equation}
+where $\p^{\wt S}$ is the law of $\wt H^S$. We write the first two terms in the right hand side of \eqref{de67} as follows:
+$$
+H^S_{ij}(1-H^C_{ij}) + H^L_{ij} H^C_{ij}= H^S_{ij} + \wt H_{ij} H^C_{ij}, \quad \wt H_{ij}= H^L_{ij} - H^S_{ij} \, .
+$$
+We can see that $H^C_{ij}$ is independent of $H^S_{ij}$ and $\wt H_{ij}$. Though $\wt H_{ij}$ depends on $H^S_{ij}$, from the condition \eqref{crit} we know that for any $i, j$
+\be
+\p(|\wt H_{ij} H^C_{ij} | > 3/4)\le \p(|x_{ij}| > (1/2) N^{1/2}) \leq o( N^{-2})+o ( N^{-1}) \delta_{ij},
+\ee
+where $x_{ij}:=N^{1/2}H_{ij}$ are the entries of \eqref{de67}. Indeed, if $H^C_{ij}=1$ and $|\wt H_{ij}|>3/4$, then $x_{ij}=x^L_{ij}+m$ (or $x^L_{ii}+\wt m$), and since $|x^S_{ij}+m|\le T$, we get $|x_{ij}|\ge N^{1/2}|\wt H_{ij}|-T>N^{1/2}/2$ as soon as $N^{\e}\ge4$. For the last inequality, we used \eqref{crit} and that $\E|x_{ii}|^2<\infty$. Because of this reason, instead of $H^S _{ij} + \wt H_{ij} H^C_{ij}$, we only need to study the matrix whose entries have a cutoff on $\wt H_{ij} H^C_{ij}$ as follows:
+\be
+H^S _{ij} + \wt D_{ij} H^C_{ij}, \quad   \wt D_{ij}=   {\bf 1}_{|\wt H_{ij}H^C_{ij}|\leq 3/4} \wt H_{ij}.
+\ee
+By a union bound over the $N(N-1)/2$ off-diagonal and $N$ diagonal positions, we note that
+\be \label{mkgd0}
+\p \left(\max_{i, j}|\wt D_{ij} H^C_{ij}-\wt H_{ij} H^C_{ij}|=0  \right)=1-o(1).
+\ee
+Furthermore, we introduce a cutoff on the matrix $H^C$. Let ${\rm SelGood}$ be the event that $\#\{ (i,j): H^C_{ij}\neq 0 \}\leq N^{5\e}$ and that, whenever $H^C_{ij}\neq 0$ and $H^C_{kl}\neq 0$, either $\{i,j\}=\{k,l\}$ or $\{i,j\}\cap \{ k,l \}= \emptyset$. It depends only on $H^C$. Define $\wt H^C:=H^C\,{\bf 1}_{\rm SelGood}$. Then:
+\begin{itemize}
+\item The matrix with the cutoff, $\wt{H}^C$ coincides with $H^C$ with probability higher than $1 - o(1)$, i.e.,
+\be\label{mkgd}
+\p( \wt{H}^C = H^C ) \ge 1 - o(1).
+\ee
+Indeed, $\E\#\{(i,j): H^C_{ij}\ne0\}=N(N-1)\al+N\wt\al=o(N^{4\e})$, so by Markov's inequality the count exceeds $N^{5\e}$ with probability $o(N^{-\e})$. Two distinct index pairs that share an index are either two off-diagonal pairs $\{i,j\},\{i,k\}$, of probability $\al^2$ and at most $N^3$ choices, or an off-diagonal pair $\{i,j\}$ and a diagonal position $\{i\}$, of probability $\al\wt\al$ and at most $N^2$ choices. Hence $\p({\rm SelGood}^c)\le N^{-5\e}\E\#\{(i,j): H^C_{ij}\ne0\}+N^3\al^2+N^2\al\wt\al=o(N^{-\e})+o(N^{-1+8\e})+o(N^{-1+6\e})$, which tends to $0$ since $\e<1/8$.
+
+\item The number of non-zero entries are bounded by
+\be
+\#\{ (i,j): \wt H^C_{ij}\neq 0   \}\leq N^{5\e}.
+\ee
+\item If $\wt{H}^C_{ij}\neq 0$ and $\wt{H}^C_{kl}\neq 0$, then either $\{i,j\}=\{k,l\}$ or $\{i,j\}\cap \{ k,l \}= \emptyset$.
+\end{itemize}
+
+By \eqref{mkgd0} and \eqref{mkgd}, on an event of probability $1-o(1)$ we have
+$$
+H=H^S  +  E + M \quad {\rm where} \quad E_{ij}:=  \wt D_{ij}\wt H^C_{ij}.
+$$
+We note that $E$ is symmetric, $\max_{ij}|E_{ij}|\leq 3/4$, $E$ has at most $N^{5\e}$ non-zero entries, the non-zero entries of $E$ satisfy the third property above, and the rank of $E$ is at most $N^{5\e}$.
+
+Let $\lambda_N$ and $\mu_N$ be the largest eigenvalue of $\wt H^S$ and $\wt H^S + \sigma^{-1}E$, respectively. We claim that
+\be\label{segg}
+\p\left(|\lambda_N-\mu_N|\leq N^{-3/4}\right) = 1-o(1).
+\ee
+We first show that the claim \eqref{segg} together with \eqref{qbtt}, \eqref{mkgd}, \eqref{mkgd0} and \eqref{jlxf} implies \eqref{suff}. Let $X_H:=N^{2/3}(\lambda_N(H)-2)$ and $X_{\wt S}:=N^{2/3}(\lambda_N(\wt H^S)-2)$. Since $H^S+E=\sigma(\wt H^S+\sigma^{-1}E)$, on the event where $H=H^S+E+M$ we have
+$$
+X_H-X_{\wt S}=N^{2/3}\big[\lambda_N(H^S+E+M)-\lambda_N(H^S+E)\big]+\sigma N^{2/3}\big[\mu_N-\lambda_N\big]+N^{2/3}(\sigma-1)\lambda_N.
+$$
+By \eqref{jlxf}, the first term is at most $N^{-1/3+4\e}$. On the event of \eqref{segg}, the second term is at most $\sigma N^{-1/12}$. By \eqref{sjsy} for $\wt H^S$, $|\lambda_N|\le3$ with high probability, and then the third term is at most $3N^{2/3}|\sigma^2-1|=o(N^{-1/3+2\e})$ by (4.18). Since $\e<1/30$, all three exponents are smaller than $-1/24$. Hence, by a union bound over the complements of the events in \eqref{mkgd0}, \eqref{mkgd}, \eqref{segg} and $\{\|\wt H^S\|\le3\}$, we obtain
+$$
+p_N:=\p\big(|X_H-X_{\wt S}|>N^{-1/24}\big)\to0 .
+$$
+Here $p_N$ is a probability on the product space, defined for the $N$ with $\al,\wt\al<1$. Since $H$ has the law of $H_N$ and $\wt H^S$ has the law $\p^{\wt S}$, \eqref{qbtt} at $s+N^{-1/24}$ gives
+\[ \begin{split}
+\p\big(N^{2/3}(\lambda_N(H_N)-2)\le s\big)&\le\p\big(X_{\wt S}\le s+N^{-1/24}\big)+p_N\\
+&\le\p^{GOE}\big(N^{2/3}(\lambda_N-2)\le s+N^{-1/24}+N^{-\delta_0}\big)+N^{-\delta_0}+p_N .
+\end{split} \]
+Let $\delta:=\frac12\min(\delta_0,1/24)$ and $\epsilon_N:=N^{-\delta_0}+p_N$. Then $N^{-1/24}+N^{-\delta_0}\le2N^{-2\delta}\le N^{-\delta}$ for $N\ge2^{1/\delta}$, and the monotonicity of the distribution function gives the upper half of \eqref{suff}. The lower half follows in the same way from $\{X_{\wt S}\le s-N^{-1/24}\}\subset\{X_H\le s\}\cup\{|X_H-X_{\wt S}|>N^{-1/24}\}$ and the lower half of \eqref{qbtt} at $s-N^{-1/24}$. Neither $\delta$ nor $\epsilon_N$ depends on $s$, and since $\e$ is fixed, they depend only on $\nu$ and $\wt\nu$. This proves \eqref{suff}, i.e., \eqref{def: ranvec}.
+
+Now we prove \eqref{segg}. Let $\wt E:=\sigma^{-1}E$, so that $\max_{ij}|\wt E_{ij}|\le\theta:=3/(4\sigma)$, and let $G^S(z):=(\wt H^S-z)^{-1}$; we denote by $\lambda_\al$ and ${\bf u}_\al$ the eigenvalues and the eigenvectors of $\wt H^S$. Fix an outcome, and let $s$ be the number of pairs $\{a,b\}$, $a<b$, with $E_{ab}\ne0$ and $t$ the number of indices $a$ with $E_{aa}\ne0$. By the third property of $\wt H^C$, these pairs and indices are pairwise disjoint, and $2s+t\le N^{5\e}$. Relabelling the indices by one permutation applied to both $\wt H^S$ and $\wt E$, which changes no eigenvalue, we can assume that among the matrix entries of $\wt E$, only
+$$
+\wt E_{12}, \quad \wt E_{21}, \quad \wt E_{34}, \quad \wt E_{43}\cdots, \wt E_{2s-1,2s}, \quad \wt E_{2s,2s-1}, \quad  \wt E_{2s+1, 2s+1}, \quad  \wt E_{2s+2, 2s+2}, \cdots  \wt E_{2s+t, 2s+t}
+$$
+are non-zero. The bounds \eqref{928o} and \eqref{928} below hold for all indices touched by $\wt H^C$, so they are not affected by this relabelling. Then, we can decompose $\wt E$ as
+\be
+\wt E=VDV^*
+\ee
+where $D$ is a $(2s+t)\times (2s+t)$ diagonal matrix and $V$ is $N \times (2s+t)$ with orthonormal columns. Furthermore,
+\be
+D= {\rm diag}\{\wt E_{12}, -\wt E_{12},\wt E_{34}, -\wt E_{34},\cdots, \wt E_{2s-1, 2s}, -\wt E_{2s-1,2s}, \wt E_{2s+1, 2s+1},  \wt E_{2s+2, 2s+2},  \cdots  \wt E_{2s+t, 2s+t} \}
+\ee
+is invertible. If $j=2n-1$, $n\le s$, then
+\be
+V_{ij}=\delta_{i,2n-1}\frac{1}{\sqrt 2}+\delta_{i,2n }\frac{1}{\sqrt 2}
+\ee
+If $j=2n $, $n\le s$,  then
+\be
+V_{ij}=\delta_{i,2n-1}\frac{1}{\sqrt 2}-\delta_{i,2n }\frac{1}{\sqrt 2}
+\ee
+If $j=2s+n $, $1\le n\le t$,  then
+\be
+V_{ij}=\delta_{i,2s+n}
+\ee
+Note that $\wt E$ is a symmetric matrix. We use the following form of the matrix determinant lemma: for $\mu\notin{\rm spec}(\wt H^S)$ and $\gamma\ne0$,
+\be\label{tyyz}
+\mu\in{\rm spec}(\wt H^S+\gamma\wt E) \iff \det \left(V^* G^S(\mu)V+(\gamma D)^{-1}\right)=0, \quad {\rm where} \quad G^S(\mu)= \frac{1}{\wt H^S-\mu}.
+\ee
+Indeed, $\wt H^S+\gamma VDV^*-\mu=(\wt H^S-\mu)\big(I+G^S(\mu)V\gamma DV^*\big)$ and $\det(I_N+XY)=\det(I_{2s+t}+YX)$, so that
+\be
+\det \left(\wt H^S+\gamma\wt E-\mu\right) =\det\left(\wt H^S-\mu\right)\det(\gamma D)\det \left(V^* G^S(\mu)V+(\gamma D)^{-1} \right),
+\ee
+and the first two factors on the right are non-zero.
+
+Define $(2s+t)\times (2s+t)$ matrix $F$ by
+\be
+F^\gamma := F^\gamma(\mu) := V^* G^S(\mu)V+(\gamma D)^{-1}.
+\ee
+Then, we have for the following $2\times 2$ blocks of $F^\gamma$,
+\be\label{FG1} \begin{split}
+ &\left( \begin{matrix} F^\gamma_{2\al-1, 2\beta-1}&F^\gamma_{2\al-1, 2\beta}\\ F^\gamma_{2\al, 2\beta-1}&F^\gamma_{2\al, 2\beta } \end{matrix} \right)
+ \\
+ &=\frac{1}{2} \left( \begin{matrix} 1&1\\ 1&-1\end{matrix} \right)
+ \left( \begin{matrix} G^S_{2\al-1, 2\beta-1}&G^S_{2\al-1, 2\beta}\\ G^S_{2\al, 2\beta-1}&G^S_{2\al, 2\beta } \end{matrix} \right)
+  \left( \begin{matrix} 1&1\\ 1&-1\end{matrix} \right)
+  +\delta_{\al, \beta} \left( \begin{matrix} (\gamma \wt E_{2\al-1, 2\al})^{-1}&0\\0 &-(\gamma \wt E_{2\al-1, 2\al})^{-1}\end{matrix} \right)
+\end{split} \ee
+where $1\le \al, \beta\le s$. For the following  $2\times 1$ blocks of $F$, we get
+\be\label{FG2}
+ \left( \begin{matrix} F^\gamma_{2\al-1, \, \beta } \\ F^\gamma_{2\al,  \, \beta }  \end{matrix} \right)
+ =\frac{1}{\sqrt 2} \left( \begin{matrix} 1&1\\ 1&-1\end{matrix} \right)
+ \left( \begin{matrix} G^S_{2\al-1, \, \beta } \\ G^S_{2\al,  \, \beta }  \end{matrix} \right)
+ \ee
+where $1\le \al \le s$, $2s+1\le \beta\le 2s+t$. Finally, for the following  $1\times 1$ blocks of $F$,
+\be\label{FG3}
+ \left( \begin{matrix} F^\gamma_{ \al , \, \al }   \end{matrix} \right)
+ = \left( \begin{matrix} G^S_{ \al , \, \al }   \end{matrix} \right)+(\gamma \wt E_{\al, \al })^{-1}
+  \ee
+where  $2s+1\le \al \le 2s+t$.
+
+Let $\wt z=2+iN^{-2/3}$. From \eqref{Gij estimate} for $\wt H^S$ with $q=N^{\phi_s}$, and \eqref{smallz}, \eqref{esmallfake}, which give $|m_{sc}(\wt z)+1|\le CN^{-1/3}$ and $\im m_{sc}(\wt z)\le CN^{-1/3}$, with high probability we have
+\be\label{928o}
+\max_{1\leq i \leq N}|G^S_{ii}(\wt z)+1 |\leq \varphi^C\big(N^{-\phi_s}+N^{-1/3}\big)\le N^{-\e/2},
+\ee
+where we used $\phi_s>\e/2$ and $1/3>\e/2$. For off-diagonal terms, let $I$ be the set of indices $i$ such that $\wt H^C_{ik}\ne0$ for some $k$. It is a function of $H^C$ alone, hence independent of $\wt H^S$, and $|I|\le N^{5\e}$; the set of indices touched by $E$ is contained in $I$, but ${\rm supp}(E)$ itself depends on $H^S$ through $\wt D$. Conditionally on $H^C$, for fixed $i\ne j$, \eqref{res: WBGij} with $\eta=N^{-2/3}=N^{-1+1/3}$ and \eqref{esmallfake} give $\E|G^S_{ij}(\wt z)|^2\le\varphi^CN^{-2/3}$, hence $\p(|G^S_{ij}(\wt z)|>N^{-1/6})\le\varphi^CN^{-1/3}$ by Markov's inequality. Summing over the at most $N^{10\e}$ pairs $i,j\in I$ and integrating over $H^C$ (Fubini), we find that
+\be\label{928}
+\max_{i\neq j,\ i,j\in I}|G^S_{ij}(\wt z) |\leq N^{-1/6}
+\ee
+fails with probability at most $\varphi^CN^{10\e-1/3}$, so that \eqref{928} holds with probability $1-o(1)$, since $\e<1/30$. Define
+\be
+\wt\mu:=\lambda_N + N^{-3/4}.
+\ee
+Since $\lambda_N$ is the largest eigenvalue of $\wt H^S$, we have, for every $\al$,
+\be
+\lambda_\al\le\lambda_N=\wt\mu-N^{-3/4},
+\ee
+thus, deterministically,
+\be\label{ttg}
+\min_{\al}|\lambda_\al- \wt\mu | \ge N^{-3/4}.
+\ee
+In particular, $\wt\mu\notin{\rm spec}(\wt H^S)$. From the rigidity \eqref{rigiditynew} for $\wt H^S$ at $j=N$, where $\gamma_N=2$, we also have with high probability that
+\be\label{ttg2}
+|\wt \mu-2|\leq N^{-2/3}\varphi^C.
+\ee
+Consider the identity
+\be \begin{split}
+\left|G^S_{ij}(\wt z)-G^S_{ij}(\wt\mu)\right|
+&=\Big|\sum_\al u_\al(i)u_\al(j)\Big(\frac{1}{\lambda_\al-\wt z}-\frac{1}{\lambda_\al-\wt\mu}\Big)\Big|\\
+&\le\sum_\al \left|u_\al(i)u_\al(j)\right|\left(\frac{|\wt\mu-\wt z|}{|\lambda_\al-\wt z||\lambda_\al-\wt\mu|} \right).
+\end{split} \ee
+Here $|\wt\mu-\wt z|\le2\varphi^CN^{-2/3}$ by \eqref{ttg2}, and $|u_\al(i)u_\al(j)|\le\varphi^C/N$ by the delocalization \eqref{deloc}. By the rigidity \eqref{rigiditynew}, $|\lambda_\al-2|\ge c(N-\al+1)^{2/3}N^{-2/3}$ for all $\al$ with $|\lambda_\al-2|>2\varphi^CN^{-2/3}$, and there are at most $\varphi^{2C}$ indices $\al$ with $|\lambda_\al-2|\le2\varphi^CN^{-2/3}$. For the latter, we use $|\lambda_\al-\wt z|\ge N^{-2/3}$ and \eqref{ttg}, and each term is at most $2\varphi^{2C}N^{-1/4}$. For the former, $|\lambda_\al-\wt\mu|\ge|\lambda_\al-2|/2$ and $|\lambda_\al-\wt z|\ge|\lambda_\al-2|$, and their sum is at most $C\varphi^{2C}N^{-5/3}\sum_{k\ge1}N^{4/3}k^{-4/3}\le C\varphi^{2C}N^{-1/3}$. Hence, from \eqref{ttg}, \eqref{ttg2}, the delocalization in Lemma \ref{lem: old}, and the rigidity result in Theorem \ref{thm: new rigidity}, we have with probability $1-o(1)$ that
+\be\label{2ss}
+\max_{i,j}| G^S_{ij}(\wt z)-G^S_{ij}(\wt \mu)|\leq \varphi^{C}N^{-1/4}.
+\ee
+Combining \eqref{928o}, \eqref{928}, and \eqref{2ss}, we find that, with probability $1-o(1)$, $|G^S_{ii}(\wt\mu)+1|\le a$ for all $i$ and $|G^S_{ij}(\wt\mu)|\le b$ for all $i\ne j$ in $I$, where $a:=N^{-\e/2}+\varphi^CN^{-1/4}$ and $b:=N^{-1/6}+\varphi^CN^{-1/4}$. From that $\max_{i,j}| \wt E_{ij}|\leq \theta$, together with \eqref{FG1}-\eqref{FG3}, we have for any $0 < \gamma \leq 1$ that
+\be
+\min_{i} |F^\gamma_{ii}(\wt\mu)|\ge \theta^{-1}-1-a-b, \quad \max_{i}\sum_{j\ne i} |F^\gamma_{ij}(\wt\mu)|\le  a+2(2s+t)\,b
+\ee
+holds with probability $1-o(1)$. Indeed, in a $2\times2$ block of \eqref{FG1} with $\al=\beta$, the diagonal entries are $\pm(\gamma\wt E_{2\al-1,2\al})^{-1}+\frac12(G^S_{2\al-1,2\al-1}+G^S_{2\al,2\al})\pm G^S_{2\al-1,2\al}$ and the off-diagonal entries are $\frac12(G^S_{2\al-1,2\al-1}-G^S_{2\al,2\al})$, while every other entry of $F^\gamma$ is a combination of at most four off-diagonal entries of $G^S$ with coefficients of absolute value at most $1$, the sum of their absolute values being at most $2$. Since $\theta^{-1}-1=4\sigma/3-1\to1/3$, $a\to0$ and $(2s+t)b\le N^{5\e}(N^{-1/6}+\varphi^CN^{-1/4})\to0$ for $\e<1/30$, the matrix $F^\gamma(\wt\mu)$ is strictly diagonally dominant for large $N$, and by the Gershgorin theorem
+$$
+\det F^\gamma(\wt\mu)\neq 0, \qquad 0<\gamma\le1.
+$$
+Recall \eqref{tyyz}, then we know that  the following event holds with probability $1-o(1)$:  $\wt\mu$ is not an eigenvalue of $\wt H^S+\gamma \wt E$ for any $0 < \gamma \leq 1$.
+
+If we let $\mu^\gamma_N$ be the largest eigenvalue of $\wt H^S+\gamma \wt E$ for $0 \leq \gamma \leq 1$, then by definition $\lambda_N=\mu^0_N<\wt\mu$, since $\lambda_N$ is the largest eigenvalue of $\wt H^S$. The function $\gamma\mapsto\mu^\gamma_N$ is continuous, and it does not take the value $\wt\mu$ on $(0,1]$, hence $\mu_N=\mu^1_N<\wt\mu=\lambda_N+N^{-3/4}$. For the lower bound, we use the Rayleigh quotient with the eigenvector ${\bf u}_N$ of $\wt H^S$ for $\lambda_N$, the delocalization \eqref{deloc} and (4.25):
+$$
+\mu_N\ge\langle{\bf u}_N,(\wt H^S+\wt E){\bf u}_N\rangle=\lambda_N+\sum_{i,j}\wt E_{ij}u_N(i)u_N(j)\ge\lambda_N-\theta\,\#\{(i,j):\wt E_{ij}\ne0\}\,\frac{\varphi^C}{N}\ge\lambda_N-\varphi^CN^{-1+5\e}.
+$$
+Hence, with probability $1-o(1)$,
+\begin{equation}
+\mu_N \in \big[\lambda_N - \varphi^CN^{-1+5\e}, \lambda_N + N^{-3/4} \big),
+\end{equation}
+and $\varphi^CN^{-1+5\e}\le N^{-3/4}$ for large $N$, since $\e<1/20$. Thus, we have proved \eqref{segg}, which implies the desired result \eqref{suff}. Neither the lower bound nor the upper bound uses a gap between the largest eigenvalues of $\wt H^S$ or Remark \ref{genedge}.
+\end{proof}
+
+
+

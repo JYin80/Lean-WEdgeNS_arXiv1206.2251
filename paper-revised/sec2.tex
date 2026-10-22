@@ -1,0 +1,122 @@
+\section{Notations} \label{sec2}
+ 
+In the proof, we will use some variations of standard Wigner matrix defined in Definition \ref{def: SWigner}, which are defined as follows:
+
+\begin{defn}[Generalized symmetric Wigner matrix]
+A symmetric matrix $H_N$ is said to be a generalized symmetric Wigner matrix of size $N$ if its upper-triangular entries
+$$
+(H_N)_{ij} = h_{ij}, \quad  1 \leq i \leq j\leq N,
+$$ 
+are independent real random variables with mean zero, {\it whose distribution may depend on $i,j$ and $N$}, and satisfy, for some constant $C_0$,
+\begin{equation} \label{eq:diag}
+|\E h_{ij}^2 - N^{-1} |\le C_0 N^{-1} \delta_{ij}.
+\end{equation}
+
+\end{defn}
+
+\begin{rem}
+The results on generalized Wigner matrices, especially the constants in the results, may depend on $C_0$, but we will not emphasize it in the sequel.
+\end{rem}
+
+As in \cite{EKYY1, EKYY2}, we will use the following definition to characterize events of very high probability.
+
+\begin{defn}[High probability events]\label{def: hprob}
+Define
+\be
+\varphi := (\log N)^{\log \log N}.
+\ee
+We say that an $N$-dependent event $\Omega$ holds with $\zeta$-high probability if there exist constants $c, C>0$, independent of $N$, such that
+\begin{equation}
+\p (\Omega ) \geq 1- N^C e^{-c \, \varphi^\zeta }
+\end{equation}
+for all sufficiently large $N$. For simplicity, for the case $\zeta=1$, we just say high probability. 
+\end{defn}
+
+The next condition on the distributions of the matrix entries will be used in the proof.
+ 
+ \begin{defn}[Bounded support condition] \label{cond:bdd}
+We say a family of random matrices $(H_N)_{ij} = (h_{ij})$ satisfies the bounded support condition with $q$ and $c>0$, if for all $1 \leq i, j \leq N$
+\begin{equation} \label{eq:cond_bdd}
+\p \big( |h_{ij}| > q^{-1} \big) \leq e^{-N^c},
+\end{equation}
+and for $i \neq j$
+\begin{equation} \tag{2.4$'$}
+\E \big[ h_{ij}^2 \, \mathbf{1} ( |h_{ij}| > q^{-1} ) \big] \leq e^{-N^c}.
+\end{equation}
+We say that it satisfies the bounded support condition with $q$ almost surely if $|h_{ij}| \leq q^{-1}$ almost surely for all $1 \leq i, j \leq N$; this implies \eqref{eq:cond_bdd} and (2.4$'$) for every $c>0$. Here, $q>0$ may depend on $N$, and $c$ is a fixed parameter: the constants and the threshold $N_0$ in the results below may depend on $c$. By \eqref{eq:diag}, the variance of an off-diagonal entry is $N^{-1}$, so $N^{-1} \leq q^{-2} + e^{-N^c}$ and hence $q \leq \sqrt 2\, N^{1/2}$ for $N \geq N_1(c)$; in the almost sure form, $q \leq N^{1/2}$.
+\end{defn}
+
+Note that the Gaussian distribution satisfies bounded support condition with any $q < N^{\phi}$ for any $\phi < 1/2$. We also remark that, when $H_N$ satisfies the bounded support condition, the event $\{ |h_{ij}| \leq q^{-1} \}$ holds with `very' high probability, i.e., it holds with $\zeta$-high probability for any positive constant $\zeta$. In the proof of Lemma \ref{lem: old} the extreme event $\{ |h_{ij}| > q^{-1} \}$ is removed by an explicit truncation (Section \ref{sec3}). In the matrices compared in Sections \ref{sec6} and \ref{sec7} the entries are bounded almost surely, so this event does not occur there.
+
+%{\cob Note: If $H $ satisfies  subexponential decay condition, then $H$ satisfies bounded support condition with $q=\varphi^C$. }
+
+%\begin{defn}[Finite moment condition] {\cob it may not be useful} \label{cond:fin}
+%The elements of $H$ has finite $k$ th moment if, for fixed $N$,
+%\begin{equation} \label{eq:cond_fin}
+%\E | h_{ij}|^k < \infty.
+%\end{equation}
+%\end{defn}
+  
+\begin{defn}[Green function, semicircle, $m_{sc}$ and $m$]
+For a Wigner matrix $H$, we define the Green function of $H$ by 
+\be \label{green}
+G_{ij}(z) := \left(\frac1{H-z}\right)_{ij}, \quad z=E+i\eta, \quad E \in \mathbb R, \quad \eta>0.
+\ee
+The Stieltjes transform of the empirical eigenvalue distribution of $H$ is given by  
+\be \label{mNdef}
+m(z) = m_N (z): = \frac{1}{N} \sum_j G_{jj}(z) = \frac{1}{N} \tr\, \frac{1}{H-z}\,.
+\ee
+Define $m_{sc} (z)$ as the unique solution of
+\be\label{defmsc} 
+m_{sc} (z) + \frac{1}{z+m_{sc} (z)} = 0,
+\ee
+with positive imaginary part for all $z$ with $\im z > 0$, i.e.,
+\be\label{temp2.8}
+m_{sc}(z)=\frac{-z+\sqrt{z^2-4}}{2},
+\ee
+where the square root function is chosen with a branch cut in the segment $[-2,2]$ so that asymptotically $\sqrt{z^2-4}\sim z$ at infinity.
+This guarantees that the imaginary part of $m_{sc}$ is non-negative for $\eta=\im z > 0$ and in the $\eta\to 0$ limit it is the Wigner semicircle distribution
+\be \label{def:sc}
+\varrho_{sc}(E) : = \lim_{\eta\to 0+0}\frac{1}{\pi}\im \, m_{sc}(E+i\eta) = \frac{1}{2\pi} \sqrt{ (4-E^2)_+}.
+\ee
+We will also frequently use the notations
+$$
+z : = E + i \eta, \quad \kappa: = \big| \, |E|-2 \big|.
+$$
+\end{defn}
+
+The following lemma (Lemma 4.2 of \cite{EYY2}) collects elementary properties of the Stieltjes transform of the semicircle law. As a technical note, we use the notation $f \sim g$ for two positive functions in some domain $D$ if there exists a positive universal constant $C$ such that $C^{-1}\le f(z)/g(z) \le C$ holds for all $z\in D$.
+
+\begin{lem} \label{lm:msc}  
+We have for all $z$ with $\im z>0$ that
+\be \label{zmsc2}
+|m_{sc}(z)| = |m_{sc}(z)+z|^{-1} \le 1.
+\ee
+Let $z=E+i\eta$ with $|E|\le 5$ and $0< \eta \le 10$. We have
+\be \label{smallz}
+|m_{sc}(z)|\sim 1, \qquad   |1-m_{sc}^2(z)|\sim \sqrt{\kappa+\eta}
+\ee
+and the following two bounds: 
+\begin{align} \label{esmallfake}
+\im m_{sc} (z) \sim
+	\begin{cases}
+	\displaystyle \frac{\eta}{\sqrt{\kappa+\eta}} & \mbox{if  $\kappa\ge\eta$ and $|E|\ge 2$}, \\
+	 & \\
+	\sqrt{\kappa+\eta} & \mbox{if $\kappa\le \eta$ or $|E|\le 2$.}
+	\end{cases}
+\end{align}
+\end{lem}
+
+\begin{defn}[Classical location of the eigenvalue]
+We denote by $\gamma_j$ the {\it classical location} of the $j$-th eigenvalue, i.e., $\gamma_j$ is defined by 
+\be \label{def:gamma}
+N \int_{-\infty}^{\gamma_j} \varrho_{sc}(x) {\rm d} x = j, \qquad 1\leq j\le N.
+\ee
+We take the smallest such $\gamma_j$; in particular $\gamma_N=2$.
+\end{defn}
+
+\begin{rem}
+Throughout the paper, the notations $O( \cdot )$, $o( \cdot )$, and $ \ll$ will always be with respect to the limit $N \to \infty$, where $a \ll b$ means $a = o(b)$. The constant $C$ will denote various constants independent of $N$. Constants may depend on the fixed parameters (such as $C_0$, $C_1$, $c$, $\phi$, $\zeta$), but not on $N$ or on the distributions of the entries within the class considered. All statements are for each $N$, with distributions that may depend on $N$.
+\end{rem}
+
+

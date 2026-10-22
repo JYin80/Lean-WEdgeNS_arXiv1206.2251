@@ -1,0 +1,107 @@
+\section{Background and Main result}
+
+Since the groundbreaking work by Wigner \cite{W}, it has been conjectured and widely believed that local statistics of eigenvalues of random matrices are universal in the sense that it depends only on the symmetric class of the ensembles. The universality is one of the most important concepts in random matrix theory, and it can roughly be divided into two different types, the bulk universality and the edge universality. 
+
+Before considering the edge universality, which we will study in this paper, we roughly introduce some important results on bulk universality. The bulk universality concerns the local statistics of eigenvalues in the interior of the spectrum. In the early works of Wigner, Dyson, Gaudin, and Mehta \cite{M, MG, D1, D2}, it was proved that, after proper rescaling, the joint probability density of eigenvalues of Gaussian Unitary Ensemble(GUE) can be explicitly described by the sine kernel, and they conjectured the universality holds for more general classes of ensembles. For a very general class of invariant ensembles, the bulk universality was proved by Deift et. al. \cite{DKMVZ1, DKMVZ2}, Bleher and Its \cite{BI}, and Pastur and Shcherbina \cite{PS}. Later by Johansson \cite{J2}, the bulk universality was proved for Gaussian divisible ensembles. (See also the work by Ben Arous and P\'ech\'e \cite{BP}.) For general Wigner matrices, a new approach was introduced to prove the bulk universality in a series of papers by   Erd\H{o}s, Schlein, Yau, and others in \cite{ESY1, ESY2, ESY3, ESY4, ESYY, EYY1, EYY2, EYY, EKYY1, EKYY2}. The bulk universality for Wigner matrices was also obtained by Tao and Vu \cite{TV1}. See the reviews \cite{EY, EY2} for further discussion.
+
+The distribution of the largest eigenvalue exhibits another type of universality, which is called the edge universality. Let $\lambda_N$ be the largest eigenvalue of a Wigner matrix. For the Gaussian ensembles, the distribution function of $\lambda_N$ was first identified by Tracy and Widom \cite{TR1, TR2}. More precisely, it is proved that
+\begin{equation}
+\lim_{N \to \infty} \p (N^{2/3} (\lambda_N - 2) \leq s ) = F_{\beta} (s),
+\end{equation}
+where the Tracy-Widom distribution functions $F_{\beta}$ can be described by Painlev\'e equations, and $\beta = 1, 2, 4$ corresponds to Orthogonal/Unitary/Symplectic ensemble, respectively. The joint distribution of $k$ largest eigenvalues can be expressed in terms of the Airy kernel, which was shown by Forrester \cite{F}. If we denote the $k$ largest eigenvalues by $\lambda_N, \lambda_{N-1}, \cdots, \lambda_{N-k+1}$, then for Gaussian ensembles, the joint distribution function of rescaled eigenvalues has the limit
+\begin{equation} \begin{split} \label{eq:TW}
+& \lim_{N \to \infty} \p \left( N^{2/3} (\lambda_{N} -2) \leq s_1, N^{2/3} (\lambda_{N-1} -2) \leq s_2, \cdots, N^{2/3} (\lambda_{N-k+1} -2) \leq s_k \right) \\
+ = &\;F_{\beta, k} (s_1, s_2, \cdots, s_k),
+\end{split} \end{equation}
+which will also be called the Tracy-Widom distribution.
+
+The condition for \eqref{eq:TW} has been studied intensively. In the direction of sufficient condition, it has been improved as follows: The result \eqref{eq:TW} was first extended to general Wigner matrices by Soshnikov \cite{S1} with the condition that all odd moments of matrix entries vanish (e.g. the symmetric distribution) and with the Gaussian decay. Ruzmaikina \cite{R} showed that the Gaussian decay can be replaced with polynomial decay faster than $x^{-18}$. Also, under the condition that matrix entries are symmetrically distributed, Khorunzhiy \cite{OK} proved a bound for the spectral norm for the matrices whose entries have finite $12+o(1)$ moment. For the non-symmetric case, \eqref{eq:TW} is proved in \cite{TV2} by Tao and Vu with the condition that matrix entries have vanishing third moment and sub-exponential decay. (Some partial results in the non-symmetric case can be found in \cite{P2} and \cite{P3}.) Later, the vanishing third moment condition was removed by Erd\H{o}s, Yau, and others in \cite{EYY, EKYY2}, i.e., \eqref{eq:TW} is implied by the sub-exponential decay condition. The current best sufficient condition for \eqref{eq:TW}, as we know, is that the matrix entries have finite $12+o(1)$ moments, which was proved in \cite{EKYY2}. Numerical results by Biroli, Bouchaud, and Potters \cite{BBP} predicted that the Tracy-Widom distribution would appear when the $(4 + \epsilon)$-th moment is finite.
+
+On the other hand, for the Wigner matrices whose entries have heavy tails, the necessary condition for \eqref{eq:TW} is studied as follows: In the case of real symmetric matrices with i.i.d. entries, it was proved by  Soshnikov  \cite{S2} that, when the variance of entries diverges, the largest eigenvalue has Poisson statistics. More precisely, in \cite{S2} was considered the case where the distribution of entries satisfies
+\begin{equation} \label{eq:tail}
+\p (|h_{ij}| > x) = \frac{h(x)}{x^{\alpha}},
+\end{equation}
+where $h(x)$ is a slowly varying function and $\alpha < 2$. The case $2 \leq \alpha < 4$ was later studied by Auffinger, Ben Arous, and P\'ech\'e \cite{ABP}, which also shows the Poisson statistics. We also remark that in the case $\alpha < 2$ the Wigner semi-circle law no longer holds in the bulk. See the work by Ben Arous and Guionnet \cite{BG} for more detail. The numerical simulation results in \cite{BBP} also suggest that $\alpha = 4$ in \eqref{eq:tail} will provide the marginal case. 
+
+The edge universality has been generalized in many directions, for example, for the sample covariance matrices \cite{J1, Jo, So1, S3, PY1} and for correlation matrix \cite{BPZ, PY2}. For the deformed matrices, which are described as a finite rank perturbation of sample covariance matrices and the deformed Wigner matrices, the Tracy-Widom law also holds when the outliers are excluded \cite{BBaP, BV1, BV2, P, KY}.
+
+%We note It was proved by Bai and Yin \cite{BY} that the existence of the fourth moment is a necessary and sufficient condition for almost sure convergence of the largest eigenvalue. 
+
+
+In this paper, we prove the following simple criterion on this property: The necessary and sufficient condition for the rescaled largest eigenvalue of a real symmetric Wigner matrix (see Definition \ref{def: SWigner}) to have asymptotically the same distribution as for the GOE, and hence the Tracy-Widom distribution $F_1$, is that the off-diagonal entry of the Wigner matrix satisfies
+\be \label{crit}
+\lim_{s\to +\infty} s^4 \p(|x_{12}|\ge s)=0.
+\ee
+We note that this criterion has not been predicted in any previous works.
+
+The precise definition of the Wigner matrix we consider in this paper is as follows:
+\begin{defn} \label{def: SWigner}
+The (standard) symmetric (Hermitian) Wigner matrix of size $N$ is a symmetric (Hermitian) matrix 
+$$
+(H_N)_{ij}=h_{ij}=\frac{1}{\sqrt N} x_{ij},\quad  1\le i, j\leq N,
+$$
+where the upper-triangle entries $(x_{ij})$ $(1\le i\le j\leq N )$ are independent real (complex) random variables with mean zero satisfying the following conditions:
+\begin{itemize}
+\item The upper right entries $x_{ij}$ $(1\le i< j\le N)$ are $i.i.d.$ random variables with distribution $\mu$, satisfying $\E x_{12}=0$ 
+and $\E|x_{12}|^2=1$. 
+\item The diagonal entries $x_{ii}$ $(1\le i\le N) $ are $i.i.d.$ random variables with distribution $\wt \mu$, satisfying $\E x_{11}=0$ 
+and $\E|x_{11}|^2 < \infty$.
+\item In addition, for the Hermitian case, $\E (x_{12})^2=0$.
+\end{itemize}
+
+When the random variables $x_{ij}$ and $x_{ii}$ are real Gaussian with $\E|x_{ii}|^2 = 2$, $H$ will be called Gaussian Orthogonal Ensemble (GOE). Similarly, when $x_{ij}$ are complex Gaussian and $x_{ii}$ are real Gaussian with $\E|x_{ii}|^2 = 1$, $H$ will be called Gaussian Unitary Ensemble (GUE). We denote by $\lambda_1 \leq \lambda_2 \cdots \leq \lambda_N$ the eigenvalues of $H_N$ and by ${\bf u}_1, {\bf u}_2 \cdots {\bf u}_N$ the corresponding eigenvectors of $H_N$. 
+Theorem \ref{main result} concerns the real symmetric case; the Hermitian case is recalled only for comparison (Remark \ref{rem: scope}).
+\end{defn}
+
+The main result of this paper is the following theorem:
+\begin{thm} \label{main result}
+For any centered distributions $\nu$ and $\wt{\nu}$ on $\mathbb R$ with variance $1$ and finite variance, respectively, let $H_N$ be the real symmetric Wigner matrix of Definition \ref{def: SWigner} such that $x_{12}$ and $x_{11}$ have distributions $\nu$ and $\wt{\nu}$, and let $\lambda_N$ be its largest eigenvalue. Then,
+\begin{itemize}
+\item Sufficient condition: if \eqref{crit} holds, then there exist $\delta>0$ and a sequence $\epsilon_N\to0$, depending only on $\nu$ and $\wt\nu$, such that for all sufficiently large $N$ and all $s\in\mathbb R$,
+\be\label{def: ranvec} \begin{split}
+\p^{GOE}\big(N^{2/3}(\lambda_N-2)\le s-N^{-\delta}\big)-\epsilon_N &\le \p\big(N^{2/3}(\lambda_N-2)\le s\big) \\
+&\le \p^{GOE}\big(N^{2/3}(\lambda_N-2)\le s+N^{-\delta}\big)+\epsilon_N .
+\end{split} \ee
+\item Necessary condition: if \eqref{crit} does not hold, i.e.\ $s^4\p(|x_{12}|\ge s)$ does not tend to $0$ as $s\to\infty$, then
+\be \label{nec}
+\limsup_{N\to \infty} \, \p(\lambda_N( H_N ) \ge 3) > 0 .
+\ee
+Consequently $N^{2/3}(\lambda_N-2)$ is not tight, and its distribution function converges, at the continuity points of the limit, to no probability distribution function; in particular it does not converge to the Tracy--Widom distribution $F_1$.
+\end{itemize}
+\end{thm}
+
+Here $\p^{GOE}$ is the probability under which $H_N$ is the GOE of Definition \ref{def: SWigner}, i.e.\ $x_{ij}\sim N(0,1)$ for $i<j$ and $x_{ii}\sim N(0,2)$, so that $F^{GOE}_N(s):=\p^{GOE}(N^{2/3}(\lambda_N-2)\le s)$ is the distribution function of the rescaled largest eigenvalue of the GOE; in both ensembles $\lambda_N=\max\mathrm{spec}(H_N)$. The order of the quantifiers is: $\delta$ and $(\epsilon_N)$ first, then $N$, then $s$; in particular $\epsilon_N$ does not depend on $s$. The sequence $\epsilon_N$ is not related to the cutoff exponent $\epsilon$ of Section \ref{sec4}. The two consequences in the necessary condition follow from \eqref{nec}. Indeed, on the event $\lambda_N\ge3$ we have $N^{2/3}(\lambda_N-2)\ge N^{2/3}$, so there is $c>0$ such that, for every $K$, $\p(N^{2/3}(\lambda_N-2)>K)\ge c$ for infinitely many $N$. If the distribution functions of $N^{2/3}(\lambda_N-2)$ converged to a distribution function $F$ at the continuity points of $F$, then a continuity point $K$ of $F$ with $F(K)>1-c/2$ would give $\p(N^{2/3}(\lambda_N-2)\le K)>1-c/2$ for all large $N$, a contradiction.
+
+\begin{rem} \label{example}
+While any distribution with finite fourth moment satisfies the criterion \eqref{crit}, the converse is not true. For example, let $x$ be a symmetric random variable with density $f(x)=c|x|^{-5}(\log|x|)^{-1}$ for $|x|\ge e$ and $f(x)=0$ otherwise, where $c>0$ is the normalising constant, and let $x_{12}:=x/\sigma$ with $\sigma^2:=\E x^2$, so that $x_{12}$ is centered with variance $1$. Then $s^4\p(|x_{12}|\ge s)\sim c/(2\sigma^4\log s)\to0$ as $s\to\infty$, so \eqref{crit} holds, while $\E x_{12}^4=\infty$. For this law of $x_{12}$ and $x_{11}\sim N(0,2)$, \eqref{def: ranvec} does not hold with $\epsilon_N=N^{-\delta}$ for any $\delta>0$; see Remark 4.1. The existence of this particular example, however, does not contradict the result in \cite{BY}, which proved that $\lim_{N \to \infty} \lambda_N(H_N) =2$ a.s. if and only if the fourth moment exists.
+\end{rem}
+
+Our result provides a very simple sufficient and necessary condition for the edge universality of Wigner matrices without assuming any other  properties of matrix entries. This also shows the existence of four moments, which was predicted to be needed for the edge universality, is not necessary for the Tracy-Widom result, as we can see from Remark \ref{example}.
+
+Our proof of the main result features two key observations.
+
+1. If we introduce a `cutoff' on each matrix element at $N^{-\epsilon}$, then the matrix with the cutoff can well approximate the original matrix in terms of the behavior of the largest eigenvalue if and only if the criterion \eqref{crit} holds.
+
+2. The Green function comparison method (e.g. Theorem 6.3 in \cite{EYY}), which was first introduced in \cite{EYY1}, can be extended to the random matrices whose entries are almost surely bounded by $N^{-\epsilon}$ for some $\epsilon > 0$. The Green function comparison method was applied on studying the distribution of the eigenvalues of the Wigner matrices, deformed Wigner matrices, covariance matrices, correlation matrices, and adjacency matrices of random graphs \cite{EYY1, EYY2, EYY, KY, PY1, PY2, EKYY1, EKYY2}. It was also used in the study of the distribution of eigenvectors \cite {KY0} and the determinant \cite{TV3} of Wigner matrices. We believe that our new method in the present paper can be used to improve the results in these topics.
+
+The first observation can be understood in the framework of the deformed Wigner matrix. We consider the matrix with the cutoff as the unperturbed part and the remaining part the perturbation. As studied in \cite{BBaP, P, BV1, BV2, KY}, if the perturbation is small enough, then we can predict the behaviors of the largest eigenvalues of the original matrix from the matrix with cutoff. On the other hand, if the original/perturbation matrix has an entry whose absolute value is larger than $1$, then the matrix will have an eigenvalue greater than $2$, hence the Tracy-Widom distribution fails. Roughly speaking, the criterion \eqref{crit} means that each off-diagonal entry is bounded by $1$ with probability $1 - o(N^{-2})$, thus the condition guarantees that no entries are larger than $1$ with probability $1 - o(1)$. We remark that a similar argument was introduced in \cite{BBP}.
+
+The Green function comparison part is more technical. Given the matrix with the cutoff at $N^{-\epsilon}$, we first find a `better' matrix, in the sense that it is already known to satisfy Tracy-Widom law, whose first four moments of the off-diagonal entries and first two moments of the diagonal entries coincide with those of the given matrix. We then apply Lindeberg replacement strategy sufficiently many times (more precisely, $O(\e^{-1})$ times) to compare the Green functions. The basic idea is as follows: Using Green function comparison method, one can study the difference of the functional on Green functions between the `better' matrix and the original matrix. Instead of bounding the difference directly, however, we represent it as a new functional, which is much more complicated, on Green functions, with gaining a factor $N^{-\e}$. This new functional can be easily bounded for the `better' matrix case, but not for original matrix. To solve this issue, again we use Green function comparison method to estimate the difference of this new functional between the `better' matrix and original matrix. Repeating this process, we obtain the desired bound. The details will be explained later.
+
+Though the Green function comparison method has been used in previous papers, it was always required to have a good bound on Green function with high probability. This is one of the reasons that the distribution of matrix entries have been assumed to satisfy subexponential decay condition  in many papers. In this paper, however, we show a way to circumvent this problem, which can be used to achieve many other results, besides the edge universality, for heavy-tailed random matrices. See, for example, the rigidity result in Theorem \ref{thm: new rigidity} that holds for the random matrices whose entries are only bounded by $N^{-\epsilon}$ for some $\epsilon > 0$. {(Note: it is also an interesting result, since it shows that the locations and the fluctuations of the eigenvalues keep unchanged, even if the fluctuations of the matrix entries become very large, i.e., from $N^{-1/2}$ to $N^{-\e}$. )}
+
+This paper is organized as follows. In Sections \ref{sec2} and \ref{sec3}, we introduce the notations and collect tools we use to prove the main result. In Section \ref{sec4}, we prove the main result using the cutoff argument. Technical results on the Green function comparison method will be proved in Sections \ref{sec6} and \ref{sec7}. Appendix A lists the changes with respect to the published version.
+
+\begin{rem} \label{rem: scope}
+Theorem \ref{main result} concerns the real symmetric case and the largest eigenvalue. The Hermitian case (GUE, $F_2$; Definition \ref{def: SWigner} with $\E x_{12}^2=0$) and the joint distribution \eqref{eq:TW} of the $k$ largest eigenvalues for $k\ge2$ are expected to follow from the same method (cf.\ Remark \ref{genedge}), but they are not proved here.
+\end{rem}
+
+\begin{rem} \label{rem: TW limit}
+Assume, as proved by Tracy and Widom \cite{TR1, TR2}, that $F^{GOE}_N(s)\to F_1(s)$ for every $s\in\mathbb R$, where $F_1$ is continuous. Under \eqref{crit}, Theorem \ref{main result} then gives $\p(N^{2/3}(\lambda_N-2)\le s)\to F_1(s)$ for every $s\in\mathbb R$. Indeed, fix $s$ and $h>0$. For $N$ so large that \eqref{def: ranvec} holds and $N^{-\delta}<h$, \eqref{def: ranvec} and the monotonicity of $F^{GOE}_N$ give $F^{GOE}_N(s-h)-\epsilon_N\le\p(N^{2/3}(\lambda_N-2)\le s)\le F^{GOE}_N(s+h)+\epsilon_N$. Hence $F_1(s-h)\le\liminf_{N}\p(N^{2/3}(\lambda_N-2)\le s)\le\limsup_{N}\p(N^{2/3}(\lambda_N-2)\le s)\le F_1(s+h)$, and letting $h\downarrow0$ gives the claim by the continuity of $F_1$ at $s$. This deduction uses \cite{TR1, TR2} and is not part of the formalization.
+\end{rem}
+
+\medskip
+\noindent\textbf{Formalization.} Theorem \ref{main result} and every result it uses are formalized in Lean 4 with Mathlib \cite{Lean}, with no external input: the formal statements assume only the conditions of Definition \ref{def: SWigner} on $\nu$ and $\wt\nu$, and \eqref{crit} or its negation. The results of \cite{EKYY1}, \cite{EKYY2}, \cite{EYY} and \cite[Lemma 4.2]{EYY2} are used in the forms stated in this paper (Lemma \ref{lm:msc}, Lemma \ref{lem: old}, Lemma \ref{lem: ex edge un}, Lemma \ref{lem: edge un str} and the steps of the proof of Theorem \ref{thm: new rigidity} that follow \cite[Section 5]{EYY}), and those forms are proved in the formalization. In particular, where Section \ref{sec3} says so, the entries are bounded almost surely. The Lean statements of Theorem \ref{main result} are \texttt{WEdgeNS.E1}, \texttt{WEdgeNS.E1\_not\_tight}, \texttt{WEdgeNS.E1\_no\_limit} and \texttt{WEdgeNS.E2}. Remark \ref{rem: TW limit} rests on \cite{TR1, TR2} and is not formalized.
+
+
+

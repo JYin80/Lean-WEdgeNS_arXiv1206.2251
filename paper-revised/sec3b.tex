@@ -1,0 +1,281 @@
+
+\begin{thm}[{Edge universality on generalized Wigner matrix: \cite[Theorem 2.7 and Proposition 6.4, (6.15) at $f=0$]{EKYY2}}] \label{thm: old edge un}
+Let $H^{\w}$ be a GOE and $H^{\V}$ a generalized symmetric Wigner matrix with
+$$
+\E^{\V} |h_{ij}|^2 = N^{-1} + \delta_{ij} N^{-1}.
+$$
+Assume that $H^{\V}$ satisfies the bounded support condition with $q=N^{\phi}$, for some constant $1/3 < \phi \leq 1/2$. Then, there exist constants $\delta > 0$ and $N_0$ such that, for any $N \geq N_0$ and any $s \in \mathbb{R}$, we have
+\begin{equation} \label{qset}
+\p^{\w} \Big( N^{2/3} (\lambda_N -2) \leq s - N^{-\delta} \Big) - N^{-\delta} \leq \p^{\V} \big( N^{2/3} (\lambda_N -2) \leq s \big) \leq \p^{\w} \Big( N^{2/3} (\lambda_N -2) \leq s + N^{-\delta} \Big) + N^{-\delta}.
+\end{equation}
+Here, $\p^{\V}$ and $\p^{\w}$ denote the laws of the ensembles $H^{\V}$ and $H^{\w}$, respectively, and $\delta$ and $N_0$ do not depend on $s$.
+\end{thm}
+
+The diagonal variance here and for the GOE is $2/N$, while it is $1/N$ in \cite[Definition 2.1]{EKYY2}. For entries bounded by $N^{-\phi}$ almost surely, Theorem \ref{thm: old edge un} is the case $C_0=1$ of Lemma \ref{lem: ex edge un} below. In the form stated above, with the bounded support condition of Definition \ref{cond:bdd}, it is cited from \cite{EKYY2} and is not used separately in this paper.
+
+\begin{rem} \label{genedge} As in \cite{EYY} and \cite{EKYY2}, Theorem \ref{thm: old edge un}, as well as Lemma \ref{lem: ex edge un} and Theorem \ref{thm: new edge un} below, can be extended to finite correlation functions of extreme eigenvalues. For example, we have the following extension:
+ \begin{align}\label{twa}
+&  \p^{\bf w} \Big ( N^{2/3}  ( \lambda_N -2) \le s_1- N^{-\e}, \ldots, N^{2/3} ( \lambda_{N-k} -2)
+\le s_{k+1}- N^{-\e} \Big )- N^{-\delta}   \nonumber \\
+&
+ \le   \p^{\bf v} \Big ( N^{2/3} (  \lambda_N -2) \le s_1,  \ldots, N^{2/3} ( \lambda_{N-k} -2)
+\le s_{k+1}  \Big )  \\
+ &  \le
+ \p^{\bf w} \Big ( N^{2/3} ( \lambda_N -2) \le s_1+ N^{-\e}, \ldots, N^{2/3} ( \lambda_{N-k} -2)
+ \le s_{k+1}+ N^{-\e}   \Big )+ N^{-\delta}  \nonumber
+\end{align}
+for all $k$ fixed and $N$ sufficiently large. The proof of \eqref{twa} is similar to that of \eqref{qset} except that it uses the general form of the Green function comparison theorem. This remark is not used in this paper (see \eqref{segg}), and it is not formalized.
+\end{rem}
+
+We slightly extend this result as follows:
+
+\begin{lem}\label{lem: ex edge un}
+Let $H^{\w}$ be a GOE and $H^{\V}$ a generalized symmetric Wigner matrix satisfying \eqref{eq:diag} with a constant $C_0\ge0$, whose entries satisfy $|h_{ij}|\le N^{-\phi}$ almost surely for some $1/3<\phi\le1/2$. Then there are $\delta>0$ and $N_0$, depending only on $(C_0,\phi)$, such that \eqref{qset} holds for all $N\ge N_0$ and all $s\in\mathbb R$.
+\end{lem}
+
+This is the almost sure form of the bounded support condition, the only case used here (Theorem \ref{thm: new edge un} applies it to $\wt H$ of Lemma \ref{lem: match}); the probabilistic form is not proved here. We postpone the proof of this lemma to the end of this section.
+
+\bigskip
+
+To prove our main result, we claim the following three lemmas, which extend the previous results to the Wigner matrix with bounded support condition of small $q$. First, we improve the previous result on rigidity. We define the {\it normalized empirical counting function} by
+$$
+{\mathfrak n}(E):= \frac{1}{N}\# \{ \lambda_j\le E\}.
+$$
+Let
+$$
+n_{sc}(E) :  = \int_{-\infty}^E \varrho_{sc}(x) {\rm d} x
+$$
+be the distribution function of the semicircle law.
+
+\begin{thm}[Rigidity of eigenvalues: small $q$ case] \label{thm: new rigidity}
+Let $H$ be a generalized symmetric Wigner matrix with some constant $C_1$ such that for any $1 \le i< j\leq N$
+$$
+\E |h_{ii}|^2 \leq C_1/N, \quad \E  |h_{ij}|^2=1/N, \quad \E |h_{ij}|^3 \leq C_1 N^{-3/2}, \quad \E  |h_{ij}|^4 \leq C_1(\log N) N^{-2}
+$$
+and $|h_{ij}|\le N^{-\phi}$ almost surely for all $1\le i,j\le N$, for some constant $\phi>0$. Then, there exist constants $C>0$ and $N_0$, depending only on $C_1$ and $\phi$, such that with high probability we have
+\be \label{rigiditynew}
+\bigcap_j \bigg\{ |\lambda_j-\gamma_j| {\,\leq\,} \varphi^C \Big [ \min \big ( \, j ,  N-j+1 \, \big) \Big]^{-1/3} N^{-2/3} \bigg\}
+\ee
+and
+\be\label{rigiditynew2}
+\sup_{E\in\mathbb R} \big| {\mathfrak n} (E)-n_{sc}(E)\big|  {\,\leq\,}  \frac{\varphi^C}{N}
+\ee
+for any $N > N_0$.
+\end{thm}
+
+Theorem \ref{thm: new rigidity} is the special case, with entries bounded almost surely, of the corresponding statement under the bounded support condition of Definition \ref{cond:bdd} with $q=N^{\phi}$. That statement is not proved here: under Definition \ref{cond:bdd} alone the moment bound (6.78) can fail. Section \ref{sec4} uses only the almost sure case, since $\wt H^S$ is bounded almost surely.
+
+Next theorem shows that the edge universality holds under the assumptions in Theorem \ref{thm: new rigidity}.
+
+\begin{thm}[Edge universality: small $q$ case] \label{thm: new edge un}
+Let $H^{\w}$ be a GOE and $H^\V$ be a generalized symmetric Wigner matrix satisfying the conditions for $H$ in Theorem \ref{thm: new rigidity} (in particular $|h_{ij}|\le N^{-\phi}$ almost surely). Then, there exist constants $\delta>0$ and $N_0$, depending only on $C_1$ and $\phi$, such that for all $N\ge N_0$, all such $H^{\V}$ and all $s\in \mathbb R$, we have
+\begin{equation} \label{qset1}
+\p^{\w} \Big( N^{2/3} (\lambda_N -2) \leq s - N^{-\delta} \Big) - N^{-\delta} \leq \p^{\V} \big( N^{2/3} (\lambda_N -2) \leq s \big) \leq \p^{\w} \Big( N^{2/3} (\lambda_N -2) \leq s + N^{-\delta} \Big) + N^{-\delta}.
+\end{equation}
+Here, $\p^{\V}$ and $\p^{\w}$ denote the laws of the ensembles $H^{\V}$ and $H^{\w}$, respectively.
+\end{thm}
+
+Finally, we show a weak bound on $G_{ij}$ ($i\neq j$) of $H$ satisfying the conditions in Theorem \ref{thm: new rigidity}.
+\begin{lem}[Bounds on $G_{ij}$: small $q$ case] \label{lem: WBGij}
+Let $H $ be a generalized symmetric Wigner matrix satisfying the conditions for $H$ in Theorem \ref{thm: new rigidity} (in particular $|h_{ij}|\le N^{-\phi}$ almost surely). Then, for any $0 < c < 1$, there are constants $C>0$ and $N_0$, depending only on $(C_1,\phi,c)$, such that for all $N\ge N_0$, all $z=E+i\eta$ with $|E|\le 5$ and $\eta\ge N^{-1+c}$, and all $i\ne j$, we have the following weak bound on $G_{ij}$:
+\be\label{res: WBGij}
+\E|G_{ij}(z)|^2 \leq \varphi^C \left(  \frac{\im m_{sc}(z)}{N \eta}  + \frac{1}{(N \eta)^2}\right).
+\ee
+\end{lem}
+
+
+In the remainder of this section, we give the proof of Lemma \ref{lem: ex edge un}.
+
+\begin{proof}[Proof of Lemma \ref{lem: ex edge un}]
+Throughout the proof, $q:=N^{\phi}$ and $\kappa:=\phi-1/3>0$. We derive the lemma from Lemma \ref{lem: edge un str}, applied to the pairs $(H^{\V},H^{\w})$ of Lemma \ref{lem: ex edge un} with the rate $N^{-\kappa+C\e}$ in \eqref{sbc22}. Lemma \ref{lem: edge un str} is the common structure of the proofs of \cite[Theorem 2.4]{EYY} and \cite[Proposition 6.4]{EKYY2}; its proof uses neither Lemma \ref{lem: ex edge un} nor Theorem \ref{thm: new edge un}. Its hypotheses are checked as follows.
+
+(i) The matrix $H^{\V}$ satisfies \eqref{eq:diag} with $C_0$ and, since $|h_{ij}|\le q^{-1}$ almost surely, the bounded support condition with $q$ and every $c>0$, in particular $c=1$. The GOE satisfies \eqref{eq:diag} with $C_0=1$ and, by the Gaussian tail, the bounded support condition with $N^{2/5}$ in place of $q$ and some $c>0$. For each of them, Lemma \ref{lem: old} with $\zeta=1$ gives, for every sufficiently large $C$, with high probability and with constants depending only on $(C_0,\phi)$: $\|H\|\le 2+\varphi^C(q^{-2}+N^{-2/3})\le 3$ by \eqref{sjsy}; \eqref{tby4} for all $z\in{\bf S}(C)$ with $\eta\le N^{-2/3}$, since by \eqref{scm} $|m-m_{sc}|\le\varphi^C(q^{-2}\eta^{-1/2}+(N\eta)^{-1})$ and $q^{-2}\eta^{-1/2}=(N\eta)^{-1}N^{1-2\phi}\eta^{1/2}\le(N\eta)^{-1}N^{2/3-2\phi}\le (N\eta)^{-1}$; \eqref{hh1} by the rigidity bound of Lemma \ref{lem: old} (4) at $j=N$, since $\gamma_N=2$ and $q^{-2}\le N^{-2/3}$; and \eqref{hh2} by the same rigidity bound and \eqref{def:gamma}, since $\gamma_j\ge 2-3\varphi^CN^{-2/3}$ holds for at most $C'\varphi^{3C/2}$ indices $j$. (For the GOE, $q$ is replaced by $N^{2/5}$ in these bounds.)
+
+(ii) The comparison hypothesis \eqref{sbc22} for the pair, with test functions having four derivatives and right side $N^{-\kappa+C\e}$, is \eqref{sbc2} of the following Claim, since $N^{1/3+C\e}q^{-1}=N^{-\kappa+C\e}$.
+
+Lemma \ref{lem: edge un str} then gives $\delta>0$ and $N_0$, depending only on $(C_0,\phi)$, such that \eqref{qset} holds for all $N\ge N_0$, all $H^{\V}$ as in Lemma \ref{lem: ex edge un} and all $s\in\mathbb R$. It remains to prove the following claim, which corresponds to Proposition 6.6 of \cite{EKYY2} with $f=0$.
+
+\textit{Claim.} Let $C_F>0$. There exist $\widetilde{\epsilon}>0$ and $C>0$, depending only on $(C_F,C_0,\phi)$, such that for every $0<\epsilon<\widetilde\epsilon$ there is $N_0$, depending only on $(C_F,C_0,\phi,\epsilon)$, with the following property. Let $N\ge N_0$, let $H^{\V}$ be as in Lemma \ref{lem: ex edge un}, and let $F\in C^4(\mathbb R)$ satisfy
+\begin{equation}\label{jhw}
+\sup_x | F^{(n)} (x) | (1+ |x|)^{-C_F} \leq C_F, \quad n = 1, 2, 3, 4.
+\end{equation}
+Set
+\begin{equation}
+I_{\epsilon}:=\{ x : |x-2| \leq N^{-2/3 + \epsilon} \}, \qquad \eta := N^{-2/3 - \epsilon}.
+\end{equation}
+Then, for every $E\in I_\epsilon$,
+\begin{equation}\label{sbc}
+\Big| \E^{\V} F \left( N \eta \: \im m (E + i \eta) \right) - \E^{\w} F \left( N \eta \: \im m (E + i \eta) \right) \Big| \leq N^{1/3 + C \epsilon} q^{-1}
+\end{equation}
+and, for all $E_1,E_2\in I_\epsilon$ (in either order; the integral is oriented),
+\begin{equation}\label{sbc2}
+\left| \E^{\V} F \left( N \int_{E_1}^{E_2} dy \: \im m (y + i \eta) \right) - \E^{\w} F \left( N \int_{E_1}^{E_2} dy \: \im m (y + i \eta) \right) \right| \leq N^{1/3 + C \epsilon} q^{-1}.
+\end{equation}
+Only \eqref{sbc2} enters Lemma \ref{lem: edge un str}.
+
+The differences in \eqref{sbc}--\eqref{sbc2} and below do not change if $F$ is replaced by $F-F(0)$, so we assume $F(0)=0$; then $|F(x)|\le C_F|x|(1+|x|)^{C_F}$. By \eqref{jhw}, for every fixed $a>0$ and $n\in\{1,2\}$,
+$$
+|F^{(n)}(x)|\le N^{(aC_F+1)\e} \quad \text{for } |x|\le 2N^{a\e} \text{ and } N\ge N_0(C_F,a,\e).
+$$
+For a real symmetric matrix $H$ with Green function $G$, the spectral decomposition gives the Ward identity $\sum_j|G_{ij}(z)|^2=\eta^{-1}\im G_{ii}(z)$, hence
+$$
+N\eta\,\im m(z)=\eta^2\sum_{i,j}|G_{ij}(z)|^2, \qquad N\int_{E_1}^{E_2}\im m(y+i\eta)\,dy=\eta\int_{E_1}^{E_2}\sum_{i,j}|G_{ij}(y+i\eta)|^2\,dy .
+$$
+We first prove the corresponding bounds for the off-diagonal parts:
+\begin{equation} \label{eq:claim_old}
+\left| \E F \left( \eta^2 \sum_{i \neq j} G^{\V}_{ij} \overline{G^{\V}_{ij}} \right) - \E F \left( \eta^2 \sum_{i \neq j} G^{\w}_{ij} \overline{G^{\w}_{ij}} \right) \right| \leq N^{1/3 + C \epsilon} q^{-1},
+\end{equation}
+with $G$ evaluated at $E+i\eta$, and
+\begin{equation} \tag{3.20$'$}
+\left| \E F \left( \eta \int_{E_1}^{E_2}\sum_{i \neq j} G^{\V}_{ij} \overline{G^{\V}_{ij}}(y+i\eta)\,dy \right) - \E F \left( \eta\int_{E_1}^{E_2} \sum_{i \neq j} G^{\w}_{ij} \overline{G^{\w}_{ij}}(y+i\eta)\,dy \right) \right| \leq N^{1/3 + C \epsilon} q^{-1}.
+\end{equation}
+The removed diagonal parts are estimated at the end of the proof.
+
+\textit{Interpolation.} Fix a bijective ordering map on the index set of the independent matrix elements,
+\begin{equation} \label{eq:ordering}
+\Phi: \{ (k, \ell) : 1 \leq k \leq \ell \leq N \} \to \{ 1, \cdots, \gamma_{\max} = \frac{N(N+1)}{2} \},
+\end{equation}
+and let $H_{\gamma}$ be the Wigner matrix whose matrix elements $h_{k \ell}$ ($k\le\ell$) are independent and follow the distribution of $h_{k \ell}^{\V}$ if $\Phi(k, \ell) \leq \gamma$ and the distribution of $h_{k \ell}^{\w}$ otherwise. In particular, $H_0 = H^{\w}$ and $H_{\gamma_{\max}} = H^{\V}$. (Note that the index used here is slightly different from previous papers.) For simplicity, let
+\begin{equation}
+G^{\gamma}_{ij} := \left( \frac{1}{H_{\gamma} -z} \right)_{ij}.
+\end{equation}
+The matrices $H_{\gamma}$ and $H_{\gamma -1}$ differ only at the $(a, b)$ and $(b, a)$ elements, where $\Phi (a, b) = \gamma$. Let $v:=v_{ab} := h_{ab}^{\V}$ and $w:=w_{ab} := h_{ab}^{\w}$. We define matrices $V$ and $W$ by
+\begin{equation}
+V_{k \ell} := \begin{cases} (\delta_{ak} \delta_{b \ell} + \delta_{a \ell} \delta_{bk})\, v_{ab}, & a\ne b,\\ \delta_{ak}\delta_{a\ell}\, v_{aa}, & a=b,\end{cases} \qquad W_{k \ell} := \begin{cases} (\delta_{ak} \delta_{b \ell} + \delta_{a \ell} \delta_{bk})\, w_{ab}, & a\ne b,\\ \delta_{ak}\delta_{a\ell}\, w_{aa}, & a=b,\end{cases}
+\end{equation}
+so that we can rewrite $H_{\gamma}$ and $H_{\gamma -1}$ as
+\begin{equation}
+H_{\gamma} = Q + V, \quad H_{\gamma -1} = Q + W,
+\end{equation}
+with a matrix $Q$ satisfying $Q_{ab} = Q_{ba} = 0$. The matrix $Q$ is independent of $v$ and $w$, and its law is the same in both identities. Define Green's functions
+\begin{equation} \label{eq:green_fns}
+R := \frac{1}{Q-z}, \quad S := \frac{1}{H_{\gamma} - z}, \quad T := \frac{1}{H_{\gamma -1} - z}.
+\end{equation}
+
+\textit{Local law for $H_\gamma$.} Each $H_\gamma$ is a generalized Wigner matrix satisfying \eqref{eq:diag} with the constant $\max(C_0,1)$, since each of its diagonal entries comes from $H^{\V}$ or from the GOE. Let $\phi':=(1/3+\phi)/2$, so that $1/3<\phi'<\phi\le1/2$, and $q':=N^{\phi'}$. The entries of $H^{\V}$ satisfy $|h|\le N^{-\phi}\le q'^{-1}$ almost surely, and a centred Gaussian entry $h$ with $\E h^2\le 2/N$ satisfies $\p(|h|>q'^{-1})\le 2\exp(-N^{1-2\phi'}/4)$. Hence every $H_\gamma$ satisfies the bounded support condition with $q'$ and $c:=(1-2\phi')/2$ for $N\ge N_1(\phi)$, and Lemma \ref{lem: old} applies to every $H_\gamma$ with $q'$, with constants depending only on $(C_0,\phi)$ and not on $\gamma$. (In general $H_\gamma$ does not satisfy the bounded support condition with $q$ itself: for $\phi=1/2$ and a Gaussian entry $h$ of variance $1/N$, $\p(|h|>N^{-1/2})=\p(|g|>1)\approx0.32$ for a standard Gaussian $g$.)
+
+We claim that, with high probability, uniformly in $\gamma$ and in $H^{\V}$,
+\begin{equation} \label{eq:S_bound}
+\max_{k, \ell} \max_{E \in I_{\epsilon}} |S_{k \ell} (E + i \eta) - \delta_{k \ell} m_{sc} (E + i \eta)| \leq N^{-1/3 + 2\epsilon}.
+\end{equation}
+Indeed, for $E\in I_\epsilon$ and $N$ large the point $E+i\eta$ lies in ${\bf S}(C)$, and \eqref{Gij estimate} holds simultaneously for all $z\in{\bf S}(C)$ by part (1) of Lemma \ref{lem: old}. By \eqref{esmallfake}, $\im m_{sc}(E+i\eta)\le C\sqrt{||E|-2|+\eta}\le CN^{-1/3+\e/2}$, so the right side of \eqref{Gij estimate} is at most $\varphi^C(N^{-\phi'}+CN^{-1/3+3\e/4}+N^{-1/3+\e})\le N^{-1/3+2\e}$ for $N\ge N_0(C_0,\phi,\e)$. In particular, since $|m_{sc}|\le1$ by \eqref{zmsc2}, $|S_{kk}|\le2$ and $|S_{k\ell}|\le N^{-1/3+2\e}$ for $k\ne\ell$ on this event.
+
+Let $B:=N^{\e}q^{-1}=N^{\e-\phi}$. With high probability, uniformly in $\gamma$, all entries of $H_\gamma$ are bounded by $B$ in absolute value: almost surely for the entries from $H^{\V}$, and for the Gaussian entries because the GOE satisfies the bounded support condition with $N^{1/2-\e/2}$ in place of $q$ and $c=\e/2$ for $N\ge\lceil 8^{2/\e}\rceil$, while $N^{-1/2+\e/2}\le N^{\e-\phi}$ as $\phi\le1/2$. This bound replaces $|v_{ab}|\le q^{-1}$, which fails for Gaussian entries when $\phi=1/2$. Let $\Omega$ be the intersection of the event of \eqref{eq:S_bound} for $H_\gamma$ and the event that all entries of $H_\gamma$ are bounded by $B$; then $\p(\Omega^c)\le N^{C}e^{-c\varphi}$. Let $P:=N^{-1/3+3\e}$. We claim that, on $\Omega$,
+\begin{equation} \label{eq:R_bound}
+\max_{k, \ell} \max_{E \in I_{\epsilon}} |R_{k \ell} (E + i \eta) - \delta_{k \ell} m_{sc} (E + i \eta)| \leq N^{-1/3 + 3\epsilon}=P.
+\end{equation}
+To see \eqref{eq:R_bound}, we expand $R$ using the resolvent identity $R=S+SVR$ five times:
+\begin{equation}\label{8800}
+R = S + SVS + (SV)^2 S + (SV)^3 S + (SV)^4 S + (SV)^5 R.
+\end{equation}
+Since $V$ has at most two non-zero entries, each bounded by $B$ on $\Omega$, $|S_{k\ell}|\le2$ on $\Omega$, and $|R_{k\ell}|\le\eta^{-1}$ always, we have $|((SV)^mS)_{k\ell}|\le 2^{2m+1}B^m$ for $1\le m\le4$ and $|((SV)^5R)_{k\ell}|\le 2^{10}B^5\eta^{-1}$. Hence $|R_{k\ell}-S_{k\ell}|\le 16N^{\e-\phi}+2^{10}N^{2/3+6\e-5\phi}$, and both terms are at most $P/3$ for $N\ge N_0(\phi,\e)$, since $\phi>1/3$ and $5\phi>1+3\e$. (The five terms of \eqref{8800} suffice because $\phi>1/5+3\e/5$.) Together with \eqref{eq:S_bound} and $N^{-1/3+2\e}\le P/3$, this gives \eqref{eq:R_bound}. In particular, on $\Omega$, $|R_{kk}|\le2$ and $|R_{k\ell}|\le P$ for $k\ne\ell$. The bounds \eqref{eq:S_bound}, \eqref{eq:R_bound} and $|v|\le B$ hold on $\Omega$ simultaneously for all $E\in I_\epsilon$.
+
+\textit{The case $a\ne b$.} Let $\Delta$ be the matrix with entries $\Delta_{k\ell}=\delta_{ak}\delta_{b\ell}+\delta_{a\ell}\delta_{bk}$, so that $V=v\Delta$. We follow the proof of Lemmas 6.7 and 6.8 of \cite{EKYY2} with $f=0$ (\cite{EKYY2}, (6.41)--(6.97)), with the following inputs and changes. The variables $v$ and $w$ are centred, $\E v^2=\E w^2=N^{-1}$, and every entry $h$ of every $H_\gamma$ satisfies
+$$
+\E|h|^k\le C_*N^{-1}q^{2-k}, \qquad 2\le k\le 6, \qquad C_*:=\max(1+C_0,120),
+$$
+which is \cite[(6.42)]{EKYY2}: for the entries from $H^{\V}$ it follows from $|h|\le q^{-1}$, and for the Gaussian entries from their moments and $q\le N^{1/2}$. The a priori bounds used in \cite{EKYY2} are \eqref{eq:S_bound}, \eqref{eq:R_bound} and $|v|\le B$ on $\Omega$. The resolvent expansion \cite[(6.58)]{EKYY2} reads $S=\sum_{m=0}^5(-v)^m(R\Delta)^mR+(-v)^6(R\Delta)^6S$, and on $\Omega$ the entries of $(R\Delta)^mR$ obey \cite[(6.59)--(6.61)]{EKYY2} with the constants $2^{2m+1}$. The functionals of \eqref{eq:claim_old} contain $S_{ij}\overline{S_{ij}}$; \cite[(6.46), (6.56), (6.66)]{EKYY2} write $S_{ij}S_{ji}$, which we read as $S_{ij}\overline{S_{ij}}$, expanding the second factor by complex conjugation. Since $v$ is real, it factors out of the coefficients
+$$
+K^{(s,t)}_k:=\eta^2\sum_{i\ne j,\;|\{i,j\}\cap\{a,b\}|=k}\big((R\Delta)^sR\big)_{ij}\overline{\big((R\Delta)^tR\big)_{ij}},\qquad k=0,1,2,
+$$
+which are functions of $Q$ alone. A Taylor expansion of $F$ to third order at $y^R:=\eta^2\sum_{i\ne j}|R_{ij}|^2$ (\cite[(6.63)--(6.76)]{EKYY2}), with the bad event $\Omega^c$ treated as in \eqref{eq:diag_bad} below, gives
+$$
+\Big|\E F\Big(\eta^2\sum_{i\ne j}S_{ij}\overline{S_{ij}}\Big)-\E F(y^R)-\E g(Q)\,\E v^2-\E g_3(Q)\,\E(-v)^3\Big|\le N^{-5/3+C\e}q^{-1},
+$$
+where
+\begin{align*}
+g(Q)&:=F'(y^R)\sum_{k=0,1}\big(K^{(2,0)}_k+K^{(1,1)}_k+K^{(0,2)}_k\big)+\frac12F''(y^R)\big(K^{(1,0)}_0+K^{(0,1)}_0\big)^2,\\
+g_3(Q)&:=F'(y^R)\big(K^{(3,0)}_0+K^{(0,3)}_0\big).
+\end{align*}
+Here $g$ is the function of $Q$ in \cite[(6.75)]{EKYY2}, whose second line should read $Q^{(1)}_0$ in place of $Q^{(0)}_1$, as in its first line and in (6.74). The first-order term has expectation zero, since $Q$ is independent of $v$ and $\E v=0$. The same holds with $T$ and $w$ in place of $S$ and $v$. Since $\E v^2=\E w^2=N^{-1}$ and $Q$ has the same law in both cases, the second-order terms $\E g(Q)\,\E v^2$ and $\E g(Q)\,\E w^2$ are equal and cancel. For the third-order term, $|\E(-v)^3|\le C_*N^{-1}q^{-1}$, and $|\E g_3(Q)|\le N^{-2/3+C\e}$ by \cite[(6.77)--(6.86)]{EKYY2}: the main part of $((R\Delta)^3R)_{ij}\overline{R_{ij}}$ for $i,j\notin\{a,b\}$ is $m_{sc}^2(R_{ia}R_{bj}+R_{ib}R_{aj})\overline{R_{ij}}$, and for $i,j,a,b$ distinct, \cite[Lemma 6.8]{EKYY2} with $f=0$ gives
+$$
+\big|\E F'(y^R)R_{ia}R_{bj}\overline{R_{ij}}\big|\le N^{-4/3+C\e}.
+$$
+In \cite{EKYY2} the replaced entry is $(b,d)$, and the assumption of Lemma 6.8 there should read ``$b,d,i,j$ are all distinct''. In its proof we use \cite[Lemma 6.10]{EKYY2} for $R$ in the one-sided form $R_{ia}=-R_{aa}\sum_kQ_{ak}R^{(a)}_{ki}$ ($i\ne a$), and we replace the large deviation bound after \cite[(6.97)]{EKYY2} by the second moment bound $\E|\sum_kQ_{ak}c_k|^2\le N^{-1}\sum_k\E|c_k|^2$ for coefficients $c_k$ independent of the row $a$ of $Q$ with $c_a=0$, since that row contains both bounded and Gaussian entries. Altogether, when $a\ne b$,
+\begin{equation} \label{eq:S-T 1}
+\left| \E F \left( \eta^2 \sum_{i \neq j} S_{ij} \overline{S_{ij}} \right) - \E F \left( \eta^2 \sum_{i \neq j} T_{ij} \overline{T_{ij}} \right) \right| \leq N^{-5/3 + C \epsilon} q^{-1}.
+\end{equation}
+
+\textit{The case $a = b$.} Then $V=v\Delta^{(a)}$ with $v=v_{aa}$, where $\Delta^{(a)}_{k\ell}:=\delta_{ak}\delta_{a\ell}$, and the resolvent identity $S=R-RVS$, applied twice, gives
+\begin{equation}
+S = R - RVR + (RV)^2 S, \qquad\text{i.e.}\qquad S_{ij}=R_{ij}-vR_{ia}R_{aj}+v^2R_{ia}R_{aa}S_{aj}.
+\end{equation}
+Hence, for $i\ne j$,
+\begin{equation} \label{eq:short_exp}
+S_{ij} \overline{S_{ij}} = R_{ij} \overline{R_{ij}} - 2v\,\re\big(\overline{R_{ij}}R_{ia}R_{aj}\big) + 2v^2\,\re\big(\overline{R_{ij}}R_{ia}R_{aa}S_{aj}\big) + \big|vR_{ia}R_{aj}-v^2R_{ia}R_{aa}S_{aj}\big|^2 .
+\end{equation}
+On $\Omega$ we have $|v|\le B\le1/2$, $|R_{kk}|,|S_{kk}|\le2$ and $|R_{k\ell}|,|S_{k\ell}|\le P\le1$ for $k\ne\ell$. Hence, for $i\ne j$, on $\Omega$,
+\begin{equation}
+\begin{split}
+\Big|S_{ij}\overline{S_{ij}}-R_{ij}\overline{R_{ij}}+2v\,\re\big(\overline{R_{ij}}R_{ia}R_{aj}\big)\Big|&\le\begin{cases}8v^2P^3, & a\notin\{i,j\},\\ 24v^2P^2, & a\in\{i,j\},\end{cases}\\
+\big|S_{ij}\overline{S_{ij}}-R_{ij}\overline{R_{ij}}\big|&\le\begin{cases}6|v|P^3, & a\notin\{i,j\},\\ 16|v|P^2, & a\in\{i,j\}.\end{cases}
+\end{split}
+\end{equation}
+Let
+\begin{equation} \label{eq:def_y^R}
+y^S := \eta^2 \sum_{i \neq j} S_{ij} \overline{S_{ij}}, \quad y^R := \eta^2 \sum_{i \neq j} R_{ij} \overline{R_{ij}}, \quad \ell(R):=-2\eta^2\sum_{i\ne j}\re\big(\overline{R_{ij}}R_{ia}R_{aj}\big).
+\end{equation}
+There are at most $N^2$ pairs with $a\notin\{i,j\}$ and at most $2N$ pairs with $a\in\{i,j\}$, and $NP\ge2$. Summing the previous bounds, we obtain on $\Omega$
+\begin{equation}
+|y^S - y^R| \leq D_1:=32B\eta^2N^2P^3, \qquad |y^S-y^R-v\,\ell(R)|\le D_2:=32B^2\eta^2N^2P^3,
+\end{equation}
+where $\eta^2N^2P^3=N^{-1/3+7\e}$, so that $D_1=32N^{-1/3+8\e}q^{-1}$ and $D_2=32N^{-1/3+9\e}q^{-2}$.
+
+Consider the Taylor expansion
+\begin{equation}
+F(y^S) - F(y^R) = F'(y^R) (y^S - y^R) + \frac{1}{2} F'' (\zeta) (y^S - y^R)^2
+\end{equation}
+for some $\zeta$ between $y^S$ and $y^R$. On $\Omega$, $0\le y^S\le\eta^2N^2N^{-2/3+4\e}=N^{2\e}$ and $|y^R|\le N^{2\e}+D_1\le 2N^{2\e}$, so $|F'(y^R)|,|F''(\zeta)|\le N^{(2C_F+1)\e}$, and by the bounds on $y^S-y^R$,
+$$
+\big|F(y^S)-F(y^R)-F'(y^R)\,v\,\ell(R)\big|\le N^{(2C_F+1)\e}\Big(D_2+\frac{D_1^2}{2}\Big)\qquad\text{on }\Omega .
+$$
+The linear term $F'(y^R)\,v\,\ell(R)$ has expectation zero on the whole probability space: $y^R$ and $\ell(R)$ are bounded functions of $Q$, which is independent of $v$, and $\E v=0$. Off $\Omega$ we use the deterministic bounds $|R_{k\ell}|,|S_{k\ell}|\le\eta^{-1}\le N$, which give $|y^S|,|y^R|\le N^2$ and $|\ell(R)|\le 2N^3$, hence $|F(y^S)-F(y^R)-F'(y^R)v\ell(R)|\le\Phi_N(1+|v|)$ with $\Phi_N:=2C_FN^3(1+N^2)^{C_F}$. Since $|v|\le T+v^2/T$ for every $T>0$ and $\E v^2\le C'N^{-1}$ with $C':=1+\max(C_0,1)$, we obtain
+\begin{equation} \label{eq:diag_bad}
+\big|\E F(y^S)-\E F(y^R)\big|\le N^{(2C_F+1)\e}\Big(D_2+\frac{D_1^2}{2}\Big)+\Phi_N\Big((1+T)\,\p(\Omega^c)+\frac{C'}{NT}\Big).
+\end{equation}
+With $T:=\Phi_NN^2$ and $\p(\Omega^c)\le N^Ce^{-c\varphi}$, the last term is at most $N^{-2}\le N^{-1/3}q^{-2}$ for $N$ large. Since $D_1^2/2\le D_2$ for $N$ large, we obtain
+\begin{equation}
+\left| \E \big( F(y^S) - F(y^R) \big) \right| \leq N^{-1/3 + C\epsilon} q^{-2}.
+\end{equation}
+Only the upper bound $\E v^2\le C'N^{-1}$ was used, not the value of $\E v^2$: on the diagonal the second moments of $H^{\V}$ and of the GOE need not match (for $C_0=0$, for instance, $\E(h^{\V}_{aa})^2=N^{-1}$, while the GOE has $2N^{-1}$). The same argument applies to $H_{\gamma-1}=Q+W$, with $w\sim\mathcal N(0,2/N)$ and the event $\Omega$ for $H_{\gamma-1}$. Since $y^R$ is the same in both cases, we find that
+\begin{equation} \label{eq:S-T 2}
+\left| \E F \left( \eta^2 \sum_{i \neq j} S_{ij} \overline{S_{ij}} \right) - \E F \left( \eta^2 \sum_{i \neq j} T_{ij} \overline{T_{ij}} \right) \right| \leq N^{-1/3 + C \epsilon} q^{-2}.
+\end{equation}
+
+\textit{The integrated functional.} The same proof gives \eqref{eq:S-T 1} and \eqref{eq:S-T 2} for $x^S:=\eta\int_{E_1}^{E_2}\sum_{i\ne j}|S_{ij}(y+i\eta)|^2dy$ in place of $y^S$ (and likewise for $R$ and $T$), for all $E_1,E_2\in I_\epsilon$, with three changes. First, the bounds on $\Omega$ hold simultaneously for all $y\in I_\epsilon$, so the pointwise bounds above hold at every $y+i\eta$ with $y$ between $E_1$ and $E_2$; after integration in $y$ the weight $\eta^2$ is replaced by $\eta|E_2-E_1|\le 2N^{-4/3}=2N^{2\e}\eta^2$, which costs a factor $2N^{2\e}$, and on $\Omega$ the functionals are bounded by $2N^{5\e}$. Second, $v$ does not depend on $y$ and leaves the $y$-integral, so the linear term is $v$ times a function of $Q$; its expectation vanishes by Fubini's theorem, since the integrand is continuous in $(H_\gamma,y)$ and bounded by $2N^2\eta^{-3}$. Third, off $\Omega$ the deterministic bounds are multiplied by $\eta^{-1}|E_2-E_1|\le N$, which only changes $\Phi_N$. In the case $a\ne b$, the same changes apply to \cite[(6.41)--(6.97)]{EKYY2}, where the integrated functional is (6.56).
+
+\textit{Telescoping.} We write the quantity in the left hand side of \eqref{eq:claim_old} as a telescopic sum,
+\begin{equation} \label{eq:tel_1}
+\E F \left( \eta^2 \sum_{i \neq j} G^{\V}_{ij} \overline{G^{\V}_{ij}} \right) - \E F \left( \eta^2 \sum_{i \neq j} G^{\w}_{ij} \overline{G^{\w}_{ij}} \right) = \sum_{\gamma=1}^{\gamma_{\max}} \left(\E F \left( \eta^2 \sum_{i \neq j} S_{ij} \overline{S_{ij}} \right) - \E F \left( \eta^2 \sum_{i \neq j} T_{ij} \overline{T_{ij}} \right)\right),
+\end{equation}
+where $S$ and $T$ depend on $\gamma$. Among the summands, $N$ have $a=b$ and $N(N-1)/2\le N^2$ have $a\ne b$. By \eqref{eq:S-T 1} and \eqref{eq:S-T 2}, the absolute value of \eqref{eq:tel_1} is at most
+$$
+N\cdot N^{-1/3+C\e}q^{-2}+N^2\cdot N^{-5/3+C\e}q^{-1}\le 2N^{1/3+C\e}q^{-1},
+$$
+since $N^{2/3}q^{-2}=N^{1/3}q^{-1}N^{1/3-\phi}\le N^{1/3}q^{-1}$. This gives \eqref{eq:claim_old} after replacing $C$ by $C+1$ (for $N^{\e}\ge2$), and the same telescoping sum for the integrated functional gives (3.20$'$).
+
+\textit{The diagonal parts.} Let $H$ be $H^{\V}=H_{\gamma_{\max}}$ or $H^{\w}=H_0$, with Green function $G$, and let $\Omega_0$ be the event of \eqref{eq:S_bound} for $H$. By the Ward identity, $N\eta\,\im m(E+i\eta)-\eta^2\sum_{i\ne j}|G_{ij}|^2=\eta^2\sum_i|G_{ii}|^2$. On $\Omega_0$, $|G_{ii}|\le2$ for all $i$ and all $E\in I_\epsilon$, so this difference lies in $[0,4N\eta^2]=[0,4N^{-1/3-2\e}]$, and $0\le\eta^2\sum_{i\ne j}|G_{ij}|^2\le N^{2\e}$. Everywhere, $0\le\eta^2\sum_{i\ne j}|G_{ij}|^2\le N\eta\,\im m\le N$, so both values of $F$ are at most $C_FN(1+N)^{C_F}$ in absolute value. Hence
+\begin{align*}
+\Big|\E F\big(N\eta\,\im m(E+i\eta)\big)-\E F\Big(\eta^2\sum_{i\ne j}|G_{ij}|^2\Big)\Big|&\le 4N^{(2C_F+1)\e}N^{-1/3-2\e}+2C_FN(1+N)^{C_F}\,\p(\Omega_0^c)\\
+&\le N^{-1/3+(2C_F+1)\e}.
+\end{align*}
+For the integrated functional, $N\int_{E_1}^{E_2}\im m(y+i\eta)\,dy-\eta\int_{E_1}^{E_2}\sum_{i\ne j}|G_{ij}|^2dy=\eta\int_{E_1}^{E_2}\sum_i|G_{ii}|^2dy$ is at most $4N\eta|E_2-E_1|\le 8N^{-1/3}$ in absolute value on $\Omega_0$, both functionals are bounded by $2N^{5\e}$ on $\Omega_0$ and by $2N^2$ everywhere, and the same argument gives the error $N^{-1/3+(5C_F+2)\e}$. Since $\phi\le1/2$, $N^{-1/3}\le N^{1/3}q^{-1}$. Combining these errors for $H^{\V}$ and $H^{\w}$ with \eqref{eq:claim_old} and (3.20$'$), we obtain \eqref{sbc} and \eqref{sbc2} with the bound $3N^{1/3+C\e}q^{-1}\le N^{1/3+(C+1)\e}q^{-1}$ for $N^{\e}\ge3$. This proves the claim, which implies the desired lemma.
+\end{proof}
+
+\begin{rem}[Corrections to the cited works] \label{rem: corrections}
+The formalization of the results of \cite{EKYY1} and \cite{EKYY2} in the forms of Lemma \ref{lem: old} and Lemma \ref{lem: ex edge un} required the following corrections. None of them changes a statement used in this paper. The corrections to \cite{EYY} are given in the proof of Lemma \ref{lem: edge un str}.
+\begin{enumerate}
+\item The bound \cite[(3.22)]{EKYY1} holds as printed only for $q\le N^{1/4}$; with the Hilbert--Schmidt term $(N^{-2}\sum_{i,j}|B_{ij}|^2)^{1/2}$ added to its right side it holds in general, and this is the form used for \cite[(3.32)]{EKYY1}.
+\item \cite[(3.36)]{EKYY1} and the proof of \cite[Lemma 3.15]{EKYY1} omit the term $j=i$ of $A_i$; with it, $|A_i|\le 5/(4N)+22\Lambda_o^2$.
+\item In the proof of \cite[Lemma 3.16]{EKYY1}, ``$(2-1-O(\cdot))^2\ge3/2$'' should read ``$(2-1-O(\cdot))\cdot2\ge3/2$''.
+\item In the proofs of \cite[Lemmas 5.7 and 5.11]{EKYY1}, the constant $1/2$ in the induction should be $1/4$.
+\item In the proof of \cite[Lemma 5.13]{EKYY1}, the quantity $X$ in (5.95) needs the additional term $(N\eta)^{-1}$, and for $U=\emptyset$ the Hilbert--Schmidt term in (5.105) is controlled through $\im m^{(Si)}$.
+\item \cite[(A.4)]{EKYY1} (Lemma A.1 (ii)) holds for $n\le N$ random variables and $q\ge1$, which is the case used; without these conditions it fails (for instance for $q<1$ and $n=N=2$, or for $n=N^2$ and $q=1$).
+\item In \cite{EKYY2}, the display after (6.19) and the argument of $K$ in (6.17) miss a factor $\pi$: $N\int_{E_1}^{E_2}\im m(y+i\eta)\,dy$ is approximately $\pi$ times the number of eigenvalues in $[E_1,E_2]$, so $K$ is to be evaluated at this quantity divided by $\pi$.
+\item In the statement of \cite[Lemma 6.8]{EKYY2}, ``$a,b,i,j$ are all distinct'' should read ``$b,d,i,j$ are all distinct''.
+\item In the second line of \cite[(6.75)]{EKYY2}, $Q^{(0)}_1$ should read $Q^{(1)}_0$, as in its first line and in (6.74).
+\end{enumerate}
+\end{rem}
+
+
+

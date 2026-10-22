@@ -1,0 +1,474 @@
+\begin{proof}[Proof of Lemma \ref{lem:S_expansion}]
+Throughout the proof, $\gamma=\Phi(a,b)$, and $m_0$ is the number of moments matched at the entry $(a,b)$, i.e., $m_0=4$ if $a\ne b$ and $m_0=2$ if $a=b$. Every entry $h$ of $H_{\gamma'}$ and of $Q$ satisfies $|h|\le q^{-1}\le N^{-\phi}$ almost surely, where $q\ge N^{\phi}$ is the almost sure bound fixed at the beginning of this section. Choose
+\be\label{defxin}
+\xi:=\lceil 2\zeta/\phi\rceil, \quad \mbox{so that} \quad \xi\phi\ge 2\zeta.
+\ee
+
+We apply the expansion %For $S_{i_1 j_1} S_{i_2 j_2}$, 
+\begin{equation}
+S = R - RVR + (RV)^2 R - \cdots + (-1)^{\xi} (RV)^{\xi} R + (-1)^{\xi + 1} (RV)^{\xi + 1} S .
+\end{equation}
+With the condition $|v_{ab}|\leq N^{-\phi}$, we note that the last term in this expansion is $O(N^{- \zeta})$. Thus,
+\begin{equation}\label{cfdrx}
+S = R - RVR + (RV)^2 R - \cdots + (-1)^{\xi} (RV)^{\xi} R + O(N^{-\xi\phi }).
+\end{equation}
+Since $v_{kl} = 0$ if $\{ k, l \} \neq \{ a, b \}$, we have
+\begin{equation}
+([-RV]^m R)_{i_t j_t} = \sum_{ (a_i, b_i) \in \{ (a, b), (b,a) \};\, 1 \leq i \leq m} R_{i_t a_1} V_{a_1 b_1} R_{b_1 a_2} \cdots V_{a_m b_m} R_{b_m j_t} \,.
+\end{equation}
+We note that  $V_{ab}=V_{ba}=v_{ab}=h_{ab}$ (for $a=b$, the only nonzero entry of $V$ is $V_{aa}=h_{aa}$). Using Definition \ref{def*} and Definition \ref{taz}, we have
+\be\label{wbyj}
+ [-RV]^{k } R=R^ {*(k+1)}(-h_{ab})^k%=\mathcal P_{\gamma, k}R(-h_{ab})^k
+ , \quad S=\sum_{0\le k\leq  \xi} ( R^ {*(k+1)})(-h_{ab})^k + O(N^{- \xi\phi}).
+\ee
+Similarly, 
+\be
+R_{ij}=\sum_{0\le k\leq  \xi} (\mathcal P_{\gamma, k}S_{ij})(h_{ab})^k + O(N^{- \xi\phi}), \quad (R -m_{sc}) _{ij} =\sum_{0\le k\leq  \xi} (\wt {\mathcal P}_{\gamma, k}S_{ij}) (h_{ab})^k + O(N^{- \xi\phi}).
+\ee
+The proof below is written for $\prod_tS_{i_tj_t}$; it applies without change to the products with conjugate factors, centred factors $(S-m_{sc})_{ij}$, or both, that are covered by Lemma \ref{lem:S_expansion}, because it uses only an expansion of each factor separately. Since $h_{ab}$ is real, conjugating \eqref{wbyj} term by term gives
+$$
+\overline{S_{ij}}=\sum_{0\le k\le\xi}\overline{(R^{*(k+1)})_{ij}}\,(-h_{ab})^k+O(N^{-\xi\phi}),
+$$
+and subtracting $m_{sc}\delta_{ij}$ from the term $k=0$ of \eqref{wbyj} gives
+$$
+\begin{aligned}
+(S-m_{sc})_{ij}&=(R-m_{sc})_{ij}+\sum_{1\le k\le\xi}(R^{*(k+1)})_{ij}(-h_{ab})^k+O(N^{-\xi\phi})\\
+&=\sum_{0\le k\le\xi}\big(\wt{\mathcal P}_{\gamma,k}(R-m_{sc})_{ij}\big)(-h_{ab})^k+O(N^{-\xi\phi}),
+\end{aligned}
+$$
+and its conjugate in the same way (for $i\ne j$, $(R-m_{sc})_{ij}=R_{ij}$). Thus each factor of each of the four kinds expands with the operator of its kind, $\mathcal P_{\gamma,k}$, $\overline{\mathcal P_{\gamma,k}}$, $\wt{\mathcal P}_{\gamma,k}$ or $\overline{\wt{\mathcal P}_{\gamma,k}}$. For every $k$ these operators produce the same number of products as $\mathcal P_{\gamma,k}$, since $\wt{\mathcal P}_{\gamma,0}$ and $\mathcal P_{\gamma,0}$ both give one entry and $\wt{\mathcal P}_{\gamma,k}=\mathcal P_{\gamma,k}$ for $k\ge1$. The composition rule \eqref{PPP} holds factor by factor for all four kinds: on a centred factor $\wt{\mathcal P}_{\gamma,k'}\wt{\mathcal P}_{\gamma,0}=\wt{\mathcal P}_{\gamma,k'}$, and for $k\ge1$ the operator $\wt{\mathcal P}_{\gamma,k}$ produces uncentred entries, to which \eqref{PPP} applies; conjugation commutes with all these operations. The bound \eqref{bG4} holds for the conjugates as well, since $|\overline w|=|w|$. The rest of the proof uses only these per-factor expansions, the bound \eqref{bG4} and the moments $\E h_{ab}^k$, and it uses \eqref{PPP} and the counts $|I^a_{b,c}|$ in the same way for every kind of factor. Hence the coefficients $\mathcal A_\al$ and $\wt{\mathcal A}_\al$ constructed below depend only on $\al$, $s$, $\xi$, $(a,b)$ and the moments of $h_{ab}$, and not on the kinds of the factors, and the proof gives \eqref{eq:S_exp2}--\eqref{eq:S_exp4} for all such products with the same coefficients.
+
+For this reason, we only show the proof of \eqref{eq:S_exp2}. The proof of \eqref{eq:S_exp3} is the same, with the second identity above in place of the first and with $\wt{\mathcal P}$ applied to $\prod_{t}(S-m_{sc})_{i_tj_t}$ and to $\prod_{t}(R-m_{sc})_{i_tj_t}$ in place of $\mathcal P$. The proof of \eqref{eq:S_exp4} and \eqref{boundcalA2} is given at the end of this proof.
+
+Using \eqref{wbyj} and \eqref{813}, with 3-high probability, we have that (with definition \ref{taz})
+\be\label{dmty}
+\prod_{t=1}^{s} S_{i_t j_t} 
+= \sum _{0\le k\leq  \xi s;} \sum_{{\bf k}\in    I^s_{ \xi, k}}
+\left(\mathcal P_{\gamma, {\bf k}}\prod_{t=1}^s R_{i_tj_t} \right) (-h_{ab})^{k_t}+ O(2^sN^{-\xi\phi})
+\ee
+where 
+\be
+{\bf k}:=(k_1,k_2, \cdots, k_s), %\quad  |{\bf k}|:= \sum k_i,
+ \quad I^a_{b,c}:=\{{\bf k}\in \mathbb N^a: 0\le k_i\leq b,   \sum k_i=c\}
+\ee
+Note that, from the above definition,
+\be\label{boundI}
+|I^a_{b,c}|\leq a^c \, .
+\ee
+We note that the term in \eqref{dmty} belonging to $k=0$ is $\prod_{t=1}^{s} R_{i_t j_t}$. For the terms belonging to $k\ge \xi$, using \eqref{bG4}, we know that with 3-high probability they are bounded by
+\be
+\sum_{k\ge \xi}s^k 4^{k+s}N^{-k\phi} \le O( s^{\xi} 4^{\xi+s} N^{-\xi\phi}),
+\ee
+where $s^k$ comes from $\sum_{{\bf k}\in I^s_{\xi, k}}$. Hence, 
+\be\label{hxxt}
+\prod_{t=1}^{s} S_{i_t j_t} 
+=\prod_{t=1}^{s} R_{i_t j_t}+  \sum _{1\leq k\leq \xi } \left( \sum_{{\bf k} \in I^s_{\xi, k}}
+\mathcal P_{\gamma, {\bf k}} \prod_{t=1}^s R _{i_t j_t}  \right) (-h_{ab})^k+ O(  s^{\xi} 4^{\xi+s} N^{-\xi\phi}).
+\ee
+
+Recall that $(S^{*s})_{ij}$ is a sum of terms as in Definition \ref{def*}. As a special case, consider a term in $(S^{*s})_{ij}=\mathcal P_{\gamma, s-1}S_{ij}$ and rewrite it as $S_{i_1 j_1} S_{i_2 j_2} \cdots S_{i_s j_s}$. We have 
+\be 
+(S^{*s})_{ij} = (R^{*s})_{ij}+\sum _{1\leq k\leq \xi } \left( \sum_{{\bf k}\in I^s_{\xi, k}}
+(\mathcal P_{\gamma, {\bf k}}(R^{*s})_{ij}) \right)(-h_{ab})^k
++ O( s^{  \xi} 4^{ \xi+s} N^{-\xi\phi}).
+\ee
+Then, with \eqref{PPP}, we have (here we replaced $s$ with $s+1$ for simplicity)
+\be \label{cyyl}
+ \mathcal P_{\gamma, s }S_{ij}=\mathcal P_{\gamma, s }R_{ij}+ \sum _{1\leq k\leq \xi }| I^{s+1}_{\xi, k}|  (\mathcal P_{\gamma, {s+k }}R)_{ij} (-h_{ab})^k+ O(  s^{\xi} 4^{ \xi+s} N^{-\xi\phi}) , 
+\ee
+Define, for $0\leq k\leq m_0$,
+\be
+A_k:=\sum_{{\bf k}\in I^s_{\xi, k}} \mathcal P_{\gamma, {\bf k}}\prod_{t=1}^s R_{i_t j_t} = \sum_{{\bf k}\in I^s_{\xi, k}} \prod_{t=1}^s R^{*(k_t+1)}_{i_t j_t}
+\ee
+Clearly, they depend only on $R$. Thus, as in \eqref{hxxt}, with 3-high probability,
+\be
+\prod_{t=1}^{s} S_{i_t j_t}
+=\sum_{k=0}^{m_0}A_k(-h_{ab})^k+ \sum _{m_0< k\leq \xi }\left( \sum_{{\bf k}\in  I^s_{\xi, k}}
+\mathcal P_{\gamma, {\bf k}}\prod_{t=1}^s R _{i_t j_t}  \right)(-h_{ab})^k+
+O(  s^{\xi} 4^{ \xi+s} N^{-\xi\phi}).
+\ee
+We take the expectation $\E$ in the both sides of the equation. Recall that the good event holds with 3-high probability and the entries of $S$ and $R$ are bounded by $\eta^{-1} \leq N$ (see \eqref{813tr}). Furthermore, in this proof, no product has more than $s+\xi\le (K_s+2/\phi+1)\varphi^2$ entries of $S$ or $R$, and the number of products is at most $N^{C(s+\xi)}$. Hence the contribution of the bad event to the expectation is at most $N^{C(s+\xi)}e^{-c\varphi^3}\le N^{-\zeta}$, since $(s+\xi)\log N+\zeta\log N\le C\varphi^2\log N$ is much smaller than $\varphi^3$. Thus, when taking the expectation $\E$, we can simply ignore the set of bad event. Since $R$ is independent of $h_{ab}$, the expectation of each term factorizes, e.g., $\E[A_k(-h_{ab})^k]=\E A_k\cdot\E(-h_{ab})^k$.
+
+To simplify the notation, we define
+\be
+n_k:= \E (-h_{ab})^k.
+\ee
+Then, we get
+\begin{equation} \label{eq:S expand2}
+\E\prod_{t=1}^{s} S_{i_t j_t} 
+=\sum_{k=0}^{m_0} n_k\E A_k+ \sum _{m_0< k\leq \xi } n_k\left( \sum_{{\bf k}\in    I^s_{\xi, k}}
+\E\mathcal P_{\gamma, {\bf k}}\prod_{t=1} ^sR _{i_tj_t}   \right) +
+O(  s^{  \xi} 4^{ \xi+s} N^{-\xi\phi})
+\end{equation}
+To estimate $\E\mathcal P_{\gamma, {\bf k}}\prod_{t=1} ^s R_{i_t j_t} 
+=\E \prod_{t} \mathcal P_{\gamma, k_t} R _{i_t j_t}$, we first use \eqref{cyyl} and obtain 
+\be
+\mathcal P_{\gamma, k_t} S_{i_tj_t}=\mathcal P_{\gamma, k_t} R _{i_tj_t}+\sum _{1\le l_t\le \xi -k }
+|I^{k_t+1}_{\xi-k, l_t}|  \mathcal P_{\gamma, (k_t+l_t)} R _{i_tj_t}  (-h_{ab})^{l_t}+ O( (4k_t+4)^{\xi-k} 4^{k_t+1}  N^{-\xi\phi+k\phi}).
+\ee
+Note that from \eqref{boundI} we have a bound 
+$$
+|I^{k_t+1}_{\xi-k, l_t}|  \leq (k_t+1)^{l_t}.
+$$ 
+From that $|\mathcal P_{\gamma, k_t} S_{i_tj_t}|\leq 4^{k_t+{ 2}}$ (see \eqref{bG4}), for $0\le k_1,k_2, \cdots, k_s\le \zeta  /\phi $, $\sum k_i=k$ and $k\leq \zeta/\phi$, we obtain that
+\begin{equation} \begin{split} \label{dydy}
+\mathcal P_{\gamma, {\bf k}}\prod_{t=1} ^sS _{i_tj_t} =&\mathcal P_{\gamma, {\bf k}}\prod_{t=1} ^sR _{i_tj_t} +\sum _{1\le l\le( \xi-k)s  }
+\left(\sum_{{\bf l}\in I^s_{ \xi-k, l}}
+\prod_t|I^{k_t+1}_{ \xi-k, l_t}|  \mathcal P_{\gamma, k_t+l_t} R _{i_tj_t}\right) (-h_{ab})^l \\
+& \quad+ O(  (4k+4)^{\xi-k} 4^{k+s}  N^{-\xi\phi+k\phi}).
+\end{split} \end{equation}
+For the terms that belong to $l \ge \xi-k$, from \eqref{bG4} and \eqref{boundI}, they are bounded by 
+$$ 
+\sum_{l\ge \xi-k}s^l(k+1)^l4^{k+l+s} N^{-l\phi} \leq  (sk+s)^{ \xi-k} 4^{\xi+s} N^{-\xi\phi+k\phi}.
+$$
+Then, the upper bound of $l$ in \eqref{dydy} can be reduced to $\xi-k$ as follows: 
+\begin{equation} \begin{split} \label{gh}
+\mathcal P_{\gamma, {\bf k}}\prod_{t=1} ^sS _{i_tj_t} =&\mathcal P_{\gamma, {\bf k}}\prod_{t=1} ^sR _{i_tj_t} +\sum _{1\le l\le  \xi-k  }
+\left(\sum_{{\bf l}\in I^s_{ \xi-k, l}}
+\prod_t|I^{k_t+1}_{ \xi-k, l_t}|  \mathcal P_{\gamma, k_t+l_t} R _{i_tj_t}\right) (-h_{ab})^l \\
+& \quad + O(  (sk+s)^{\xi-k} 4^{{ \xi} +s}  N^{-\xi\phi+k\phi}) 
+\end{split} \end{equation}
+
+We observe that
+ \be
+ \prod_t|I^{k_t+1}_{ \xi-k, l_t}|  \mathcal P_{\gamma, k_t+l_t} R _{i_tj_t}
+ = \left(\prod_t|I^{k_t+1}_{ \xi-k, l_t}| \right) \left(\mathcal P_{\gamma, {\bf k+l}}\prod_t R _{i_tj_t}\right), \quad {\bf l}=(l_1,l_2, \cdots, l_s).
+ \ee
+Inserting it into \eqref{eq:S expand2}, with $|h_{ab}|\leq N^{-\phi}$ and $|I^s_{\xi,k}| \leq s^k$,  $k\leq \xi$, we get
+\begin{align}\label{off}
+\E\prod_{t=1}^{s} S_{i_t j_t} 
+=&\sum_{k=0}^{m_0}  n_k\E A_k
++
+ \sum _{m_0< k\le \xi  }n_k
+\left( \sum_{{\bf k}\in I^s_{\xi,k}}
+\E \mathcal P_{\gamma, {\bf k}}\prod_{t=1}^s S_{i_t j_t} \right)
+\\\nonumber
+&-\sum _{k= m_0+1}^{ \xi }
+\sum _{l=1}^{ \xi -k  }
+n_kn_l\left(
+\sum_{{\bf k}\in I^s_{\xi,k}}
+ \sum_{{\bf l}\in I^s_{\xi-k,l}}
+\left(\prod_t|I^{k_t+1}_{ \xi-k, l_t}| \right) \E\left(\mathcal P_{\gamma, {\bf k+l}}\prod_t R _{i_tj_t}\right) \right)
+\\\nonumber
+&+ O(\xi ( s\xi+s)^{\xi} 4^{s+\xi}   N^{-\xi\phi }) ,
+\end{align}
+where the single $\xi$ factor in the last term comes from $\sum_k$. For $k> m_0$, define
+\be
+A_k=  \sum_{{\bf k}\in I^s_{\xi , k}}  \mathcal P_{\gamma, {\bf k}}\prod_{t=1} ^sS _{i_t j_t} \, .
+\ee
+Clearly, it has at most $s^k$ terms having the form of $\mathcal P \prod S $. Applying \eqref{gh} again on $\E\mathcal P_{\gamma, {\bf k+l}}\prod_t R _{i_tj_t}$, as in \eqref{gh}, we have 
+\begin{align}
+ &\mathcal P_{\gamma, {\bf k+l}}\prod_t R_{i_t j_t} \nonumber \\
+=&\mathcal P_{\gamma, {\bf k+l}}\prod_t S_{i_t j_t}-\sum _{1\leq o\le {  \xi-k-l} }
+\left(\sum_{{\bf o}\in I^s_{\xi-k-l, o}}
+\left(\prod_t|I^{k_t+l_t+1}_{ \xi-k-l, o_t}| \right) \mathcal P_{\gamma, {\bf k+l+o}}\prod_t R _{i_tj_t}\right) (-h_{ab})^o
+\\\nonumber
+&+ O(  (s(k+l)+s)^{\xi-k-l} 4^{{ \xi}+l+s}  N^{(-\xi+k+l)\phi}) 
+\end{align}
+We now insert it back to \eqref{off}, replacing the notation $k$, $l$, $o$ with $k_1$, $k_2$, $k_3$ and $k_t$, $l_t$, $o_t$ with ${ k}_{1}(t)$,  ${ k}_{2}(t)$, ${ k}_{3}(t)$, respectively. Using 
+\be
+|n_kn_l |
+\sum_{{\bf k}\in I^s_{\xi,k}}
+ \sum_{{\bf l}\in I^s_{\xi-k,l}}
+ \prod_{t=1} ^s |I^{k_t+1}_ {\xi-k, l_t}| \leq N^{-(k+l)\phi}s^k s^l(k+1)^l,
+\ee
+we obtain
+\begin{align}\label{off2}
+&\E\prod_{t=1}^{s} S_{i_t j_t} \nonumber \\ 
+=&\sum_{k_1=0}^{\xi}  n_{k_1}\E A_{k_1} 
+ -\sum _{k_1= m_0+1}^{ \xi  }
+\sum _{k_2=1}^{ \xi-k_1  }
+ n_{k_1}n_{k_2}\left(
+\sum_{{\bf k_1}\in I^s_{\xi , k_1}}
+ \sum_{{\bf k_2}\in I^s_{\xi -k_1, k_2}}
+\left(  \prod_{t=1} ^s 
+ |I^{{ k}_{1}(t)+1}_{\xi-k_1, {  k}_{2}(t)}|\right)
+   \E \mathcal P_{\gamma, {\bf k_1+k_2}}\prod_t S _{i_tj_t}  \right) \nonumber
+\\
+&+\sum _{k_1= m_0+1}^{ \xi  }
+\sum _{k_2=1}^{ \xi-k_1  }\sum _{k_3=1}^{ \xi-k_1-k_2  }
+ n_{k_1}n_{k_2}n_{k_3}\times
+ \\
+ & \quad \left(
+\sum_{{\bf k_1}\in I^s_{\xi , k_1}}
+ \sum_{{\bf k_2}\in I^s_{\xi -k_1, k_2}}
+  \sum_{{\bf k_3}\in I^s_{\xi -k_1-k_2, k_3}}
+\left(\prod_{t=1} ^s 
+ |I^{{ k}_{1}(t)+1}_{\xi-k_1, { k}_{2}(t)}| |I^{{ k}_{1}(t)+{ k}_{2}(t)+1}_{\xi-k_1-k_2, { k}_{3}(t)}|\right)
+ \E \mathcal P_{\gamma, {\bf k_1+k_2+k_3}}\prod_t R _{i_tj_t}  \right) \nonumber
+\\ 
+&+O(  \xi ^2 ( s\xi+s)^{\xi} 4^{s+\xi}   N^{-\xi\phi}), \nonumber
+\end{align}
+where the factor $\xi^2$ comes from $\sum_{k_1}\sum_{k_2}$. Define 
+\be
+A_{k_1,k_2}:=-\sum_{{\bf k_1}\in I^s_{\xi , k_1}}
+ \sum_{{\bf k_2}\in I^s_{\xi -k_1, k_2}}
+ \left(  \prod_{t=1} ^s 
+ |I^{{ k}_{1}(t)+1}_{\xi-k_1, { k}_{2}(t)}|\right)
+   \E \mathcal P_{\gamma, {\bf k_1+k_2}}\prod_t S _{i_t j_t}.
+\ee 
+Clearly, letting $k:=k_1+k_2$, we find that $A_{k_1,k_2}$ has at most  
+$$
+s^{k_1+k_2} \prod_{t=1} ^s 
+ |I^{{ k}_{1}(t)+1}_{\xi-k_1, { k}_{2}(t)}|\leq s^{k_1+k_2}(k_1+1)^{k_2} \leq s ^{k}(k+1)^k\leq C(sk)^{ k}
+$$
+terms of the form $\mathcal P\prod S$. 
+
+We repeat the previous procedure $\xi$ times. Recall that $k_i:= \sum_t k_{i }(t)$. Let
+\be
+\wt k_{i}:=k_{1 }+k_{2 }+\cdots+ k_{i  }, \quad \wt k_{i }(t):=k_{1 }(t)+k_{2 }(t)+\cdots+ k_{i }(t).
+\ee
+Define
+\be \begin{split} \label{wbtnm}
+& A_{k_1,k_2,k_3\cdots, k_n} \\
+&=(-1)^{n-1}\sum_{{\bf k_1}\in I^s_{\xi , k_1}}
+ \sum_{{\bf k_2}\in I^s_{\xi -\wt k_1, k_2}}
+  \sum_{{\bf k_3}\in I^s_{\xi -\wt k_2, k_3}}
+  \cdots
+   \sum_{{\bf k_n}\in I^s_{\xi -\wt k_{n-1}, k_n}}\\
+&\qquad \prod_{t=1} ^s  \left(\prod_{m=1}^{n-1}
+ |I^{\wt k_{m}(t)+1}_{\xi-\wt k_m, k_{m+1}(t)}|\right)
+  \E\,\mathcal P_{\gamma, (\sum_{i=1}^n {\bf k_i})}\prod_t S _{i_t j_t}.  
+\end{split} \ee
+Let $\# A_{k_1,k_2,k_3\cdots, k_n}$ be the number of the terms of the form $\mathcal P\prod S$ in $A_{k_1,k_2,k_3\cdots, k_n}$. Clearly, with $k:=\sum_{i}k_i$,   
+\be\label{dngs}
+\# A_{k_1,k_2,k_3\cdots, k_n}\leq s^{k}(k +1)^{k }  \leq C ( sk)^{ k}.
+\ee
+Thus, we obtain that 
+\begin{equation} \begin{split} \label{off3}
+\E\prod_{t=1}^{s} S_{i_t j_t} 
+=&\sum_{k_1=0}^{\xi}  n_{k_1}\E A_{k_1}+\sum _{k_1= m_0+1}^{ \xi  }
+\sum _{k_2=1}^{ \xi-k_1  }
+ n_{k_1}n_{k_2}A_{k_1,k_2}
++\sum _{k_1= m_0+1}^{ \xi  }
+\sum _{k_2=1}^{ \xi-k_1  }\sum _{k_3=1}^{ \xi-k_1-k_2  }
+ n_{k_1}n_{k_2}n_{k_3} A_{k_1,k_2,k_3}
+ \\
+ &+\cdots
+ \\
+ &+\sum _{k_1, k_2,\cdots, k_\xi;} 
+\left( \prod _{i=1}^{\xi} n_{k_i} \right)A_{k_1,k_2,\cdots, k_\xi}+O(  \xi ^\xi ( s\xi+s)^{\xi} 4^{s+\xi}   N^{-\xi\phi }) ,
+\end{split} \end{equation}
+where we sum up $k_1, k_2,\cdots, k_\xi$ under the condition $ k_1> m_0, k_i\ge 1, 1\le \sum k_i\le \xi$. The factor 
+$\xi^\xi$ comes from $\sum _{k_1, k_2,\cdots, k_\xi;}$. 
+
+The equation \eqref{off3} implies \eqref{eq:S_exp2}. Indeed, by \eqref{wbtnm}, $\prod_i n_{k_i}A_{k_1,\dots,k_n}$ is a linear combination of the terms $\E\,\mathcal P_{\gamma,\al}\prod_t S_{i_tj_t}$ with $\al=\sum_{i=1}^n{\bf k}_i$. Collecting, for each $\al\in\mathbb N^s$, the coefficients of $\E\,\mathcal P_{\gamma,\al}\prod_t S_{i_tj_t}$ in all terms of \eqref{off3} with $k_1>m_0$ gives \eqref{eq:S_exp2} with
+$$
+\mathcal A_\al=\sum_{n\ge1}\;\sum_{({\bf k}_1,\dots,{\bf k}_n)}(-1)^{n-1}\Big(\prod_{i=1}^n n_{k_i}\Big)\prod_{t=1}^s\prod_{m=1}^{n-1}\big|I^{\wt k_m(t)+1}_{\xi-\wt k_m,k_{m+1}(t)}\big|, \qquad m_0<|\al|\le\xi,
+$$
+where the second sum is over ${\bf k}_1\in I^s_{\xi,k_1}$, ${\bf k}_{i}\in I^s_{\xi-\wt k_{i-1},k_i}$ $(2\le i\le n)$ with $k_1>m_0$, $k_i\ge1$ $(i\ge2)$ and $\sum_i{\bf k}_i=\al$, and with $\mathcal A_\al:=0$ outside the window $m_0<|\al|\le\xi$. The coefficients $\mathcal A_\al$ depend only on $\al$, $s$, $\xi$ and the moments $n_k$ of $h_{ab}$; in particular they do not depend on $(i_t,j_t)$ or on $z$. The terms of \eqref{off3} with $k_1\le m_0$ are $n_{k_1}\E A_{k_1}$, where $A_{k_1}$ depends only on $R$. For the error term of \eqref{off3}, recall that $s\le K_s\varphi^2$ and $\xi\le2\varphi^2/\phi+1$, so that $\log(4\xi(s+1)(\xi+1))\le C(\log\log N)^2\le(\phi/4)\log N$ for $N$ large enough, depending only on $(\phi,K_s)$. With $\xi\phi\ge2\zeta$, we get
+$$
+\xi ^\xi ( s\xi+s)^{\xi} 4^{s+\xi}   N^{-\xi\phi }\le 4^s\exp\Big(\xi\big[\log(4\xi(s+1)(\xi+1))-\phi\log N\big]\Big)\le 4^s N^{-3\xi\phi/4}\le 4^sN^{-\zeta}N^{-\xi\phi/4},
+$$
+so that the error terms, including the implicit constants and the contribution of the bad event, are at most $4^sN^{-\zeta}$ for $N$ large enough, depending only on $(C_1,\phi,K_s)$.
+
+Now we are ready to prove \eqref{boundcalA}. Since $\al$ plays the role of $(\sum_{i=1}^n {\bf k_i})$ in \eqref{wbtnm}, we have that
+\be
+|\al|= \sum_t \al_t =\sum_{i}k_i
+\ee
+Then, since there are at most $2^{|\al|}$ sequences $(k_1,\dots,k_n)$ of positive integers with $\sum_ik_i=|\al|$, we obtain from \eqref{dngs} that 
+$$
+|\mathcal A_{\al }|\leq  \sum_{n\ge1}\;\sum_{k_1>m_0,\,k_i\ge1,\,\sum k_i=|\al|}\#A_{k_1,k_2,\cdots, k_n}\prod_{i=1}^n |n_{k_i}|\le C\,(4s\xi)^{|\al|}\max_{k_1>m_0,\,k_i\ge1,\,\sum k_i=|\al|}\;\prod_{i=1}^n|n_{k_i}|.
+$$
+Every entry $h$ of $H_\gamma$ has the law of the corresponding entry of $H^{\V}$ or of $H^{\w}$, and $|h|\le q^{-1}$ almost surely. For $a\ne b$, $\E h_{ab}^4\le C_1(\log N)N^{-2}$, and for the diagonal entries $\E h_{aa}^2\le C_1N^{-1}$; for the entries of $H^{\w}$ this follows from the moment matching, since these moments are among the matched ones. Since $|\E h^k|\le q^{-(k-m)}\E h^m$ for even $m\le k$, every entry of every $H_\gamma$ satisfies
+\begin{equation}\begin{split}
+|\E (h_{ab})^k| &\leq  C_1(\log N)N^{-2}q^{-(k-4)}\le C_1(\log N)N^{-2-(k-4)\phi}, \quad a\ne b,\quad k\ge 4,\\
+|\E (h_{aa})^k| &\leq  C_1N^{-1}q^{-(k-2)}\le C_1N^{-1-(k-2)\phi}, \quad k\ge 2.
+\end{split}\end{equation}
+Moreover, $n_1=0$, and $N^{-1}=\E h_{12}^2\le q^{-2}$, so that, with $M:=\max(C_1,1)$, $|n_k|\le M q^{-k}\le MN^{-k\phi}$ for all $k\ge2$, for $a\ne b$ and for $a=b$. 
+
+If $a\ne b$, then $m_0=4$, $k_1\ge5$, and the two bounds give $\prod_i|n_{k_i}|\le C_1(\log N)M^{|\al|}N^{-2-(|\al|-4)\phi}$. Since $|\al|-4\ge|\al|/5$ for $|\al|\ge5$, 
+$$
+|\mathcal A_\al|\le C\,C_1(\log N)(4Ms\xi)^{|\al|}N^{-2-|\al|\phi/5}\le N^{-2-|\al|\phi/10},
+$$
+because $s\xi\le C\varphi^4$, so that $C\,C_1(\log N)(4Ms\xi)^{|\al|}\le N^{|\al|\phi/10}$ for $N$ large enough. If $a=b$, then $m_0=2$, $k_1\ge3$, and $\prod_i|n_{k_i}|\le C_1M^{|\al|}N^{-1-(|\al|-2)\phi}$. Since $|\al|-2\ge|\al|/3$ for $|\al|\ge3$, 
+$$
+|\mathcal A_\al|\le C\,C_1(4Ms\xi)^{|\al|}N^{-1-|\al|\phi/3}\le N^{-1-|\al|\phi/4}.
+$$
+This proves \eqref{boundcalA} in both cases.
+
+Finally, we prove \eqref{eq:S_exp4} and \eqref{boundcalA2}. Taking the expectation of \eqref{hxxt}, as in \eqref{eq:S expand2}, we get 
+\begin{equation} 
+\E\prod_{t=1}^{s} S_{i_t j_t} 
+=\E\prod_{t=1}^{s} R_{i_t j_t} + \sum _{1\leq k\leq \xi } n_k\left( \sum_{{\bf k}\in I^s_{\xi, k}}
+\E\mathcal P_{\gamma, {\bf k}}\prod_{t=1} ^sR _{i_tj_t}   \right) +
+O(  s^{  \xi} 4^{ \xi+s} N^{-\xi\phi}),
+\end{equation} 
+i.e., the terms $k=1,\dots,m_0$ are moved from the first sum of \eqref{eq:S expand2} to the second one, and the first sum keeps only $k=0$. We now convert each $\E\,\mathcal P_{\gamma,{\bf k}}\prod_t R_{i_tj_t}$, $|{\bf k}|\ge1$, into terms $\E\,\mathcal P_{\gamma,\al}\prod_t S_{i_tj_t}$ by \eqref{gh}, and repeat the procedure \eqref{off}--\eqref{off3} without change, except that the condition $k_1>m_0$ is replaced by $k_1\ge1$. The error terms are bounded as above. Collecting the coefficients as above gives \eqref{eq:S_exp4} with
+$$
+\wt{\mathcal A}_\al=\sum_{n\ge1}\;\sum_{({\bf k}_1,\dots,{\bf k}_n)}(-1)^{n-1}\Big(\prod_{i=1}^n n_{k_i}\Big)\prod_{t=1}^s\prod_{m=1}^{n-1}\big|I^{\wt k_m(t)+1}_{\xi-\wt k_m,k_{m+1}(t)}\big|, \qquad 1\le|\al|\le\xi,
+$$
+where the second sum is over the same vectors as for $\mathcal A_\al$, but with $k_1\ge1$ in place of $k_1>m_0$. Again, $\wt{\mathcal A}_\al$ depends only on $\al$, $s$, $\xi$ and the moments $n_k$ of $h_{ab}$, and not on $(i_t,j_t)$ or on $z$. Since $|n_k|\le MN^{-k\phi}$ for all $k\ge1$, we have $\prod_i|n_{k_i}|\le M^{|\al|}N^{-|\al|\phi}$ for every sequence with $\sum_ik_i=|\al|$, and, as above,
+$$
+|\wt{\mathcal A}_\al|\le C(4Ms\xi)^{|\al|}N^{-|\al|\phi}\le N^{-|\al|\phi/10}
+$$
+for $N$ large enough. This proves \eqref{eq:S_exp4} and \eqref{boundcalA2}. In all the steps above, the constants and the threshold for $N$ depend only on $(C_1,\phi,K_s)$; they do not depend on $\zeta$, $s$, $\gamma$, $(a,b)$, $z\in{\bf S}(C_0)$ or the indices $(i_t,j_t)$.
+\end{proof}
+
+
+Last, we prove Lemma \ref{lem:green}.
+ 
+\begin{proof}[Proof of Lemma \ref{lem:green}]
+For simplicity, we only prove \eqref{mainpear}. The proof for \eqref{sbc22} is similar.
+
+Recall that $\eta = N^{-2/3 - \epsilon}$. Define
+\begin{equation}
+x^S := \eta \; \im \tr S = \eta^2 \sum_{i, j} S_{ij} \overline{S_{ij}}, \quad x^R := \eta \; \im \tr R = \eta^2 \sum_{i, j} R_{ij} \overline{R_{ij}}.
+\end{equation}
+Recall also that $S=(H_\gamma-z)^{-1}$ and $R=(Q-z)^{-1}$, where all the entries of $H_{\gamma}$ and $Q$ are the same except the $(a,b)$ entries. Since $H$ satisfies the conditions of Theorem \ref{thm: new rigidity}, $N^{-1}=\E h_{12}^2\le N^{-2\phi}$, so $\phi\le1/2$. Let $q_0:=\min(N^{\phi},\wt q)$, with $\wt q$ of Lemma \ref{lem: match}. Then $|h_{ab}|\le q_0^{-1}$ and $|\wt h_{ab}|\le q_0^{-1}$ almost surely, for all $a,b$, and $q_0\ge N^{\phi'}$ with $\phi':=\min(\phi,1/4)$ for $N\ge N_0(C_1)$, since $\wt q\ge N^{1/4}$. Hence Lemma \ref{lem:S_expansion}, \eqref{813} and the iteration \eqref{HHtt3} apply to every $H_\gamma$ with the exponent $\phi'$ in place of $\phi$. Since $H_\gamma - Q$ has rank at most $2$, we have 
+\be
+|\tr S-\tr R|\leq 2\eta^{-1}.
+\ee
+Indeed, let $A$ be real symmetric, $\tau\in\mathbb R$, $u\in\mathbb R^N\setminus\{0\}$, $G=(A-z)^{-1}$ and $G'=(A+\tau uu^T-z)^{-1}$. By the Sherman--Morrison formula, $\tr G'-\tr G=-\tau\, u^TG^2u/(1+\tau u^TGu)$. Here $|u^TG^2u|\le\|Gu\|^2=\eta^{-1}\im u^TGu$ and $|1+\tau u^TGu|\ge|\tau|\im u^TGu>0$, so $|\tr G'-\tr G|\le\eta^{-1}$. If $a=b$, then $H_\gamma-Q=h_{aa}e_ae_a^T$; if $a\ne b$, then $H_\gamma-Q=\frac{h_{ab}}{2}\big[(e_a+e_b)(e_a+e_b)^T-(e_a-e_b)(e_a-e_b)^T\big]$. In general, $|\tr S-\tr R|\le{\rm rank}(H_\gamma-Q)/\eta$.
+
+Together with \eqref{tby4} and \eqref{esmallfake}, with high probability,
+\be\label{flld}
+\quad \max_{\gamma} \{|x^S|+|x^R|\}\leq N^{C\e}.
+\ee
+From \eqref{Gij estimate} and \eqref{8800}, with $q_0^{-1}\le N^{-\phi+\e}$ and $(N\eta)^{-1}=N^{-1/3+\e}$, we find that
+\be
+\max_{\gamma}\left( |R_{ij}|+|S_{ij}|\right)\leq N^{-\min(\phi,1/3)+C\e}+C\delta_{ij}
+\ee
+with high probability. We also have the trivial bounds
+\begin{equation}
+x^S = \eta^2 \sum_{i, j} S_{ij} \overline{S_{ij}} \leq \eta^2 N^2 \eta^{-2} = N^2, \quad x^R \leq N^2, \quad 
+|S|, |R|\leq \eta^{-1}\le N.
+\end{equation}
+Since the bad event is so small in probability space, in this proof, we basically ignore the bad set. Using the definitions we used in \eqref{eq:ordering} - \eqref{eq:green_fns}, we get a telescopic series
+\begin{equation} \label{eq:telescopic_fn}
+\E \: F \left( \eta^2 \sum_{i, j} G _{ij} \overline{G_{ij}}  \right) - \E \: F \left( \eta^2 \sum_{i, j} \wt G _{ij} \overline{\wt G_{ij}} \right) 
+= \sum_{\gamma=1}^{\gamma_{\max}} \left[ \E \: F \left( x^{S} \right) - \E \: F \left( x^{T} \right) \right].
+\end{equation}
+From the Taylor expansion, we have
+\begin{equation} \begin{split} \label{eq:taylor}
+&F(x^S) - F(x^R) = \sum_{s=1}^2 \frac{1}{s!} F^{(s)}(x^R) (x^S - x^R)^s  + \Omega_S, \\
+&|\Omega_S|\le\frac{C_F}{6}\big(1+\max(|x^S|,|x^R|)\big)^{C_F}|x^S - x^R|^3.
+\end{split}\end{equation}
+The bound on $\Omega_S$ follows from the Lagrange form of the remainder and \eqref{jhw2}, since every point between $x^S$ and $x^R$ has absolute value at most $\max(|x^S|,|x^R|)$; it is used in place of the intermediate point, which need not depend measurably on $H_\gamma$. We obtain a similar formula for $F(x^T) - F(x^R)$, with a remainder $\Omega_T$.
+
+We estimate the terms of \eqref{eq:telescopic_fn} one swap at a time. For $\gamma=\Phi(a,b)$, let $w(a,b):=N^{-2}$ if $a\ne b$ and $w(a,a):=N^{-1}$, and let $m_0:=4$ if $a\ne b$ and $m_0:=2$ if $a=b$. We will show that there are $C$ and $N_0$, independent of $\gamma$, such that for $N\ge N_0$,
+$$
+\big|\E F(x^S)-\E F(x^T)\big|\le w(a,b)\,N^{-\phi+C\e}, \qquad 1\le\gamma\le\gamma_{\max}.
+$$
+Since $\sum_{\gamma}w(a,b)=N\cdot N^{-1}+\frac{N(N-1)}{2}N^{-2}\le\frac32$, this and \eqref{eq:telescopic_fn} give \eqref{mainpear} with $C+1$ in place of $C$, once $N^{\e}\ge3/2$. The $N$ diagonal swaps contribute $N\cdot N^{-1-\phi+C\e}=N^{-\phi+C\e}$, the same order as the off-diagonal ones.
+
+We now expand the term $S_{ij} \overline{S_{ij}}$ using \eqref{hxxt}, where the terms with the complex conjugate are treated in the same manner. Let $\xi:=\lceil3/\phi\rceil$ in this proof. Taking this $\xi$ and $s=2$ in \eqref{hxxt}, with the almost sure bound $|h_{ab}|\le q_0^{-1}$ in place of $N^{-\phi}$ (the remainder of the resolvent expansion is $(-RV)^{\xi+1}S$, of order $|h_{ab}|^{\xi+1}$), we can see that
+\be S_{ij} \overline{S_{ij}} 
+=R_{ij} \overline{R_{ij}} +
+ \sum _{1\leq k\leq \xi}\left( \sum_{{\bf k}\in    I^2_{\xi, k}}
+\mathcal P_{\gamma, {\bf k}}(R_{ij} \overline{R_{ij}})  \right)(-h_{ab})^k+
+O\big(q_0^{-\xi-1}\big)
+\ee
+holds with high probability. Averaging over $i, j$ and multiplying $\eta^2$ to both sides, we obtain
+\be\label{yrsh}
+ x^S = x^R +
+ \sum _{1\leq k\leq \xi}\left( \sum_{{\bf k}\in    I^{2 }_{\xi, k}}
+\eta^2 \sum_{i,j} \mathcal P_{\gamma, {\bf k}}\, (R_{ij} \overline{R_{ij}})   \right)(-h_{ab})^k+
+O\big(N^{-7/3-\phi}\big).
+\ee
+Here the error is $\eta^2N^2\cdot O(q_0^{-\xi-1})=O(N^{-7/3-\phi})$. If $\phi<1/2$, then $q_0=N^\phi$ for $N$ large enough and $(\xi+1)\phi\ge3+\phi$, so $\eta^2N^2q_0^{-\xi-1}\le N^{2/3-2\e}N^{-3-\phi}$. If $\phi=1/2$, then $\xi=6$, $q_0=\wt q$, and $\eta^2N^2\wt q^{-7}=N^{-7/3-\phi}\,N^{-2\e}((2C_1+4)C_1\log N)^7\le N^{-7/3-\phi}$ for $N$ large enough.
+ 
+Now, we claim that there is a constant $C$, depending only on $(C_1,\phi)$, such that for every ${\bf k}\in\mathbb N^2$ with $1\le|{\bf k}|\le\xi$ and every even $p\ge2$, for $N\ge N_0(C_1,\phi,\e,p)$, uniformly in $\gamma$ and $E\in I_\e$,
+\be\label{pqbh0}
+\E\left| \sum _{i,j}\mathcal P_{\gamma, {\bf k}}\, (R_{i j} \overline{R_{ij}})\right |^p\leq  (N^{1+C\e})^p.
+\ee
+Assuming the claim \eqref{pqbh0}, with Markov inequality, we find that, for any $D>0$, for $N\ge N_0(D)$ and every ${\bf k}\in\mathbb N^2$ with $1\le|{\bf k}|\le\xi$,
+\be\label{785}
+| \mathcal P_{\gamma, {\bf k}}\, x^R  |:=|\eta^2\sum _{i,j} \mathcal P_{\gamma, {\bf k}}\, (R_{i j} \overline{R_{ij}})  |\leq N^{-1/3+C\e}
+\ee
+holds with probability at least $1-N^{-D}$, with $C+1$ in place of the $C$ of \eqref{pqbh0}. Indeed, $\eta^2N^{1+C\e}=N^{-1/3+(C-2)\e}$, so by \eqref{pqbh0} the probability that \eqref{785} fails is at most $(N^{-3\e})^p\le N^{-D}$ for an even $p\ge D/(3\e)$.
+
+We derive \eqref{pqbh0} from a bound of the form \eqref{pqbh}. Let $Y:=\sum_{i,j}\mathcal P_{\gamma,{\bf k}}(R_{ij}\overline{R_{ij}})$, ${\bf k}=(k_1,k_2)$, and ${\bf k}':=(k_2,k_1)$. Since $\mathcal I_\gamma$ is real, $\overline{\mathcal P_{\gamma,{\bf k}}(R_{ij}\overline{R_{ij}})}=\mathcal P_{\gamma,{\bf k}'}(R_{ij}\overline{R_{ij}})$. Hence, for $p=2r$, $|Y|^p=Y^r\overline{Y}^r=\sum_{I,J}\prod_{t=1}^p\mathcal P_{\gamma,{\bf k}^{(t)}}(R_{i_tj_t}\overline{R_{i_tj_t}})$, with $I=(i_1,\dots,i_p)$, $J=(j_1,\dots,j_p)$, ${\bf k}^{(t)}={\bf k}$ for $t\le r$ and ${\bf k}^{(t)}={\bf k}'$ for $t>r$. We prove that for every choice of ${\bf k}^{(t)}\in\{{\bf k},{\bf k}'\}$,
+\be\label{pqbh}
+\left| \E \sum_{I,J}\prod_{t=1}^p \mathcal P_{\gamma, {\bf k}^{(t)}}\, (R_{i_t j_t} \overline{R_{i_tj_t}}) \right| \leq  (N^{1+C\e})^p.
+\ee
+Since $\E|Y|^p\ge0$, this gives \eqref{pqbh0}. Let $s:=(2+|{\bf k}|)p$ and $\zeta:=2p$. Each product $\prod_{t}\mathcal P_{\gamma,{\bf k}^{(t)}}(R_{i_tj_t}\overline{R_{i_tj_t}})$ is a sum of at most $2^{|{\bf k}|p}$ products of $s$ entries of $R$ and $\overline R$. Using \eqref{eq:S_exp4} with these $s$ and $\zeta$, with $\phi'$ in place of $\phi$, we get
+  \begin{align} 
+\E  \prod_{t=1}^p \mathcal P_{\gamma, {\bf k}^{(t)}}\, (R_{i_t j_t}\overline{R_{i_tj_t}}) 
+=& \E \prod_{t=1}^p \mathcal P_{\gamma, {\bf k}^{(t)} }\, (S_{i_t j_t}\overline{S_{i_tj_t}})\\\nonumber
+ &- \sum_{\al\in\mathbb N^{s}}^{1\le |\al|\leq \lceil 4p/\phi'\rceil }
+  \wt{\mathcal A}_{\al }\, \E\,\mathcal P_{\gamma,\al}\left(\prod_{t=1}^p \mathcal P_{\gamma, {\bf k}^{(t)} }\, (S_{i_t j_t} \overline{S_{i_t j_t}})\right)  + O(4^s2^{|{\bf k}|p}N^{-2p})
+\end{align}
+for each $(I,J)$, where the coefficients $\wt{\mathcal A}_\al$ do not depend on $(I,J)$. The sum over $(I,J)$ of the error terms is $O(C^pN^{2p}N^{-2p})=O(C^p)$. By \eqref{boundcalA2}, $|\wt{\mathcal A}_\al|\le1$, and the number of $\al$ in the sum depends only on $(p,\phi)$. Thus, in order to show \eqref{pqbh}, it only remains to prove that 
+\be\label{pqbh2}
+\left| \sum_{i_1,j_1\cdots, i_p,j_p}\E\,  \left(\prod_{t=1}^p \mathcal P_{\gamma, {\bf k}^{(t)} }\, (S_{i_t j_t} \overline{S_{i_t j_t}} )\right) \right| \leq  (N^{1+C\e})^p 
+\ee
+and for $\al\in \mathbb N^{s}$, $1\le |\al|\leq \lceil 4p/\phi'\rceil$, 
+\be \label{pqbh3}
+\left| \sum_{i_1,j_1\cdots, i_p,j_p}\E\,\mathcal P_{\gamma,\al}\left(\prod_{t=1}^p \mathcal P_{\gamma, {\bf k}^{(t)} }\, (S_{i_t j_t} \overline{S_{i_t j_t}} )\right) \right| \leq (N^{1+C\e})^p.
+\ee
+We give the proof for \eqref{pqbh2}. The proof of \eqref{pqbh3} is the same except that the products are longer by $|\al|$ entries. Using \eqref{HHtt3} at the exponent $\phi'$, with $\zeta=2p$, $K_s:=p(2+\lceil3/\phi\rceil)+\lceil4p/\phi'\rceil$ (so that all the products have at most $K_s$ entries), 
+$$
+f(I,J)=N^{-2p},\quad I=(i_1, \cdots, i_p), \quad J=(j_1, \cdots, j_p),
+$$ 
+and 
+ $ \prod_{t=1}^p \mathcal P_{\gamma, {\bf k}^{(t)} }\, (S_{i_t j_t} \overline{S_{i_t j_t}})$ playing the role of $\prod_{t=1}^s G^{\gamma_{\rm max}} _{i_t j_t}$ in \eqref{HHtt3},  $\wt G$ being  $G^0$,  we have
+\be \begin{split} \label{780k}
+&\left|\E\sum_{I,J} N^{-2p}  \prod_{t=1}^p \mathcal P_{\gamma, {\bf k}^{(t)} }\, (S_{i_t j_t} \overline{S_{i_t j_t}})\right| \\
+&\leq  \left|\E \sum_{I,J} N^{-2p} \prod_{t=1}^p \mathcal P_{\gamma, {\bf k}^{(t)} }\, (\wt G_{i_t j_t} \overline{\wt G_{i_t j_t}})\right|\\
+& \quad +\max_{ {\bf k}_i, n, \gamma_i } (N^{-\phi'/20})^{\sum_i |{\bf k_i}|} 
+\left|\E \sum_{I,J} N^{-2p} \mathcal P_{\gamma_n, {\bf k}_n}\cdots \mathcal P_{\gamma_1, {\bf k}_1}  \left(\prod_{t=1}^p\mathcal P_{\gamma, {\bf k}^{(t)} }\, (\wt G_{i_t j_t} \overline{\wt G_{i_t j_t}})\right)\right|+O(N^{-\zeta})
+\end{split} \ee
+where the maximum is over the iterates of \eqref{conK}, with
+\be
+{\bf k}_1\in \mathbb N^{s}, \quad {\bf k}_2\in \mathbb N^{s+|{\bf k}_1|}, \quad 
+{\bf k}_3\in \mathbb N^{s+|{\bf k}_1|+|{\bf k}_2|},\quad \cdots.
+\ee
+Since $(N^{-\phi'/20})^{\sum_i|{\bf k}_i|}\le1$, it suffices to bound the expectation in the second term by $(N^{-1+C\e})^p$ for every such iterate. By the local law \eqref{Gij estimate} for $\wt H$, which applies with $q=\wt q\ge N^{1/3}$, at $z=E+i\eta$ with $E\in I_\e$ (see \eqref{qglm}) and $\e<1/12$, with high probability, 
+\be\label{781s}
+|\wt G_{ij}|\leq N^{-1/3+2\e}+2\delta_{ij}.
+\ee
+Indeed, $\wt q^{-1}\le N^{-1/3}$, $(N\eta)^{-1}=N^{-1/3+\e}$, and, by \eqref{esmallfake}, $\im m_{sc}(z)\le C\sqrt{\kappa+\eta}\le CN^{-1/3+\e/2}$, so that $(\im m_{sc}/(N\eta))^{1/2}\le CN^{-1/3+3\e/4}$; the factor $\varphi^C$ of \eqref{Gij estimate} is at most $N^{\e/4}$, and $|m_{sc}|\le1$.
+
+Now, we estimate the term
+\be\label{782s}
+  \mathcal P_{\gamma_n, {\bf k}_n}\cdots \mathcal P_{\gamma_1, {\bf k}_1}  \left(\prod_{t=1}^p\mathcal P_{\gamma, {\bf k}^{(t)} }\, (\wt G_{i_t j_t} \overline{\wt G_{i_t j_t}} )\right)
+\ee
+as in \eqref{dsb}. First, it is the sum of at most $C^{\sum |{\bf k}_i|+|\bf k|p}=O(1)$ products of $\wt G_{ij}$ (possibly $i = j$), where in each product the number of $\wt G_{ij}$ is $\sum |{\bf k}_i|+(2+|{\bf k}|)p { \,=\,} O(1)$. Since $\wt G$ satisfies a rough bound $|\wt G_{ij} (z)|\le \eta^{-1}\leq N$, we know \eqref{782s} is always bounded by $N^{O(1)}$. Since \eqref{781s} holds with high probability, when estimating \eqref{782s}, we may neglect the event that \eqref{781s} does not hold. For each product of above type and for any fixed $t$, the indices $i_t$ and  $j_t$ only appear twice each in the entries coming from the $t$-th factor. Since ${\bf k}^{(t)}\neq 0$, they cannot attain the form $\wt G_{i_t, j_t} \overline{\wt G_{i_t, j_t}}$. Thus, they must appear as one of the following forms for some $a, b, c, d$, which comes from $\mathcal P$'s:
+\be\label{Gabcd}
+\wt G_{i_t a} \wt G_{b j_t} \overline{\wt G_{i_t j_t}}, \quad \wt G_{i_t j_t} \overline{\wt G_{i_t a}} \overline{\wt G_{b j_t}}, \quad \wt G_{i_t a} \wt G_{b j_t} \overline{\wt G_{i_t c}} \overline{\wt G_{d j_t}}.
+\ee
+For each case, after averaging over $1 \leq i_t, j_t \leq N$, i.e., applying $N^{-2} \sum_{i_t, j_t}$, these terms are bounded by $N^{-1+C\e}$: if $i_t\ne j_t$ and neither $i_t$ nor $j_t$ is an index of $\gamma,\gamma_1,\dots,\gamma_n$, then each form contains at least three off-diagonal entries, each bounded by $N^{-1/3+2\e}$ by \eqref{781s}, and the remaining $O(N)$ pairs $(i_t,j_t)$ contribute $O(N^{-1})$ after the averaging. Thus, so far we have proved that, for each $t$, the term $G_{ij}$ with an index $i_t$ or $j_t$ contributes a factor $N^{-1+C\e}$ to 
+\be\label{784d}
+ \sum_{I,J} N^{-2p} \mathcal P_{\gamma_n, {\bf k}_n}\cdots \mathcal P_{\gamma_1, {\bf k}_1}  \left(\prod_{t=1}^p\mathcal P_{\gamma, {\bf k}^{(t)} }\, (\wt G_{i_t j_t} \overline{\wt G_{i_t j_t}}) \right).
+\ee
+Similarly, the $G_{ij}$'s with indices $i_1, j_1, \cdots, i_p, j_p$ contribute a factor $(N^{-1+C\e})^p$ to \eqref{784d}. For the other $G$'s  without indices $i_1, j_1, \cdots, i_p, j_p$, we simply bound them by a constant $C$. Therefore, we obtain that \eqref{784d} is bounded by $(N^{-1+C\e})^p$ with high probability. Then, the expectation of \eqref{784d} is less than $(N^{-1+C\e})^p$. Analogously, we can bound the first term in the right hand side of \eqref{780k} by $(N^{-1+C\e})^p$. Thus, we proved \eqref{pqbh2} and \eqref{pqbh3}, which imply \eqref{pqbh} with \eqref{boundcalA2}, and hence \eqref{pqbh0}. The constant $C$ obtained here does not depend on $p$; only the threshold for $N$ does.
+
+Now, we return to estimate $x^S-x^R$ in \eqref{yrsh}. Let $Z:=\sum_{1\le|{\bf k}|\le\xi}|\mathcal P_{\gamma,{\bf k}}\,x^R|$, a function of $R$ alone, hence independent of $h_{ab}$ and of $\wt h_{ab}$. By \eqref{yrsh}, $|x^S-x^R|\le|h_{ab}|Z+O(N^{-7/3-\phi})$ with high probability, and $|x^S-x^R|\le2$ always, by the bound on $|\tr S-\tr R|$. By \eqref{785}, $Z\le CN^{-1/3+C\e}$ outside an event of probability at most $N^{-D}$, and $Z\le N^C$ always. First, we note that, for $a\ne b$,
+$$
+\E |h_{ab}|^3\leq (\E|h_{ab}|^2\E|h_{ab}|^4)^{1/2}\le (C_1\log N)^{1/2}N^{-3/2},
+$$
+and $\E|h_{aa}|^3\le N^{-\phi}\E h_{aa}^2\le C_1N^{-1-\phi}$. The same bounds hold for $\wt h_{ab}$, $a\ne b$, since its second and fourth moments are those of $h_{ab}$, and $\E|\wt h_{aa}|^3\le\wt q^{-1}C_1N^{-1}\le N^{-1-\phi+\e}$. Hence there exists a constant $C$ such that
+\begin{equation}
+\E  |x^S - x^R|^3 \leq N^{  -5/2+C\e} \quad (a\ne b), \qquad \E  |x^S - x^R|^3 \leq N^{  -2-\phi+C\e} \quad (a=b),
+\end{equation}
+for any sufficiently large $N$ independent of $\gamma$, and the same holds for $x^T$ in place of $x^S$. Since $\phi\le1/2$, both bounds are at most $w(a,b)N^{-\phi+C\e}$. On the event \eqref{flld}, $(1+\max(|x^S|,|x^R|))^{C_F}\le N^{C\e}$; on its complement, we use the trivial bounds above and $|x^S-x^R|\le2$. Hence, with the absolute value inside the expectation,
+\begin{equation}
+\E|\Omega_S|\le \frac{C_F}{6}\,\E \Big[ \big(1+\max(|x^S|,|x^R|)\big)^{C_F} |x^S - x^R|^3 \Big] \leq w(a,b)\,N^{  - \phi+C\e},
+\end{equation}
+where we have used \eqref{jhw2} on $F$. We can estimate $\E|\Omega_T|$ analogously.
+
+From \eqref{eq:taylor}, it only remains to prove that, for $1\leq s\le 2$, 
+\begin{equation}\label{788y}
+\left| \E \left[ F^{(s)}(x_R) (x^S - x^R)^s\right] -\E \left[ F^{(s)}(x_R) (x^T - x^R)^s\right] \right| \leq w(a,b)\,N^{-\phi+C\e}.
+\end{equation}
+Using \eqref{yrsh} again, recalling $(H_{\gamma-1})_{ab}$ has the distribution of $\wt H_{ab}$, we have 
+\be\label{yrsh2}
+ x^T  = x^R +
+ \sum _{1\leq k\leq \xi}\left( \sum_{{\bf k}\in    I^{2 }_{\xi, k}}
+\eta^2\sum _{ij}\mathcal P_{\gamma, {\bf k}}\, (R_{i j}\overline{R_{ij}})   \right)(-\wt h_{ab})^k+
+O\big(N^{-7/3-\phi}\big)
+ \ee
+with $\E h^k_{ab}=\E \wt h^k_{ab}$, $1\leq k\leq m_0$. Inserting \eqref{yrsh} and \eqref{yrsh2} into \eqref{788y}, and using that $x^R$ and $\mathcal P_{\gamma,{\bf k}}x^R$ are independent of $h_{ab}$ and of $\wt h_{ab}$, the terms of total order $K\le m_0$ cancel. Thus, we obtain that
+ \begin{align}
+&\left|  \E \left[ F^{(s)}(x_R) (x^S - x^R)^s\right] -\E \left[ F^{(s)}(x_R) (x^T - x^R)^s\right] \right|
+\\\nonumber
+\leq & \sum _{ K=m_0+1}^{s\xi} \;
+\sum_{\sum_{t=1}^s|{\bf k}_t|=K}
+\left|\E\left[ F^{(s)}(x_R)\prod_{t=1}^s\left( 
+\mathcal P_{\gamma, {\bf k}_t}\;x^R  \right)\right]\right|  \left(\left|\E(-h_{ab})^K\right|+\left|\E(-\wt h_{ab})^K\right|\right)+
+O(  N^{-7/3-\phi+C\e}),
+\end{align}
+where the inner sum is over ${\bf k}_t\in I^2_{\xi,|{\bf k}_t|}$ with $|{\bf k}_t|\ge1$, $1\le t\le s$. By the moment bounds in the proof of Lemma \ref{lem:S_expansion}, applied with the almost sure bounds $N^{-\phi}$ for $h_{ab}$ and $\wt q^{-1}$ for $\wt h_{ab}$: for $a\ne b$ and $K\ge5$, $|\E(-h_{ab})^K|\le C_1(\log N)N^{-2-\phi}$ and $|\E(-\wt h_{ab})^K|\le C_1(\log N)N^{-2}\wt q^{-1}\le(C\log N)^2N^{-5/2}$; for $a=b$ and $K\ge3$, $|\E(-h_{aa})^K|\le C_1N^{-1-\phi}$ and $|\E(-\wt h_{aa})^K|\le C_1N^{-1}\wt q^{-1}$. Since $\phi\le1/2$, in both cases $|\E(-h_{ab})^K|+|\E(-\wt h_{ab})^K|\le w(a,b)N^{-\phi+\e}$. By \eqref{785}, \eqref{flld} and \eqref{jhw2}, each expectation in the sum is at most $N^{C\e}$ (on the bad events we use the trivial bounds), and the number of terms depends only on $\phi$. Finally, $N^{-7/3-\phi+C\e}\le w(a,b)N^{-\phi+C\e}$. This proves \eqref{788y}. Together with the bounds on $\E|\Omega_S|$ and $\E|\Omega_T|$, it gives $|\E F(x^S)-\E F(x^T)|\le w(a,b)N^{-\phi+C\e}$ and completes the proof. 
+\end{proof}
+

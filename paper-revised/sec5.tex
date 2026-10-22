@@ -1,0 +1,308 @@
+\section{Basic ideas for Theorem \ref{thm: new rigidity} and Theorem \ref{thm: new edge un}} \label{sec6}
+
+The basic idea of proving Theorem \ref{thm: new rigidity} and Theorem \ref{thm: new edge un} is Green function comparison method, as mentioned in the introduction. To apply the comparison results, first we show that for any $H$ in Theorem \ref{thm: new rigidity}, there exists a matrix $\wt H$ whose off-diagonal entries have the same first four moments and whose diagonal entries have the same first two moments as those of $H$, and whose entries are bounded almost surely by $\wt q^{-1}$, $\wt q=N^{1/2}/((2C_1+4)C_1\log N)$. Roughly speaking, the $\wt H$ has the properties that we need to prove for $H$ and we will use Green function comparison method to show that $H$ has the same properties, since the moments of the entries of $H$ and $\wt H$ match in this sense.
+
+\begin{lem}\label{lem: match}
+Let $N\ge3$ and let $H$ be a real symmetric random matrix whose entries $h_{ij}$, $1\le i\le j\le N$, are independent, have mean zero and satisfy the moment conditions of Theorem \ref{thm: new rigidity} with a constant $C_1$ (the bounded support condition is not needed). Then there exists a real symmetric random matrix $\wt H$ with independent entries $\wt h_{ij}$, $1\le i\le j\le N$, such that $|\wt h_{ij}|\le\wt q^{-1}$ almost surely for all $i,j$, where
+$$
+\wt q:=\frac{N^{1/2}}{(2C_1+4)\,C_1\log N},
+$$
+the first four moments of the off-diagonal entries of $H$ and $\wt H$ match, i.e.,
+\be
+\E h^k_{ij}= \E \wt h^k_{ij} \; {  (i \neq j)}, \quad k=1,2,3,4,
+\ee
+and the first two moments of the diagonal entries of $H$ and $\wt H$ match, i.e., $\E h^k_{ii}= \E \wt h^k_{ii}$, $k=1,2$. In particular, $\wt H$ is a generalized Wigner matrix satisfying \eqref{eq:diag} with $C_0=\max(C_1,1)$.
+\end{lem}
+
+\begin{proof}[Proof of Lemma \ref{lem: match}]
+We choose the entries $\wt h_{ij}$, $i\le j$, independently. First, $C_1\ge1$: for $i<j$, by the Lyapunov inequality, $N^{-3/2}=(\E h_{ij}^2)^{3/2}\le\E|h_{ij}|^3\le C_1N^{-3/2}$. Since $N\ge3$, also $\log N>1$, so $\wt q^{-1}\ge6C_1N^{-1/2}$.
+
+Off-diagonal entries. For $i<j$ let $x:=N^{1/2}h_{ij}$, so that $\E x=0$ and $\E x^2=1$, and let $A:=\E x^3$ and $B:=\E x^4$. Then $|A|\le\E|x|^3\le C_1$ and $B\le C_1\log N$, and $B\ge A^2+1$ by Remark \ref{rem: four moments}. Lemma \ref{lem: four moments} with $C=C_1$ gives a random variable $\wt x$ with $\E\wt x^k=\E x^k$ for $k=1,\dots,4$ and $|\wt x|\le(2C_1+4)B\le(2C_1+4)C_1\log N$ almost surely. Let $\wt h_{ij}:=N^{-1/2}\wt x$. Then $|\wt h_{ij}|\le\wt q^{-1}$ and $\E\wt h_{ij}^k=\E h_{ij}^k$ for $k=1,\dots,4$.
+
+Diagonal entries. Let $\wt h_{ii}:=\sigma_i\epsilon_i$, where $\sigma_i:=(\E h_{ii}^2)^{1/2}$ and $\p(\epsilon_i=1)=\p(\epsilon_i=-1)=1/2$. Then $\E\wt h_{ii}=0=\E h_{ii}$, $\E\wt h_{ii}^2=\E h_{ii}^2$, and $|\wt h_{ii}|=\sigma_i\le(C_1/N)^{1/2}\le C_1N^{-1/2}\le\wt q^{-1}$.
+
+The last claim follows from $\E\wt h_{ij}^2=N^{-1}$ for $i\ne j$ and $0\le\E\wt h_{ii}^2=\E h_{ii}^2\le C_1/N$.
+\end{proof}
+
+\begin{lem}\label{lem: four moments}
+For any $C\ge0$, if $|A|\le C$ and $B\ge A^2+1$, there exists a random variable $x$ such that
+\begin{equation}\label{tyss}
+\E(x)=0, \quad \E(x^2)=1, \quad \E(x^3)=A, \quad \E(x^4)=B,
+\end{equation}
+and
+\begin{equation}\label{tyss2}
+{\rm  supp}(x) \subset [-DB, DB], \qquad D=2C+4.
+\end {equation}
+\end{lem}
+
+\begin{rem}\label{rem: four moments}
+The condition $B \ge A^2+1$ comes from the simple fact that if $\E(x)=0$ and $\E(x^2)=1$ then $\E (x^4) \ge 1+ (\E (x^3) )^2$.
+\end{rem}
+
+\begin{proof}
+First we introduce a family of random variables $Y_t$ $(t \geq 1)$, whose distribution has a finite support
+\begin{equation} \label{defYt}
+{\rm supp}(Y_t) \subset \left\{ -t, \frac{-\sqrt{t}}{\sqrt{1+t}}, \frac{\sqrt{t}}{\sqrt{1+t}}, t \right\}
+\end {equation}
+and satisfies
+\be
+\p(Y_t= t) = \p(Y_t= -t) = \frac{1}{2 t (-1 + t + t^2)} \, ,
+\ee
+\be
+\p(Y_t= \frac{\sqrt{t}}{\sqrt{1+t}}) = \p(Y_t= \frac{-\sqrt{t}}{\sqrt{1+t}}) = \frac{1}{2} - \frac{1}{2 t (-1 + t + t^2)} \,.
+\ee
+These are probabilities since $t(t^2+t-1)\ge1$ for $t\ge1$; for $t=1$, $Y_1$ takes the values $\pm1$ with probability $1/2$. One can easily check that every odd moment of $Y_t$ vanishes and
+\begin{equation}
+\E (Y_t)^2 = 1, \quad \E (Y_t)^4 = t.
+\end {equation}
+Note that $Y_t$ is supported in $[- t, t]$.
+
+Next, for $b\in\mathbb R$ let $u<0<v$ be the roots of $y^2-by-1=0$, so that $u+v=b$ and $uv=-1$, and let $\mu_b$ be the law with $\mu_b(\{u\})=v/(v-u)$ and $\mu_b(\{v\})=-u/(v-u)$. If $y$ has law $\mu_b$, then $\E y=0$, $\E y^2=-uv=1$, and $y^2=by+1$ gives $\E y^3=b$ and $\E y^4=b^2+1$. Moreover $|u|,|v|\le(|b|+\sqrt{b^2+4})/2\le|b|+1$.
+
+We choose another random variable $X$, independent of $Y_t$, whose distribution is supported on
+$$
+\{ \sqrt{2}A - \sqrt{1 + 2A^2}, \sqrt{2}A + \sqrt{1 + 2A^2} \}
+$$
+and satisfies
+\be
+\p(X = \sqrt{2}A - \sqrt{1 + 2A^2}) = \frac{\sqrt{2}A + \sqrt{1 + 2A^2}}{2 \sqrt{1 + 2A^2}},
+\ee
+\be
+\quad \p(X = \sqrt{2}A + \sqrt{1 + 2A^2}) = \frac{-\sqrt{2}A + \sqrt{1 + 2A^2}}{2 \sqrt{1 + 2A^2}}.
+\ee
+This is the law $\mu_b$ with $b=2\sqrt2A$. Hence
+$$
+\E X=0, \quad \E X^2=1, \quad \E X^3=2\sqrt 2A, \quad \E X^4= 8A^2 + 1,
+$$
+and $|X|\le2\sqrt2|A|+1\le2\sqrt2C+1$.
+
+{\it Case $B\ge2A^2+2$.} Choose
+$$
+t= 4B-8A^2-7\ \ (\ge1)
+$$
+and let
+$$
+x= \frac{X+Y_t}{\sqrt2} \, .
+$$
+Since $X$ and $Y_t$ are independent, $\E X=0$ and the odd moments of $Y_t$ vanish, we have $\E x=0$, $\E x^2=(\E X^2+\E Y_t^2)/2=1$, $\E x^3=\E X^3/2^{3/2}=A$ and
+$$
+\E x^4=\frac{\E X^4+6\,\E X^2\,\E Y_t^2+\E Y_t^4}{4}=\frac{8A^2+7+t}{4}=B .
+$$
+Since $B\ge1$ and $t\le4B$, $|x|\le(|X|+t)/\sqrt2\le2C+1+2\sqrt2B\le(2C+4)B$.
+
+{\it Case $A^2+1\le B<2A^2+2$.} Let $x_0$ be the variable of the first case for $B=2A^2+2$, i.e., $t=1$. It has the moments $0,1,A,2A^2+2$ and $|x_0|\le(2\sqrt2C+2)/\sqrt2\le2C+2$. Let
+$$
+\theta:=\frac{2A^2+2-B}{A^2+1}\in(0,1],
+$$
+and let $x$ have the law $\theta\mu_A+(1-\theta)\,{\rm law}(x_0)$. Both components have the moments $0,1,A$ of orders $1,2,3$, so $x$ has them too, and $\E x^4=\theta(A^2+1)+(1-\theta)(2A^2+2)=B$. The atoms of $\mu_A$ are bounded by $|A|+1\le C+1$, so $|x|\le2C+2\le(2C+4)B$.
+\end{proof}
+
+Since $\wt H$ has the property we need (see Lemma \ref{lem: old}), we now compare $H$ with $\wt H$ using Green function comparison method.
+
+To prove Theorem \ref{thm: new rigidity} and Theorem \ref{thm: new edge un}, we claim the following two lemmas first, which will be proved in the next section. We say that $(H,\wt H)$ is a {\it matched pair} with constant $C_1$ and support $q$ if $H$ and $\wt H$ are real symmetric random matrices with independent entries $h_{ij}$, $\wt h_{ij}$ ($i\le j$), all bounded by $q^{-1}$ almost surely, such that $\E h_{ij}=0$, $\E h_{ij}^2=N^{-1}$ ($i\ne j$), $\E h_{ii}^2\le C_1/N$ and $\E h_{ij}^4\le C_1(\log N)N^{-2}$ ($i\ne j$), and such that the moments of orders $1,\dots,4$ of the off-diagonal entries and of orders $1,2$ of the diagonal entries of $\wt H$ are those of $H$. No bound on the third moments is required.
+
+\begin{lem} \label{lem:p moment}
+Fix $C_1$ and $\phi'>0$. There is a constant $C_*>0$, depending only on $(C_1,\phi')$, such that for all $c',C'>0$ there are constants $C>0$ and $N_0$, depending only on $(C_1,\phi',c',C')$, with the following property. Let $N\ge N_0$, let $(H,\wt H)$ be a matched pair with constant $C_1$ and support $q\ge N^{\phi'}$, let $z\in{\bf S}(C_*)$ (see \eqref{defS}), and let $X,Y\ge0$ be deterministic numbers such that the event
+\be\label{asXY}
+\max_{i\ne j}|\wt G_{ij}(z)|\leq X, \quad |\wt m(z)-m_{sc}(z)| \le Y
+\ee
+fails with probability at most $N^{C'}e^{-c'\varphi^3}$. Then for any $p\in 2\mathbb N$ with $p\leq \varphi$, we have
+\be\label{sqbm}
+\E |m- m_{sc}|^p \leq \E | \wt m- m_{sc}|^p + (C p)^{Cp} \left(X^2+Y+\varphi N^{-1}\right)^{p}.
+\ee
+\end{lem}
+
+If $H$ satisfies the conditions of Theorem \ref{thm: new rigidity} with $(C_1,\phi)$ and $\wt H$ has the properties of Lemma \ref{lem: match}, then $(H,\wt H)$ is a matched pair with constant $C_1$ and support $q=N^{\min(\phi,1/4)}$ for $N\ge N_0(C_1)$, since then $\wt q\ge N^{1/4}$. If $(H,\wt H)$ is a matched pair, then so is $(H_{\gamma_0},\wt H)$ for every $\gamma_0$, where $H_{\gamma_0}$ is the matrix of \eqref{eq:ordering} built from $H^{\V}=H$ and $H^{\w}=\wt H$: each entry of $H_{\gamma_0}$ has the law of the corresponding entry of $H$ or of $\wt H$. So Lemma \ref{lem:p moment} also holds with $H$ replaced by $H_{\gamma_0}$.
+
+\begin{lem} \label{lem:green}
+Fix $C_F>0$, $C_1$ and $\phi>0$. There exist constants $\widetilde{\epsilon} > 0$ and $C>0$, depending only on $(C_F,C_1,\phi)$, such that for every $0<\epsilon < \widetilde{\epsilon}$ there is $N_0$, depending only on $(C_F,C_1,\phi,\epsilon)$, with the following property. Let $N\ge N_0$, let $H$ satisfy the conditions of Theorem \ref{thm: new rigidity} with $(C_1,\phi)$, let $\wt H$ have the properties of Lemma \ref{lem: match}, and let $F\in C^3(\mathbb{R})$ be a real function whose derivatives satisfy
+\begin{equation}\label{jhw2}
+\sup_x | F^{(\al)} (x) | (1+ |x|)^{-C_F} \leq C_F, \quad \al = 1, 2, 3.
+\end{equation}
+Let
+\begin{equation}\label{qglm}
+I_{\epsilon}:=\{ x : |x-2| \leq N^{-2/3 + \epsilon} \}, \qquad \eta := N^{-2/3 - \epsilon}.
+\end{equation}
+Then for every $E\in I_\epsilon$,
+\begin{equation}\label{mainpear}
+\left| \E \: F \left( \eta^2 \sum_{i, j} G _{ij} \overline{G _{ij}} (z)\right)
+ - \E \: F \left( \eta^2 \sum_{i, j} \wt G _{ij} \overline{\wt G _{ij}} (z)\right) \right| \leq N^{-\phi + C\epsilon}, \quad z=E+i\eta,
+\end{equation}
+and for all $E_1, E_2\in I_\epsilon$, in either order ($\int_{E_1}^{E_2}$ is the oriented integral),
+\begin{equation}\label{sbc22}
+\left| \E F \left( N \int_{E_1}^{E_2} dy \: \im m (y + i \eta) \right) - \E  F \left( N \int_{E_1}^{E_2} dy \: \im \wt m (y + i \eta) \right) \right| \leq N^{-\phi + C \epsilon}.
+\end{equation}
+\end{lem}
+
+\begin{proof}[Proof of Theorem \ref{thm: new rigidity}]
+Throughout the proof, $H$ satisfies the conditions of Theorem \ref{thm: new rigidity} with $(C_1,\phi)$, constants depend only on $(C_1,\phi)$, $N$ is large enough, and ``with high probability'' is uniform over these $H$. Since $0\le\E h_{ii}^2\le C_1/N$, $H$ satisfies \eqref{eq:diag} with $C_0=\max(C_1,1)$, and its entries are bounded by $N^{-\phi}$ almost surely, so the bounded support condition holds with $q=N^{\phi}$ and every $c>0$. Hence Lemma \ref{lem: old} applies to $H$ with $q=N^\phi$, and, with \eqref{sjsy}, we have that for some large $C$, with high probability,
+\be\label{tby}
+\|H\|\le 2+\varphi^{C}(N^{-2/3}+N^{-2\phi});
+\ee
+in particular $\|H\|\le3$.
+First, we improve this result to
+\be\label{tby2}
+\lambda_N\le 2+\varphi^{C}N^{-2/3}
+\ee
+with high probability.
+
+Let $\wt H$ match $H$ in the sense of Lemma \ref{lem: match}. By Lemma \ref{lem: match}, $\wt H$ satisfies \eqref{eq:diag} with $C_0=\max(C_1,1)$, and $|\wt h_{ij}|\le\wt q^{-1}\le N^{-2/5}$ almost surely, so Lemma \ref{lem: old} applies to $\wt H$ with $q=N^{2/5}$, including the items 4 and 5, at every level $\zeta$ (Remark \ref{prozeta}). The pair $(H,\wt H)$ is a matched pair with support $N^{\min(\phi,1/4)}$. Let $C_*$ and $C_s$ be the constants $C_*$ and $C$ of Lemma \ref{lem:p moment}, with $\phi'=\min(\phi,1/4)$, at the level $(c',C')=(1,1)$. Let $K$ be the constant of \eqref{3737}--\eqref{3838}, and fix
+$$
+a:=49+3C_s+C_*\ (>48=12\zeta \text{ for } \zeta=4).
+$$
+Let $C_o$ be the constant $C$ of \eqref{3737}--\eqref{3838} for this $a$ at $\zeta=4$, and let $C_t:=C_o+2K+3a+2$. Then, with \eqref{3737} and \eqref{3838}, for $z=E+i\eta$ satisfying
+\be \label{3737T}
+2+\varphi^{C_t}N^{-2/3}\leq E\leq 3, \quad \eta=\varphi^{K+a} N^{-1}\kappa^{-1/2},
+\ee
+we have, with $4$-high probability and simultaneously for all such $E$,
+\be\label{3838T}
+|\wt m-m_{sc}|\leq \frac{1}{\varphi^aN\eta }, \quad \im \wt m(z)\leq \frac{1}{\varphi^aN\eta },  \quad \max_{i\ne j}|\wt G_{ij}|\leq \frac{1}{\varphi^{a/3} N \eta}.
+\ee
+Let $c'',C''$ be the constants $c,C$ of the $4$-high probability of \eqref{3838T}. The complement of \eqref{3838T} has probability at most $N^{C''}e^{-c''\varphi^4}\le Ne^{-\varphi^3}$ for $N$ large. Hence \eqref{asXY} with $X=(\varphi^{a/3}N\eta)^{-1}$ and $Y=(\varphi^aN\eta)^{-1}$ fails with probability at most $Ne^{-\varphi^3}$, which is the level $(c',C')=(1,1)$ of Lemma \ref{lem:p moment}. The constants $C_*$ and $C_s$ do not depend on $a$, so the choice of $a$ is not circular. (At $\zeta=3$ the level of \eqref{3838T} would depend on $a$, and then so would $C_s$.)
+
+Fix $E$ as in \eqref{3737T}, so that $\kappa=E-2\in[\varphi^{C_t}N^{-2/3},1]$. Then $N\eta=\varphi^{K+a}\kappa^{-1/2}\ge\varphi^{K+a}>\varphi^{C_*}$, so $z\in{\bf S}(C_*)$; $\eta\le\varphi^{K+a-C_t/2}N^{-2/3}\le N^{-1/2}$; and $\eta\le\kappa$, since $\kappa^{3/2}\ge\varphi^{3C_t/2}N^{-1}\ge\varphi^{K+a}N^{-1}$. With the property of $m_{sc}$ in \eqref{esmallfake} for $\kappa\ge\eta$, we have $\im m_{sc}(z)\le C\eta/\sqrt\kappa$, and $C\varphi N\eta^2\kappa^{-1/2}=C\varphi^{1+2(K+a)}N^{-1}\kappa^{-3/2}\le C\varphi^{1+2(K+a)-3C_t/2}\le1$, since $3C_t/2\ge2(K+a)+2$. This implies
+\be\label{papk}
+\im m_{sc}(z)\leq \frac{1}{\varphi N\eta}.
+\ee
+Now, we apply Lemma \ref{lem:p moment} on $H$ and $\wt H$ with $z$ in \eqref{3737T}, the even integer $p=2\lfloor\varphi/2\rfloor$ (so that $\varphi-2\le p\le\varphi$), $X=(\varphi^{a/3} N \eta)^{-1}$ and $Y=(\varphi^{a} N \eta)^{-1}$. Let $T:=(5N\eta)^{-1}$. Since $(C_sp)^{C_s}\le\varphi^{2C_s}$, the last term of \eqref{sqbm} is at most $\big(\varphi^{2C_s}(X^2+Y+\varphi N^{-1})\big)^p$, and, using $N\eta\ge1$ and $\eta\le N^{-1/2}$,
+$$
+\varphi^{2C_s}Y=\frac{\varphi^{2C_s-a}}{N\eta},\qquad \varphi^{2C_s}X^2\le\frac{\varphi^{2C_s-2a/3}}{N\eta},\qquad \varphi^{2C_s}\frac{\varphi}{N}=\frac{\varphi^{2C_s+1}\eta}{N\eta}\le\frac{\varphi^{2C_s+1}N^{-1/2}}{N\eta}.
+$$
+Since $a\ge3C_s+49$, each of these is at most $\varphi^{-1}(N\eta)^{-1}$, so the last term of \eqref{sqbm} is at most $T^p$. Moreover $|\wt m-m_{sc}|\le\eta^{-1}+1\le2\eta^{-1}=10NT$, so by \eqref{3838T}
+$$
+\E|\wt m-m_{sc}|^p\le Y^p+(10N)^pT^p\,Ne^{-\varphi^3}\le2T^p,
+$$
+since $Y\le T$ and $(10N)^pNe^{-\varphi^3}\le1$ for $p\le\varphi$ and $\log N\le\varphi$. Thus $\E|m-m_{sc}|^p\le3T^p$, and Markov inequality gives
+\be\label{stmp}
+\p\Big(|m(z)- m_{sc}(z)|\geq \frac{2}{5N\eta}\Big)\leq 3\cdot2^{-p}\le12\cdot2^{-\varphi}\le Ne^{-(\log2)\varphi}.
+\ee
+Here we used that, from \eqref{3737T},
+\be
+\varphi^{C_t/2-K-a} N^{-1/3}\leq (N\eta)^{-1}=\varphi^{-K-a}\kappa^{1/2}\leq \varphi^{-K-a}.
+\ee
+Outside the event of \eqref{stmp}, by \eqref{papk} and $\varphi\ge10$, $\im m(z)\le\im m_{sc}(z)+|m(z)-m_{sc}(z)|<(\frac1{10}+\frac25)(N\eta)^{-1}=(2N\eta)^{-1}$. By definition,
+$$
+\im m= N^{-1} \sum_\al \eta ((\lambda_\al-E)^2+\eta^2)^{-1}.
+$$
+If $|\lambda_\al-E|\le\eta$ for some $\al$, the corresponding term is at least $(2\eta)^{-1}$, so $\im m(z)\ge(2N\eta)^{-1}$. Hence $\im m(E+i\eta)<(2N\eta)^{-1}$ implies that there are no eigenvalues in the interval $[E-\eta, E+\eta]$. Let $b:=2+\varphi^{C_t}N^{-2/3}$, and apply this at the points $E_k:=b+k/N$, $0\le k<N$, with $E_k\le3$; at each of them $\eta\ge N^{-1}$. By a union bound over at most $N$ points, with probability at least $1-N^2e^{-(\log2)\varphi}$ no eigenvalue lies within $N^{-1}$ of any $E_k$. Every point of $[b,3]$ lies within $N^{-1}$ of some $E_k$, so with high probability there are no eigenvalues in $[b,3]$. Together with $\|H\|\le3$ from \eqref{tby}, we obtain \eqref{tby2} with $C=C_t$.
+
+The class of Theorem \ref{thm: new rigidity} is invariant under the reflection $H\mapsto-H$: the entries $-h_{ij}$ are independent, have mean zero, the same moments of orders $2$ and $4$, the same $\E|h_{ij}|^3$ and the same almost sure bound. The eigenvalues of $-H$ are $-\lambda_\al$, so \eqref{tby2} for $-H$ gives $\lambda_1\ge-2-\varphi^{C}N^{-2/3}$ with high probability. Hence we have, with high probability,
+\be\label{tby3}
+\|H\|\le 2+\varphi^{C}N^{-2/3}.
+\ee
+
+Next, we prove the local law for $H$. Let $C_l$ be the constant $C$ of Lemma \ref{lem: old} at $\zeta=3$ (with $C_0=\max(C_1,1)$ and $c=1$), and let $(c_l,C_l')$ be the constants of Definition \ref{def: hprob} there. Since $\wt q\ge\varphi^{C_l}$ for $N$ large, \eqref{scm} and \eqref{Gij estimate} hold for $\wt H$ with $q=\wt q$, simultaneously for all $z\in{\bf S}(C_l)$, outside an event of probability at most $N^{C_l'}e^{-c_l\varphi^3}$. Let $C_*$ and $C_s'$ be the constants $C_*$ and $C$ of Lemma \ref{lem:p moment}, with $\phi'=\min(\phi,1/4)$, at the level $(c',C')=(c_l,C_l')$; they are fixed before $X$ and $Y$ are chosen. For $z\in{\bf S}(\max(C_*,C_l))$ let
+$$
+X= \varphi^{C_l} \Big(\frac1{\wt q}+\sqrt{\frac{\im m_{sc}}{N\eta}}+\frac{1}{  N \eta}\Big), \quad Y=\varphi^{C_l}\Big(\frac{1}{\wt q^{2}\sqrt{\kappa+\eta}}+\frac{1}{  N \eta}\Big),
+$$
+where $X, Y$ follow from \eqref{scm}-\eqref{Gij estimate} (in \eqref{scm} we bound the minimum by its first term). With $D:=(2C_1+4)C_1$ we have $\wt q^{-2}=D^2(\log N)^2N^{-1}$, and since $N\eta\ge1$, $\eta\le10$ and $\im m_{sc}\le1$,
+$$
+\frac{1}{\wt q^2}\le\frac{10D^2(\log N)^2}{N\eta},\qquad \frac{1}{\wt q^{2}\sqrt{\kappa+\eta}}\le\frac{D^2(\log N)^2\eta^{1/2}}{N\eta}\le\frac{\sqrt{10}\,D^2(\log N)^2}{N\eta}.
+$$
+Hence $X^2+Y+\varphi N^{-1}\le\varphi^{2C_l+4}(N\eta)^{-1}$ for $N$ large. (The other term $\wt q^{-1}$ of the minimum in \eqref{scm} is of order $N^{-1/2}\log N$; it is not bounded by $\varphi^C(N\eta)^{-1}$ when $\eta$ is of order $1$.) Let $p=2\lfloor\varphi/2\rfloor$ and $T:=\varphi^{2C_s'+2C_l+4}(N\eta)^{-1}$. As above, the last term of \eqref{sqbm} is at most $T^p$; and $|\wt m-m_{sc}|\le\eta^{-1}+1\le N+1$, so $\E|\wt m-m_{sc}|^p\le Y^p+(N+1)^pN^{C_l'}e^{-c_l\varphi^3}\le2T^p$. With \eqref{sqbm} and Markov inequality, for each $z\in{\bf S}(\max(C_*,C_l))$,
+$$
+\p\big(|m(z)-m_{sc}(z)|\ge2T\big)\le3\cdot2^{-p}\le Ne^{-(\log2)\varphi}.
+$$
+To obtain this for all $z$ at once, let $\mathcal L$ be the set of the points $w=(a'+ib')N^{-2}$ with $a',b'\in\mathbb Z$, $|a'|\le5N^2$, $1\le b'\le10N^2$ and $\im w>\varphi^{\max(C_*,C_l)}/N$; it has at most $(10N^2+1)10N^2\le N^5$ points. By a union bound, with probability at least $1-N^6e^{-(\log2)\varphi}$ the bound $|m(w)-m_{sc}(w)|<2T(w)$ holds for all $w\in\mathcal L$. Every $z\in{\bf S}(\max(C_*,C_l))$ has a point $w\in\mathcal L$ with $|z-w|\le2N^{-2}$ and $\im w\ge\im z$, so that $T(w)\le T(z)$. Since $m$ and $m_{sc}$ are Stieltjes transforms of probability measures, $|m(z)-m(w)|$ and $|m_{sc}(z)-m_{sc}(w)|$ are at most $|z-w|/(\im z\,\im w)\le2(N\eta)^{-2}\le2(N\eta)^{-1}$. Hence, with $C:=\max(C_*,C_l,2C_s'+2C_l+5)$ and $\varphi\ge6$, we have that
+\be\label{tby4}
+|m(z)-m_{sc}(z)|\leq\varphi^C(N\eta)^{-1}\quad \text{for all } z\in{\bf S}(C)
+\ee
+holds with high probability. Since $(H_{\gamma_0},\wt H)$ is again a matched pair, the same argument gives \eqref{tby4}, with the same constants, for every matrix $H_{\gamma_0}$ of \eqref{eq:ordering} built from $H^{\V}=H$ and $H^{\w}=\wt H$; this is used in Section \ref{sec7}.
+
+Finally, we derive \eqref{rigiditynew} and \eqref{rigiditynew2} from \eqref{tby3} and \eqref{tby4}, following the argument of section 5 in \cite{EYY} with explicit constants. Let $C_a$ and $C_b$ be the constants $C$ of \eqref{tby3} and \eqref{tby4}, and work on the intersection of these two events. Let $U:=\varphi^{C_b}$ and $y_0:=2U/N$, so that $N^{-1}\le y_0\le1$, and $\|H\|\le3$. For $|x|\le4$ and $y_0\le y\le1$, the point $x+iy$ lies in ${\bf S}(C_b)$, so $|m(x+iy)-m_{sc}(x+iy)|\le U/(Ny)$. The argument of (5.4)--(5.11) in \cite{EYY}, with $K=3$, the window $|x|\le4$ and $E_1=-3.5$ in the notation there, then gives for every $E\in\mathbb R$
+$$
+\big|\mathfrak n(E)-n_{sc}(E)\big|\le\frac{100\,(U+Ny_0)\log N}{N}=\frac{300\,\varphi^{C_b}\log N}{N}\le\frac{\varphi^{C_b+2}}{N}.
+$$
+This is \eqref{rigiditynew2}, for all $E\in\mathbb R$. Let $t:=\varphi^{\max(C_b+2,C_a)}$. Then $\sup_E|\mathfrak n(E)-n_{sc}(E)|\le t/N$ and, by \eqref{tby3}, $\|H\|\le2+tN^{-2/3}$. The argument of (5.12)--(5.15) in \cite{EYY} then gives, with an absolute constant $C_e$ and for all $j$,
+$$
+|\lambda_j-\gamma_j|\le C_e\,t^2\,\big[\min(j,N-j+1)\big]^{-1/3}N^{-2/3}\le\varphi^{2\max(C_b+2,C_a)+1}\big[\min(j,N-j+1)\big]^{-1/3}N^{-2/3}.
+$$
+This is \eqref{rigiditynew}, for all $j$ simultaneously, with the loss $t^2$ written out. Both bounds hold on an event of high probability, which completes the proof of Theorem \ref{thm: new rigidity}.
+\end{proof}
+
+
+
+\begin{proof}[Proof of Theorem \ref{thm: new edge un}]
+We first state the following lemma, whose proof is that of the edge universality in \cite{EYY}. Here $\N(a,b)$ denotes the number of eigenvalues in $[a,b]$, and $\N(a,\infty)$ the number of eigenvalues in $[a,\infty)$.
+
+\begin{lem}\label{lem: edge un str}
+Let $\kappa>0$ and $C_0>0$. For each $N$, let ${\mathcal P}_N$ be a set of pairs $(H^{\V},H^{\w})$ of real symmetric $N\times N$ random matrices with independent entries $h_{ij}$, $1\le i\le j\le N$, whose laws are arbitrary and may depend on $N$. Assume that:
+\begin{enumerate}
+\item for every $C\ge C_0$, each of $H^{\V}$ and $H^{\w}$ satisfies with high probability, uniformly over ${\mathcal P}_N$ (the constants of Definition \ref{def: hprob} do not depend on the pair): $\|H\|\le3$, \eqref{tby4} for all $z\in{\bf S}(C)$ with $\eta\le N^{-2/3}$,
+\begin{equation} \label{hh1}
+|N^{2/3} (\lambda_N - 2) | \leq \varphi^C
+\end{equation}
+and the number of eigenvalues in $[2 -  2 \varphi^C N^{-2/3}, 2 +  2 \varphi^C N^{-2/3}]$ is bounded as follows:
+\begin{equation}\label{hh2}
+\N \left( 2 - \frac{2 \varphi^C}{N^{2/3}}, 2 + \frac{2 \varphi^C}{N^{2/3}} \right) \leq \varphi^{2C} ;
+\end{equation}
+\item for every $C_F>0$ there are $\wt\epsilon>0$ and $C'>0$ such that for every $0<\epsilon<\wt\epsilon$ there is $N_0$ such that \eqref{sbc22}, with $m$ and $\wt m$ the Stieltjes transforms of $H^{\V}$ and $H^{\w}$, holds with right side $N^{-\kappa+C'\epsilon}$ for all $N\ge N_0$, all pairs in ${\mathcal P}_N$, all $F\in C^4(\mathbb R)$ satisfying \eqref{jhw2} for $\al=1,2,3,4$ with constant $C_F$, and all $E_1,E_2\in I_\epsilon$.
+\end{enumerate}
+Then there exist $\delta>0$ and $N_0$, depending only on $\kappa$, $C_0$ and the constants in (1) and (2), such that for all $N\ge N_0$, all pairs in ${\mathcal P}_N$ and all $s\in\mathbb R$,
+\begin{equation} \label{qset15}
+\p^{\w} \Big( N^{2/3} (\lambda_N -2) \leq s - N^{-\delta} \Big) - N^{-\delta} \leq \p^{\V} \big( N^{2/3} (\lambda_N -2) \leq s \big) \leq \p^{\w} \Big( N^{2/3} (\lambda_N -2) \leq s + N^{-\delta} \Big) + N^{-\delta}.
+\end{equation}
+\end{lem}
+
+\begin{proof}[Proof of Lemma \ref{lem: edge un str}]
+Though this lemma is not explicitly stated in \cite{EYY}, this is the basic structure of proving the edge universality, Theorem 2.4, in \cite{EYY}; it is also the structure of the proof of Proposition 6.4 of \cite{EKYY2}. The argument of section 6 of \cite{EYY} uses only the hypotheses (1) and (2); it uses neither the independence of the entries nor the generalized Wigner structure. Hypothesis (2) plays the role of Theorem 6.3 of \cite{EYY}, there with test functions with four derivatives; the conditions \eqref{jhw2}--\eqref{sbc22} are not literally those of Theorem 6.3 of \cite{EYY}. We give the steps with the parameters.
+
+Let $C\ge C_0$, and for a matrix $H$ of a pair let $\Omega_{C}$ denote the event of (1) with the constant $C$. Let $\psi$ be a smooth function with $0\le\psi\le1$, $\psi(x)=1$ for $|x|\le1/9$ and $\psi(x)=0$ for $|x|\ge2/9$, and let $C_F$ be such that $F(x):=\psi(x/\pi)$ satisfies \eqref{jhw2} for $\al=1,\dots,4$. Let $\wt\epsilon$ and $C'$ be given by (2) for this $C_F$, and set
+$$
+\epsilon:=\min\Big(\frac1{20},\frac{\wt\epsilon}{18},\frac{\kappa}{36C'},\frac\kappa2\Big),\quad \eta:=N^{-2/3-9\epsilon},\quad \ell_1:=N^{-2/3-3\epsilon},\quad \ell:=\frac12N^{-2/3-\epsilon},\quad \delta:=\frac\epsilon2 .
+$$
+Let $E_L:=2+2\varphi^{C+1}N^{-2/3}$, $\theta_\eta(x):=\eta/(\pi(x^2+\eta^2))$, and, for $a\le E_L$,
+$$
+{\rm Tr}\,(\chi_a*\theta_\eta)(H):=\sum_\al\int_a^{E_L}\theta_\eta(\lambda_\al-y)\,dy=\frac N\pi\int_a^{E_L}\im m(y+i\eta)\,dy .
+$$
+
+{\it Step 1} (Lemma 6.1 of \cite{EYY}). On $\Omega_{C+1}$, for $|E-2|\le\frac32\varphi^{C+1}N^{-2/3}$ and $N$ large, $|\N(E,E_L)-{\rm Tr}(\chi_E*\theta_\eta)(H)|\le10\big(N^{-2\epsilon}+\N(E-\ell_1,E+\ell_1)\big)$. This is (6.10)--(6.18) of \cite{EYY}: the number of eigenvalues in $[E_L-\ell_1,\infty)$ vanishes by \eqref{hh1}; the term $(\eta/\ell_1)\N(E,E_L)$ is at most $N^{-2\epsilon}$ by \eqref{hh2}; the bound on $\im m(\cdot+i\ell_1)$ near $E$ uses \eqref{tby4} at $\eta=\ell_1\le N^{-2/3}$ and \eqref{esmallfake}; and the region $|E-y|>5$ in (6.17) of \cite{EYY} is controlled by $\|H\|\le3$, which is needed there.
+
+{\it Step 2} (Corollary 6.2 of \cite{EYY}). Averaging Step 1 over the left endpoint in $[E-\ell,E+\ell]$, and using \eqref{hh2} for the number of eigenvalues in this window, one obtains on $\Omega_{C+1}$, for $|E-2|\le\varphi^{C+1}N^{-2/3}$ and $N$ large,
+$$
+{\rm Tr}(\chi_{E+\ell}*\theta_\eta)(H)-N^{-\epsilon}\le\N(E,\infty)\le{\rm Tr}(\chi_{E-\ell}*\theta_\eta)(H)+N^{-\epsilon}.
+$$
+
+{\it Step 3} ((6.21) of \cite{EYY}). ${\rm Tr}(\chi_a*\theta_\eta)(H)$ is nonnegative and nonincreasing in $a$, and $\N(E,\infty)=0$ exactly when $\lambda_N<E$. Since $N^{-\epsilon}\le1/9$, Step 2 gives on $\Omega_{C+1}$, for $|E-2|\le\varphi^{C+1}N^{-2/3}$,
+$$
+\psi\big({\rm Tr}(\chi_{E-\ell}*\theta_\eta)(H)\big)\le{\bf 1}(\lambda_N<E)\le\psi\big({\rm Tr}(\chi_{E+\ell}*\theta_\eta)(H)\big).
+$$
+Taking expectations, with the probability of the bad event on both sides,
+$$
+\E\,\psi\big({\rm Tr}(\chi_{E-\ell}*\theta_\eta)(H)\big)-\p(\Omega_{C+1}^c)\le\p(\lambda_N<E)\le\E\,\psi\big({\rm Tr}(\chi_{E+\ell}*\theta_\eta)(H)\big)+\p(\Omega_{C+1}^c).
+$$
+In (6.21) of \cite{EYY} the term $\p(\Omega^c)$ is missing in the lower bound.
+
+{\it Step 4} (comparison). We have $\psi({\rm Tr}(\chi_a*\theta_\eta)(H))=F\big(N\int_a^{E_L}\im m(y+i\eta)\,dy\big)$. For $|a-2|\le\varphi^{C+1}N^{-2/3}$, both $a$ and $E_L$ lie in $I_{9\epsilon}$ for $N$ large, and $\eta=N^{-2/3-9\epsilon}$. Since $9\epsilon<\wt\epsilon$, (2) at the level $9\epsilon$ gives
+$$
+\Big|\E^{\V}\psi\big({\rm Tr}(\chi_a*\theta_\eta)(H^{\V})\big)-\E^{\w}\psi\big({\rm Tr}(\chi_a*\theta_\eta)(H^{\w})\big)\Big|\le N^{-\kappa+9C'\epsilon}\le\frac12N^{-\delta},
+$$
+since $36C'\epsilon\le\kappa$ and $\epsilon\le\kappa/2$ give $-\kappa+9C'\epsilon\le-\epsilon/2-\kappa/4$.
+
+{\it Step 5} (the window $|s|\le\varphi^C$). Let $X^{\#}:=N^{2/3}(\lambda_N(H^{\#})-2)$ for $\#\in\{\V,\w\}$. By (1), $\p(\Omega_C^c)+\p(\Omega_{C+1}^c)\le\frac14N^{-\delta}$ for both matrices of every pair and $N$ large, and $2N^{-\epsilon}\le N^{-\delta}$ for $N\ge4^{1/\epsilon}$. Let $|s|\le\varphi^C$ and $E:=2+(s+N^{-\epsilon})N^{-2/3}$, so that $E+2\ell=2+(s+2N^{-\epsilon})N^{-2/3}$ and all the points below lie in $|a-2|\le\varphi^{C+1}N^{-2/3}$. By Step 3 for $H^{\V}$ at $E$, Step 4 at $a=E+\ell$, and Step 3 for $H^{\w}$ at $E+2\ell$,
+$$
+\p^{\V}(X^{\V}\le s)\le\p^{\V}(\lambda_N<E)\le\p^{\w}(\lambda_N<E+2\ell)+\frac12N^{-\delta}+\frac12N^{-\delta}\le\p^{\w}(X^{\w}\le s+N^{-\delta})+N^{-\delta}.
+$$
+The lower bound of \eqref{qset15} follows in the same way, at $E:=2+sN^{-2/3}$ and $E-2\ell$, since $\{X^{\w}\le s-N^{-\delta}\}\subset\{\lambda_N<E-2\ell\}$.
+
+{\it Step 6} (the tails). On $\Omega_C$, $|X|\le\varphi^C$ by \eqref{hh1}. If $s>\varphi^C$, then $\p^{\V}(X^{\V}\le s)\le1\le\p^{\w}(X^{\w}\le s+N^{-\delta})+\p(\Omega_C^c)$ and $\p^{\w}(X^{\w}\le s-N^{-\delta})-N^{-\delta}\le1-\p(\Omega_C^c)\le\p^{\V}(X^{\V}\le s)$. If $s<-\varphi^C$, then $\p^{\V}(X^{\V}\le s)\le\p(\Omega_C^c)$ and $\p^{\w}(X^{\w}\le s-N^{-\delta})\le\p(\Omega_C^c)$. Hence \eqref{qset15} holds for all $s\in\mathbb R$.
+\end{proof}
+
+Now, we return to prove Theorem \ref{thm: new edge un}. Let $H^{\V}$ satisfy the conditions of Theorem \ref{thm: new rigidity} with $(C_1,\phi)$, and for $N\ge3$ let $\wt H$ be a matrix with the properties of Lemma \ref{lem: match} for $H=H^{\V}$. Let ${\mathcal P}_N$ be the set of all such pairs $(H^{\V},\wt H)$. We apply Lemma \ref{lem: edge un str} to ${\mathcal P}_N$ with $\kappa=\phi$; all the constants below depend only on $(C_1,\phi)$.
+
+Hypothesis (1) for $H^{\V}$. By \eqref{tby3}, $\|H^{\V}\|\le3$ with high probability, and \eqref{tby4} holds with high probability by the proof of Theorem \ref{thm: new rigidity}. \eqref{hh1} is \eqref{rigiditynew} at $j=N$, since $\gamma_N=2$ and $\min(N,1)=1$. For \eqref{hh2}, let $C_r$ be the constant of \eqref{rigiditynew}--\eqref{rigiditynew2}, $C\ge C_r$ and $w:=2\varphi^CN^{-2/3}$. By \eqref{rigiditynew2}, the number of eigenvalues in $[2-w,2+w]$ is at most $N(\mathfrak n(2+w)-\mathfrak n(2-2w))\le N(1-n_{sc}(2-2w))+2\varphi^{C}$. Since $\varrho_{sc}(2-t)\le\sqrt t/\pi$, we have $1-n_{sc}(2-x)\le\frac{2}{3\pi}x^{3/2}$, so this number is at most $\frac{16}{3\pi}\varphi^{3C/2}+2\varphi^C\le\varphi^{2C}$ once $\varphi^C\ge28$. These bounds hold with high probability for every $C\ge C_0$, for a suitable $C_0$.
+
+Hypothesis (1) for $\wt H$. $\wt H$ is not in the class of Theorem \ref{thm: new rigidity}: Lemma \ref{lem: match} gives no bound $\E|\wt h_{ij}|^3\le C_1N^{-3/2}$, only $\E|\wt h_{ij}|^3\le(\E\wt h_{ij}^2\,\E\wt h_{ij}^4)^{1/2}\le(C_1\log N)^{1/2}N^{-3/2}$. Instead, for $N\ge N_0(C_1)$, $\wt H$ satisfies \eqref{eq:diag} with $C_0=\max(C_1,1)$ and $|\wt h_{ij}|\le\wt q^{-1}\le N^{-2/5}$ almost surely, so Lemma \ref{lem: old} applies to $\wt H$ with $q=N^{2/5}$. Then \eqref{sjsy} gives $\|\wt H\|\le3$; \eqref{scm} gives \eqref{tby4} for $\eta\le N^{-2/3}$, because $q^{-2}(\kappa+\eta)^{-1/2}\le N^{-4/5}\eta^{-1/2}=N^{1/5}\eta^{1/2}(N\eta)^{-1}\le(N\eta)^{-1}$ (equivalently, \eqref{tby4} for $\wt H=H_0$ is the case $\gamma_0=0$ of \eqref{tby4} for $H_{\gamma_0}$); and the rigidity of item 4 of Lemma \ref{lem: old}, with $q^{-2}\le N^{-2/3}$, gives, with its constant $C_r'$, $|\lambda_j-\gamma_j|\le2\varphi^{C_r'}N^{-2/3}$ for all $j$. At $j=N$ this gives \eqref{hh1} for $C\ge C_r'+1$. For \eqref{hh2}, with $C\ge C_r'$ and $w=2\varphi^CN^{-2/3}$ as above: if $\lambda_j\ge2-w$, then $\gamma_j\ge2-2w$, so $N-j=N(1-n_{sc}(\gamma_j))\le\frac{16}{3\pi}\varphi^{3C/2}$, and there are at most $\frac{16}{3\pi}\varphi^{3C/2}+1\le\varphi^{2C}$ such $j$.
+
+Hypothesis (2). A function $F\in C^4(\mathbb R)$ satisfying \eqref{jhw2} for $\al=1,\dots,4$ satisfies it for $\al=1,2,3$, so Lemma \ref{lem:green} gives (2) with $\kappa=\phi$.
+
+Then, with Lemma \ref{lem: edge un str}, there are $\delta_1>0$ and $N_1$ such that for $N\ge N_1$, all such $H^{\V}$ and all $s\in\mathbb R$,
+\begin{equation}
+\p \Big( N^{2/3} (\wt\lambda_N -2) \leq s - N^{-\delta_1} \Big) - N^{-\delta_1}
+\leq \p \big( N^{2/3} (\lambda_N -2) \leq s \big)
+\leq \p \Big( N^{2/3} (\wt\lambda_N -2) \leq s + N^{-\delta_1} \Big) + N^{-\delta_1},
+\end{equation}
+where $\lambda_N$ and $\wt\lambda_N$ denote the largest eigenvalues of $H^{\V}$ and $\wt H$. Furthermore, for $N\ge N_0(C_1)$, $\wt H$ satisfies the conditions of Lemma \ref{lem: ex edge un} with $\phi=2/5$ and $C_0=\max(C_1,1)$, so there are $\delta_2>0$ and $N_2$, depending only on $C_1$, such that \eqref{qset} holds with $\wt H$ in place of $H^{\V}$ for $N\ge N_2$ and all $s\in\mathbb R$. Let $\delta_0:=\min(\delta_1,\delta_2)$ and $\delta:=\delta_0/2$. For $N\ge4^{1/\delta_0}$, $N^{-\delta_1}+N^{-\delta_2}\le2N^{-\delta_0}\le N^{-\delta}$. Combining the two bounds, with the monotonicity of $s\mapsto\p^{\w}(N^{2/3}(\lambda_N-2)\le s)$, we obtain \eqref{qset1} for all $N\ge\max(N_0(C_1),N_1,N_2,4^{1/\delta_0})$, all $H^{\V}$ in the class and all $s\in\mathbb R$, with $\delta$ and the threshold depending only on $(C_1,\phi)$. This completes the proof of Theorem \ref{thm: new edge un}.
+\end{proof}
+
+
