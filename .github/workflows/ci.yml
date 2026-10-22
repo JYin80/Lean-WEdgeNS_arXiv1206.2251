@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: lake build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Installs the toolchain from `lean-toolchain`, fetches the Mathlib
+      # build cache (`lake exe cache get`), then runs `lake build`.
+      - uses: leanprover/lean-action@v1
